@@ -757,3 +757,24 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
   .hdr,.ftr,.skip,.menu,.film__pause,.car__nav,.mnav{display:none;}
   body{background:#fff;color:#000;}
 }
+
+
+/* ---------- R53 (owner) ---------- */
+/* The manufacture chapter is two dates now. A paragraph-sized line floated in an
+   empty column next to a full-height photo; as display figures the column carries
+   its own weight and the whitespace reads as intent, not omission. */
+.factpair{display:flex;gap:clamp(2.5rem,6vw,5rem);margin-top:2.2rem;flex-wrap:wrap}
+.factpair > div{min-width:9rem}
+.factpair dt{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--tx3);margin-bottom:.75rem}
+.factpair dd{font-size:clamp(2.8rem,5.5vw,4.4rem);line-height:.95;font-weight:600;
+  letter-spacing:-.02em;color:var(--tx)}
+
+/* Owner: with the copy cut, the advantage cards read small against the display
+   heading above them. Same six items, same short text — more room and more size. */
+.adv li{padding:2.4rem 2rem}
+.adv .n{font-size:.72rem;margin-bottom:1.4rem}
+.adv h3{font-size:1.35rem;font-weight:600;margin-bottom:.75rem;letter-spacing:-.01em}
+.adv p{font-size:1rem;line-height:1.65}
+@media (max-width:900px){ .adv{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:560px){ .adv{grid-template-columns:1fr} }
