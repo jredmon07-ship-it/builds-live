@@ -295,3 +295,31 @@ section{position:relative}
 .tcard .trole{font-family:"Archivo";font-weight:600;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass-bright);margin:0}
 .tcard .tnote{color:var(--ink-2);font-size:.95rem;line-height:1.65;margin:14px 0 0;max-width:36ch}
 @media(max-width:860px){.team-grid{grid-template-columns:1fr;gap:48px}.tcard .tnote{max-width:52ch}}
+
+
+/* R54 (owner, ogroup reference): a compact page header — the team grid starts
+   immediately under it instead of after three screens of manifesto. */
+.phero--compact{min-height:auto;padding:calc(var(--nav-h,72px) + 90px) 0 40px;background:none}
+.phero--compact .display{font-size:clamp(2.2rem,5vw,3.6rem);margin-top:10px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+
+/* R54 (owner, ogroup reference): a full-bleed image band that carries a section
+   on its own — no heading, no paragraph. */
+.photo-band{margin:0;padding:0;line-height:0}
+.photo-band img{width:100%;height:clamp(320px,52vh,620px);object-fit:cover;display:block}
+
+
+/* R54 (owner, ogroup reference): the listings grid. Photo, price, address,
+   bed/bath/sqft — the card fields the reference site leads with. */
+.listings{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px}
+.lcard a{display:block;text-decoration:none;color:inherit}
+.lcard-media{overflow:hidden;aspect-ratio:3/2;background:#111}
+.lcard-media img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.lcard a:hover .lcard-media img,.lcard a:focus-visible .lcard-media img{transform:scale(1.05)}
+.lcard-body{padding:18px 2px 0}
+.lcard .price{font-size:1.25rem;margin-bottom:6px}
+.lcard .prop-loc{margin-bottom:10px}
+@media (max-width:1000px){ .listings{grid-template-columns:repeat(2,1fr);gap:22px} }
+@media (max-width:640px){ .listings{grid-template-columns:1fr} }

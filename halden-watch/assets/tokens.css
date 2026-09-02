@@ -70,7 +70,13 @@
   --error:#8A2620;          /* form error text + borders — the only red in UI (7.8:1 on paper) */
 
   /* ---- type ---- */
-  --font-body:"HaldenGrotesk","Helvetica Neue",Arial,sans-serif;
+  /* R54 (owner, Rolex reference): HaldenGrotesk (a humanist grotesque) read as
+     fussy next to Rolex's neutral type. The body face is now a clean neutral
+     grotesque — the same register luxury watch houses actually set in. Nothing
+     to download, so the page also drops an 18KB font request. The mono and the
+     serif italic stay: used sparingly, they are what keep it from reading as a
+     default system page. */
+  --font-body:"Helvetica Neue",Helvetica,"Segoe UI",Arial,sans-serif;
   --font-serif:"HaldenSerif",Georgia,"Times New Roman",serif;
   --font-mono:"HaldenMono",ui-monospace,Menlo,Consolas,monospace;
 

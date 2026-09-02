@@ -109,7 +109,7 @@
   })();
 
   /* ------------------------------------------------------------------ *
-   * 4 · Full-pane menu (JS-only; no-JS keeps the plain anchor list)
+   * 4 · Side-drawer menu (JS-only; no-JS keeps the plain anchor list)
    * ------------------------------------------------------------------ */
   (function menu() {
     var btn = d.querySelector("[data-menu-btn]");
@@ -125,10 +125,19 @@
       pane.classList.toggle("is-open", v);
       btn.setAttribute("aria-expanded", v ? "true" : "false");
       d.body.classList.toggle("menu-open", v);
-      if (v && links.length) links[0].focus();
+      /* R54: focusing the first LINK painted a heavy focus ring on "Home" the
+         moment the drawer opened, which read as a rendering bug. Focus the panel
+         instead — keyboard users still land inside the drawer (and Tab moves to
+         the first link), but nothing is spuriously ring-highlighted on open. */
+      var panel = pane.querySelector(".menu__panel");
+      if (v && panel) panel.focus();
       if (!v) btn.focus();
     }
     btn.addEventListener("click", function () { setOpen(!open); });
+    /* R54: the menu is a right-hand drawer now, so the page behind it is visible
+       and clicking the scrim has to dismiss it — that is what a drawer implies. */
+    var scrim = pane.querySelector("[data-menu-close]");
+    if (scrim) scrim.addEventListener("click", function () { setOpen(false); });
     d.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && open) setOpen(false);
       if (e.key === "Tab" && open) { /* soft trap: cycle within pane */
