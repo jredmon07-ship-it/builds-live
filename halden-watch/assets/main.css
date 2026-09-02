@@ -808,3 +808,28 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
 .adv p{font-size:1rem;line-height:1.65}
 @media (max-width:900px){ .adv{grid-template-columns:repeat(2,1fr)} }
 @media (max-width:560px){ .adv{grid-template-columns:1fr} }
+
+
+/* ---------- R55 (owner, Omega reference) ---------- */
+/* Full-bleed feature band: one image, a name, a qualifier, one CTA. It breaks
+   the chapter rhythm the way Omega's second homepage section does. */
+.fband{position:relative;isolation:isolate;background:var(--ink);}
+.fband__img{display:block;width:100%;height:clamp(420px,74vh,760px);object-fit:cover;}
+.fband::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(11,12,14,.80) 0%,rgba(11,12,14,.38) 46%,rgba(11,12,14,0) 74%);}
+/* The band copy has to sit on the SAME column as every other section, not on the
+   viewport edge — it was starting ~95px left of the site's content line. This is
+   the .shell measurement, so it lines up with the chapters above and below. */
+.fband__copy{position:absolute;z-index:2;left:50%;transform:translateX(-50%);
+  width:min(var(--shell-max),100%);padding-inline:var(--shell-pad);
+  bottom:clamp(2.5rem,7vh,5rem);}
+.fband__copy > *{max-width:min(30rem,72vw);}
+.fband__t{font-size:var(--fs-title);font-weight:600;line-height:1.1;
+  letter-spacing:var(--track-display);color:var(--platinum);}
+.fband__s{margin-top:.7rem;font-family:var(--font-mono);font-size:.78rem;
+  letter-spacing:.1em;color:var(--steel);}
+.fband .tlink{margin-top:1.4rem;}
+@media (max-width:640px){
+  .fband::after{background:linear-gradient(180deg,rgba(11,12,14,.15) 0%,rgba(11,12,14,.82) 62%);}
+  .fband__copy > *{max-width:none;}
+}
