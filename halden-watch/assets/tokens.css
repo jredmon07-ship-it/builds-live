@@ -1,0 +1,106 @@
+/* ==========================================================================
+   HALDEN WATCH CO. — tokens.css
+   Every color / space / type / motion token lives here. Nothing else does.
+   Two grounds (ink, paper), one accent (champagne), ruby for jewels only.
+   ========================================================================== */
+
+/* ---- self-hosted faces (latin subsets, file://-safe) -------------------- */
+@font-face{
+  font-family:"HaldenGrotesk";
+  src:url("fonts/halden-grotesk.woff2") format("woff2");
+  font-weight:300 700;                 /* variable wght axis; we use 400 + 600 */
+  font-style:normal;
+  font-display:swap;
+}
+@font-face{
+  font-family:"HaldenSerif";
+  src:url("fonts/halden-serif-italic.woff2") format("woff2");
+  font-weight:400;
+  font-style:italic;
+  font-display:swap;
+}
+@font-face{
+  font-family:"HaldenMono";
+  src:url("fonts/halden-mono.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+:root{
+  /* ---- GROUND 1 · INK (cinematic chapters) ---- */
+  --ink:#0B0C0E;
+  --ink-raised:#131519;
+  --graphite:#1C1F24;
+
+  /* ---- GROUND 2 · PAPER (catalogue chapters) ---- */
+  --paper:#F4F1EA;
+  --paper-raised:#ECE8DE;
+  --paper-line:#DCD5C6;
+
+  /* ---- text ---- */
+  --platinum:#E8E9EB;
+  --steel:#9AA0A8;
+  --steel-dim:#7A808A;      /* tertiary/captions on ink — 4.9:1 on --ink (AA) */
+  --text-ink:#17181B;
+  --text-ink-2:#55565C;
+
+  /* ---- the accent (singular) ---- */
+  --champagne:#C8A35B;
+  --champagne-hi:#E7C988;   /* brand-moment gradient stops only */
+  --champagne-lo:#8A6E32;
+  --accent-ink:#7A5F2A;     /* champagne cut for the paper ground — 5.32:1 on paper,
+                               4.91:1 on paper-raised; interactive states only.
+                               #C8A35B stays untouched on ink (8.24:1). */
+
+  /* ---- the navigation accent (navy — selection & wayfinding only) ---- */
+  --navy:#1B3A5F;           /* nav highlight, active-model bullet, scrollspy.
+                               11.4:1 on white, 9.9:1 on paper. Never a background
+                               wash, never body copy, never replaces champagne. */
+  --navy-deep:#142C49;      /* pressed/hover cut of navy */
+  --navy-mist:#A9C6E4;      /* navy for ink grounds (menu overlay current page) */
+
+  /* ---- chrome ---- */
+  --bar-white:#FFFFFF;      /* the header bar — white, Rolex register */
+  --bar-line:#E4E0D6;       /* header hairline on white */
+
+  /* ---- specials ---- */
+  --ruby:#9E2B25;           /* movement jewels only, never UI */
+  --crystal:#BFD2D8;        /* sapphire glint, SVG only */
+  --error:#8A2620;          /* form error text + borders — the only red in UI (7.8:1 on paper) */
+
+  /* ---- type ---- */
+  --font-body:"HaldenGrotesk","Helvetica Neue",Arial,sans-serif;
+  --font-serif:"HaldenSerif",Georgia,"Times New Roman",serif;
+  --font-mono:"HaldenMono",ui-monospace,Menlo,Consolas,monospace;
+
+  --fs-body:clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
+  --fs-display:clamp(2.5rem, 1rem + 4vw, 5.5rem);
+  --fs-title:clamp(1.75rem, 1rem + 2.2vw, 3rem);
+  --fs-subtitle:clamp(1.25rem, 1rem + 0.9vw, 1.65rem);
+  --fs-kicker:0.72rem;
+  --fs-small:0.875rem;
+
+  --lh-body:1.75;
+  --lh-display:1.05;
+  --track-kicker:.16em;
+  --track-display:-0.01em;
+
+  /* ---- space ---- */
+  --space-1:0.5rem;
+  --space-2:1rem;
+  --space-3:1.75rem;
+  --space-4:clamp(2.5rem, 2rem + 2vw, 4rem);
+  --space-5:clamp(4rem, 3rem + 5vw, 8rem);
+  --shell-max:78rem;
+  --shell-pad:clamp(1.25rem, 4vw, 3rem);
+  --header-h:4.25rem;
+
+  /* ---- motion grammar (Duten spirit, Rolex discipline) ---- */
+  --t-micro:300ms ease;                            /* color / opacity / hover  */
+  --t-panel:700ms;                                 /* panel & reveal transforms */
+  --t-panel-long:900ms;
+  --stagger:160ms;                                 /* calc(var(--stagger) * var(--i)) */
+  --ease-master:cubic-bezier(0.76, 0, 0.24, 1);    /* the one choreography ease */
+  --ease-out:cubic-bezier(0.16, 1, 0.3, 1);
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact, The Hale Group</title>
+<meta name="description" content="Reach The Hale Group across three California offices, Malibu, Beverly Hills, and Pacific Heights. Sample showcase contact page.">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.hero-slide{opacity:1!important}.quote{position:relative!important;opacity:1!important}</style></noscript>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0b'/%3E%3Cpath d='M9 7v18M23 7v18M9 16h14' stroke='%23d6a965' stroke-width='2'/%3E%3C/svg%3E">
+<meta property="og:title" content="Contact, The Hale Group">
+<meta property="og:description" content="Reach The Hale Group across three California offices: Malibu, Beverly Hills, and Pacific Heights.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact, The Hale Group">
+<meta name="twitter:description" content="Reach The Hale Group across three California offices: Malibu, Beverly Hills, and Pacific Heights.">
+</head>
+<body>
+
+<header class="site-head">
+  <a class="brand" href="index.html" aria-label="The Hale Group, home">
+    <svg class="brand-glyph" viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" fill="none" stroke="#b88a4e" stroke-width="1"/><path d="M11 8v18M23 8v18M11 17h12" stroke="#d6a965" stroke-width="1.6" fill="none"/></svg>
+    <span class="mark">Hale<small>Group · California</small></span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a href="glass-promontory.html">Featured</a>
+    <a href="sellers.html">Sell</a>
+    <a href="buyers.html">Buy</a>
+    <a href="about.html">About</a>
+    <a class="cta" href="contact.html" aria-current="page">Contact</a>
+  </nav>
+  <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+</header>
+<div class="mnav" id="mnav">
+  <a href="glass-promontory.html">Featured<small>The Residence</small></a>
+  <a href="sellers.html">Sell<small>List With Us</small></a>
+  <a href="buyers.html">Buy<small>Represented</small></a>
+  <a href="about.html">About<small>The Firm</small></a>
+  <a href="contact.html">Contact<small>Three Offices</small></a>
+</div>
+<aside class="rail" aria-hidden="true">
+  <span class="vtext">Coast to City</span>
+  <span class="soc" role="img" aria-label="Instagram (sample)" title="Instagram, sample"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+  <span class="soc" role="img" aria-label="LinkedIn (sample)" title="LinkedIn, sample"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"/></svg></span>
+  <span class="line"></span>
+</aside>
+
+<section class="phero" style="padding-bottom:clamp(40px,5vw,60px)">
+  <div class="phero-bg"><img src="assets/contact_hero.webp" alt="" aria-hidden="true" width="2000" height="1116"></div>
+  <div class="wrap">
+    <p class="label reveal">Contact</p>
+    <h1 class="display reveal d1">Let's talk.</h1>
+    <p class="sub reveal d2">Tell us what you are weighing, or just what you are curious about. Call directly, or send a note below.</p>
+  </div>
+</section>
+
+<!-- FORM + DETAILS -->
+<section class="section" style="padding-top:clamp(40px,6vw,72px)">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <p class="label">Send A Note</p>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);margin:16px 0 28px">We read every one.</h2>
+        <form class="form" data-demo aria-label="Contact the firm">
+          <div class="row-2">
+            <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="intent">I am</label>
+              <select id="intent" name="intent">
+                <option>Selling a home</option>
+                <option>Buying a home</option>
+                <option>Both</option>
+                <option>Just exploring</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label for="msg">Message</label><textarea id="msg" name="msg" rows="4" placeholder="A street, a budget, a timeline, or just hello."></textarea></div>
+          <button class="btn gold" type="submit" style="justify-self:start">Send note
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="form-note">Sample form, for demonstration. No message is sent or stored.</p>
+          <p class="form-ok">Thank you. This is a sample form, so nothing was sent, but in a live site your note would reach the firm directly.</p>
+        </form>
+      </div>
+
+      <div class="reveal d1">
+        <p class="label">Direct</p>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);margin:16px 0 28px">Reach us now.</h2>
+        <div style="display:grid;gap:24px">
+          <div>
+            <div class="eyebrow">By Phone</div>
+            <a href="tel:+13105550148" style="font-family:Archivo;font-weight:800;font-size:1.5rem;display:block;margin-top:8px;letter-spacing:-.01em">+1 (310) 555 0148</a>
+          </div>
+          <div>
+            <div class="eyebrow">By Email</div>
+            <a href="mailto:hello@halegroup.example" style="color:var(--brass-bright);font-size:1.05rem;display:block;margin-top:8px">hello@halegroup.example</a>
+          </div>
+          <div>
+            <div class="eyebrow">Hours</div>
+            <p class="muted" style="margin:8px 0 0">By appointment, seven days. <br>Most days, 9 to 7 Pacific.</p>
+          </div>
+          <div class="sample-note">Contact details are illustrative for this sample showcase</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFICES -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <p class="label reveal" style="margin-bottom:36px">Three Offices</p>
+    <div class="offices reveal d1">
+      <div class="office">
+        <div class="city">Malibu</div>
+        <div class="addr">22500 Pacific Coast Hwy<br>Malibu, CA 90265<br><a href="tel:+13105550148">+1 (310) 555 0148</a></div>
+      </div>
+      <div class="office">
+        <div class="city">Beverly Hills</div>
+        <div class="addr">9200 Wilshire Blvd, Ste 400<br>Beverly Hills, CA 90212<br><a href="tel:+13105550172">+1 (310) 555 0172</a></div>
+      </div>
+      <div class="office">
+        <div class="city">Pacific Heights</div>
+        <div class="addr">2100 Fillmore Street<br>San Francisco, CA 94115<br><a href="tel:+14155550196">+1 (415) 555 0196</a></div>
+      </div>
+    </div>
+    <p class="sample-note" style="margin-top:24px">Addresses are illustrative for this sample showcase</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div><span class="big serif">A small, deliberate brokerage for California's rarest addresses.</span>
+        <p class="sample-note" style="margin-top:28px">Sample showcase site · The Hale Group is a demonstration brand</p></div>
+      <div><h4>Navigate</h4><ul><li><a href="glass-promontory.html">Featured</a></li><li><a href="sellers.html">List With Us</a></li><li><a href="buyers.html">Buy With Us</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Offices</h4><ul><li>Malibu, CA</li><li>Beverly Hills, CA</li><li>Pacific Heights, SF</li></ul></div>
+      <div><h4>Direct</h4><ul><li><a href="tel:+13105550148">+1 (310) 555 0148</a></li><li><a href="mailto:hello@halegroup.example">hello@halegroup.example</a></li><li><a href="contact.html">Book a consultation</a></li></ul></div>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; <span data-year>2026</span> The Hale Group. Sample build. DRE #0X00000 (sample).</span>
+      <span class="socials">
+        <span class="soc" role="img" aria-label="Instagram (sample)" title="Instagram, sample"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+        <span class="soc" role="img" aria-label="LinkedIn (sample)" title="LinkedIn, sample"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"/></svg></span>
+      </span>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

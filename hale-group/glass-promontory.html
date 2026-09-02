@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Glass Promontory, Malibu · The Hale Group</title>
+<meta name="description" content="Scroll through a cinematic walkthrough of The Glass Promontory, a contemporary glass-and-steel oceanfront residence on Carbon Beach, Malibu. Sample showcase listing by The Hale Group.">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0b'/%3E%3Cpath d='M9 7v18M23 7v18M9 16h14' stroke='%23d6a965' stroke-width='2'/%3E%3C/svg%3E">
+<meta property="og:title" content="The Glass Promontory, Malibu · The Hale Group">
+<meta property="og:description" content="Scroll through a cinematic walkthrough of a contemporary glass-and-steel oceanfront residence on Carbon Beach. Sample listing.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/walk/poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Glass Promontory, Malibu · The Hale Group">
+<meta name="twitter:image" content="assets/walk/poster.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SingleFamilyResidence",
+  "name": "The Glass Promontory (Sample Listing)",
+  "description": "Contemporary glass-and-steel oceanfront residence on Carbon Beach, Malibu. Demonstration listing.",
+  "address": {"@type":"PostalAddress","addressLocality":"Malibu","addressRegion":"CA","addressCountry":"US"},
+  "numberOfBedrooms": 5,
+  "numberOfBathroomsTotal": 7,
+  "floorSize": {"@type":"QuantitativeValue","value":8200,"unitText":"SqFt"}
+}
+</script>
+
+<!-- flip no-js -> js as early as possible to avoid a flash of the static backbone -->
+<script>document.documentElement.className=document.documentElement.className.replace("no-js","js");</script>
+
+<style>
+/* ================= THE GLASS PROMONTORY — scroll-scrubbed walkthrough ================= */
+.gp-body{background:#050506}
+
+/* ---- shared caption typography (used by both scrub + static) ---- */
+.cap-idx{font-family:"Archivo";font-weight:700;font-size:.66rem;letter-spacing:.34em;color:var(--brass-bright);
+  display:inline-flex;align-items:center;gap:.85rem}
+.cap-idx::before{content:"";width:34px;height:1px;background:var(--brass);display:inline-block;flex:none}
+.cap-kicker{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;
+  font-size:clamp(1.35rem,3vw,2rem);color:#f1ece3;margin-top:16px;line-height:1;text-shadow:0 2px 18px rgba(0,0,0,.9)}
+.cap-title{font-family:"Archivo";font-weight:800;letter-spacing:-.02em;line-height:.96;
+  font-size:clamp(2.1rem,5.4vw,4.4rem);margin:10px 0 0;max-width:17ch;text-shadow:0 2px 44px rgba(0,0,0,.7)}
+.cap-sub{color:#f5f1e9;max-width:46ch;margin:18px 0 0;font-size:clamp(1rem,1.4vw,1.14rem);
+  text-shadow:0 2px 22px rgba(0,0,0,.95),0 0 2px rgba(0,0,0,.6)}
+.cap-feats{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:0;
+  border-top:1px solid var(--line-2);max-width:760px}
+.cap-feats li{flex:1 1 0;min-width:150px;padding:15px 26px 0 0;margin-right:26px;border-right:1px solid var(--line)}
+.cap-feats li:last-child{border-right:0;margin-right:0}
+.cap-feats .k{display:block;font-family:"Archivo";font-weight:600;font-size:.6rem;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--brass-bright)}
+.cap-feats .v{display:block;font-family:"Manrope";font-weight:500;color:var(--ink);font-size:1rem;margin-top:8px;line-height:1.35}
+.gp-loc{font-family:"Archivo";font-weight:600;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:#ece6da;text-shadow:0 1px 12px rgba(0,0,0,.85)}
+.gp-price{font-family:"Archivo";font-weight:800;font-size:clamp(1.6rem,3.4vw,2.5rem);letter-spacing:-.01em;color:var(--ink);margin-top:6px}
+.gp-tag{display:inline-flex;align-items:center;gap:8px;font-family:"Archivo";font-weight:700;font-size:.58rem;
+  letter-spacing:.22em;text-transform:uppercase;background:var(--brass);color:#0a0a0b;padding:7px 13px;margin-top:22px}
+.gp-samp{display:block;margin-top:20px;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+  color:#d7d1c5;font-family:"Archivo";font-weight:600;text-shadow:0 1px 12px rgba(0,0,0,.9)}
+.gp-close-actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:28px}
+
+/* ================= SCRUB EXPERIENCE (desktop, JS + motion) ================= */
+.scrub{display:none}                                   /* off until JS opts in */
+html.scrub-on .scrub{display:block}
+.scrub-track{position:relative}                        /* per-act scroll length set inline */
+.auto-act{position:relative;height:230vh}              /* auto 'cool transition' act (no scroll control) */
+.scrub-stage,.auto-stage{position:sticky;top:0;height:100svh;min-height:560px;overflow:hidden;background:#050506}
+.scrub-video,.auto-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+/* legibility scrims (top under header + strong bottom for captions) + film grain to match site hero */
+.scrub-stage::after,.auto-stage::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(180deg,rgba(5,5,6,.66) 0%,rgba(5,5,6,.14) 20%,rgba(5,5,6,.02) 40%,rgba(5,5,6,.5) 72%,rgba(5,5,6,.95) 100%)}
+.scrub-stage::before,.auto-stage::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* a small brass 'auto' hint pill on the cool-transition act */
+.auto-badge{position:absolute;top:calc(var(--pad) + 46px);left:var(--pad);z-index:3;display:inline-flex;align-items:center;gap:8px;
+  font-family:"Archivo";font-weight:700;font-size:.54rem;letter-spacing:.26em;text-transform:uppercase;color:var(--brass-bright);opacity:.9}
+.auto-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--brass-bright);animation:cue 1.6s var(--ease) infinite}
+/* stills for the single, no-transition rooms (kitchen/view auto, pool still) */
+.auto-img,.split-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.auto-img{z-index:0;opacity:0;transition:opacity .8s var(--ease)}
+.auto-img.on{opacity:1;animation:kenb 8s var(--ease) forwards}
+.split-img{z-index:1;opacity:1;transition:opacity .6s var(--ease)}   /* pool still sits over the video until the transition */
+.split-img.hide{opacity:0}
+.split-img.on{animation:kenb 8s var(--ease) forwards}
+@keyframes kenb{from{transform:scale(1)}to{transform:scale(1.06)}}
+/* two separate still-picture sections (kitchen, view) — short, scroll past */
+.pic-act{position:relative}
+.pic-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;animation:kenb 12s var(--ease) forwards}
+
+/* stacked, cross-fading captions inside the stage */
+.scene-caps{position:absolute;inset:0;z-index:2;pointer-events:none}
+.scene-cap{position:absolute;left:0;right:0;bottom:0;width:100%;max-width:var(--maxw);
+  margin:0 auto;padding:0 var(--pad) clamp(122px,16vh,176px);
+  opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.scene-cap.on{opacity:1;transform:none;pointer-events:auto}
+.scene-cap a{pointer-events:auto}
+.scene-cap.is-arrival{padding-bottom:clamp(140px,18vh,208px)}
+
+/* scroll cue (arrival only) — right rail so it never collides with the caption */
+.gp-cue{position:absolute;right:var(--pad);bottom:108px;z-index:3;display:flex;
+  flex-direction:column;align-items:flex-end;gap:8px;opacity:0;transition:opacity .5s var(--ease)}
+.gp-cue .bar{align-self:flex-end}
+html.scrub-on .scrub-stage.at-start .gp-cue{opacity:1}
+.gp-cue .k{font-size:.55rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-3);font-family:"Archivo"}
+.gp-cue .bar{width:1px;height:44px;background:linear-gradient(var(--brass),transparent);animation:cue 2.2s var(--ease) infinite}
+@keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top;opacity:.5}50%{transform:scaleY(1);opacity:1}}
+
+/* ================= STATIC BACKBONE (no-JS · reduced-motion · mobile) ================= */
+.rooms-static{display:block}
+html.scrub-on .rooms-static{display:none}
+
+/* playable hero for no-JS / mobile so the real render is always reachable */
+.static-hero{position:relative;background:#050506}
+.static-hero video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:#050506}
+.static-hero .sh-cap{max-width:var(--maxw);margin:0 auto;padding:26px var(--pad) 8px}
+.static-hero .sh-note{display:block;margin-top:10px}
+
+.sroom{position:relative;min-height:82vh;display:flex;align-items:flex-end;overflow:hidden}
+.sroom .sr-media{position:absolute;inset:0;z-index:0}
+.sroom .sr-media img{width:100%;height:100%;object-fit:cover}
+.sroom::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(180deg,rgba(5,5,6,.6) 0%,rgba(5,5,6,.1) 26%,rgba(5,5,6,.5) 72%,rgba(5,5,6,.95) 100%)}
+.sroom .room-cap{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;
+  padding:0 var(--pad) clamp(60px,9vh,104px)}
+
+/* ================= STICKY PROPERTY HUD ================= */
+.hud{position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:linear-gradient(180deg,rgba(8,8,9,0),rgba(8,8,9,.86) 32%,rgba(8,8,9,.96));
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.hud-inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);height:76px;
+  display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:clamp(20px,3vw,44px)}
+.hud-id{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.hud-name{font-family:"Archivo";font-weight:800;font-size:.98rem;letter-spacing:.02em;line-height:1.1;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hud-loc{font-family:"Archivo";font-weight:600;font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--brass-bright);margin-top:4px;white-space:nowrap}
+.hud-mid{display:flex;align-items:center;gap:clamp(16px,2vw,30px)}
+.hud-specs{display:flex;align-items:center;gap:0;list-style:none;margin:0;padding:0}
+.hud-specs li{font-family:"Archivo";font-weight:600;font-size:.72rem;letter-spacing:.02em;color:var(--ink);
+  padding:0 16px;line-height:1;border-right:1px solid var(--line-2)}
+.hud-specs li:last-child{border-right:0;padding-right:0}
+.hud-specs li:first-child{padding-left:0;color:var(--brass-bright);font-weight:800}
+.hud-specs .u{color:var(--ink-3);font-weight:600;margin-left:4px}
+.hud-prog{display:flex;align-items:center;gap:14px}
+.hud-dots{display:flex;align-items:center;gap:7px}
+.hud-dot{width:7px;height:7px;border-radius:50%;background:transparent;border:1px solid var(--line-2);
+  transition:background .35s var(--ease),width .35s var(--ease),border-color .35s var(--ease)}
+.hud-dot.on{background:var(--brass);border-color:var(--brass)}
+.hud-dot[aria-current="true"]{width:20px;border-radius:4px;background:var(--brass-bright);border-color:var(--brass-bright)}
+.hud-count{font-family:"Archivo";font-weight:600;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);white-space:nowrap}
+.hud-count b{color:var(--ink);font-weight:700}
+.hud-count [data-room-name]{color:var(--brass-bright)}
+.hud-cta{display:inline-flex;align-items:center;gap:10px;font-family:"Archivo";font-weight:700;font-size:.68rem;
+  letter-spacing:.16em;text-transform:uppercase;background:var(--brass);color:#0a0a0b;padding:14px 22px;
+  white-space:nowrap;transition:.3s var(--ease)}
+.hud-cta:hover{background:var(--brass-bright)}
+.hud-cta svg{width:14px;height:14px}
+.hud-cta .cta-short{display:none}
+
+/* footer note strip */
+.gp-foot{background:var(--bg);border-top:1px solid var(--line);padding:44px 0 96px;position:relative;z-index:2}
+.gp-foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px}
+.gp-foot .big{font-family:"Cormorant Garamond",serif;font-size:1.5rem;color:var(--ink);max-width:26ch;line-height:1.3}
+
+/* ================= responsive ================= */
+@media(max-width:820px){
+  .hud-inner{grid-template-columns:1fr;height:auto;
+    padding-top:11px;padding-bottom:calc(12px + env(safe-area-inset-bottom));row-gap:11px;gap:11px}
+  .hud-id{grid-column:1}
+  .hud-mid{grid-column:1;flex-wrap:wrap;gap:9px 14px}
+  .hud-specs li{padding:0 10px;font-size:.66rem}
+  .hud-count{font-size:.58rem}
+  .hud-cta{grid-column:1;width:100%;justify-content:center;padding:14px 16px;font-size:.66rem}
+  .cap-feats li{flex:1 1 100%;min-width:0;border-right:0;margin-right:0;border-top:1px solid var(--line);padding:12px 0 0}
+  .cap-feats{border-top:0}
+  .sroom .room-cap{padding-bottom:clamp(96px,16vh,150px)}
+}
+@media(max-width:480px){
+  .hud-specs li:nth-child(n+4){display:none}
+  .hud-name{font-size:.9rem}
+}
+
+/* reduced motion: no cue animation (scrub is already disabled in JS for these users) */
+@media (prefers-reduced-motion:reduce){ .gp-cue .bar{animation:none} }
+</style>
+</head>
+<body class="gp-body">
+
+<!-- HEADER (shared) -->
+<header class="site-head">
+  <a class="brand" href="index.html" aria-label="The Hale Group, home">
+    <svg class="brand-glyph" viewBox="0 0 34 34" aria-hidden="true">
+      <rect x="1" y="1" width="32" height="32" fill="none" stroke="#b88a4e" stroke-width="1"/>
+      <path d="M11 8v18M23 8v18M11 17h12" stroke="#d6a965" stroke-width="1.6" fill="none"/>
+    </svg>
+    <span class="mark">Hale<small>Group · California</small></span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a href="glass-promontory.html" aria-current="page">Featured</a>
+    <a href="sellers.html">Sell</a>
+    <a href="buyers.html">Buy</a>
+    <a href="about.html">About</a>
+    <a class="cta" href="contact.html">Contact</a>
+  </nav>
+  <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+</header>
+
+<div class="mnav" id="mnav">
+  <a href="glass-promontory.html">Featured<small>The Residence</small></a>
+  <a href="sellers.html">Sell<small>List With Us</small></a>
+  <a href="buyers.html">Buy<small>Represented</small></a>
+  <a href="about.html">About<small>The Firm</small></a>
+  <a href="contact.html">Contact<small>Three Offices</small></a>
+</div>
+
+<main id="walk">
+
+  <!-- ============ SCRUB (desktop, JS + motion) ============ -->
+  <section class="scrub" aria-label="Cinematic walkthrough of The Glass Promontory" aria-hidden="true">
+
+    <!-- ACT 1 · scroll-scrub: arrival -> great room -->
+    <div class="scrub-track" data-scrub data-rooms="0,1" style="height:260vh">
+      <div class="scrub-stage">
+        <video class="scrub-video" src="assets/walk/wt_a.mp4" poster="assets/walk/poster.webp"
+               muted playsinline preload="auto" tabindex="-1" disablepictureinpicture></video>
+        <div class="scene-caps">
+          <!-- 0 ARRIVAL / TITLE -->
+          <div class="scene-cap is-arrival on" data-i="0">
+            <span class="cap-idx">01 / 06 &nbsp;·&nbsp; Arrival</span>
+            <h1 class="cap-title">The Glass<br>Promontory</h1>
+            <div class="gp-loc" style="margin-top:20px">Malibu · Carbon Beach</div>
+            <div class="gp-price">$24,500,000</div>
+            <span class="gp-tag">For Sale · Private Walkthrough</span>
+            <span class="gp-samp">Sample listing · imagery is a generated stand-in pending final photography</span>
+          </div>
+          <!-- 1 GREAT ROOM -->
+          <div class="scene-cap" data-i="1">
+            <span class="cap-idx">02 / 06 &nbsp;·&nbsp; The Great Room</span>
+            <span class="cap-kicker">Where the walls disappear.</span>
+            <h2 class="cap-title">Living on the edge of the Pacific</h2>
+            <p class="cap-sub">Retractable glass dissolves the seam between room and shoreline, so the ocean becomes the fourth wall.</p>
+            <ul class="cap-feats">
+              <li><span class="k">Glass Walls</span><span class="v">Retractable · 24 ft clear span</span></li>
+              <li><span class="k">Ceilings</span><span class="v">14 ft · rift white oak</span></li>
+              <li><span class="k">Hearth</span><span class="v">Book-matched stone monolith</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="gp-cue" aria-hidden="true"><span class="k">Scroll to walk through</span><span class="bar"></span></div>
+      </div>
+    </div>
+
+    <!-- ACT 2a · The Kitchen (single still, short section) -->
+    <div class="pic-act" data-pic data-room="2" style="height:135vh">
+      <div class="scrub-stage">
+        <img class="pic-img" src="assets/walk/03_kitchen.webp" alt="Chef's kitchen with dual honed-marble islands (generated sample imagery)" width="2200" height="1238">
+        <div class="scene-caps">
+          <div class="scene-cap on" data-i="2">
+            <span class="cap-idx">03 / 06 &nbsp;·&nbsp; The Kitchen</span>
+            <span class="cap-kicker">Built for the way you actually cook.</span>
+            <h2 class="cap-title">A chef's kitchen in honed stone</h2>
+            <p class="cap-sub">Two full islands, a separate scullery, and a professional suite kept quietly out of sight of the great room.</p>
+            <ul class="cap-feats">
+              <li><span class="k">Islands</span><span class="v">Dual · honed marble</span></li>
+              <li><span class="k">Appointments</span><span class="v">Integrated pro suite</span></li>
+              <li><span class="k">Scullery</span><span class="v">Separate chef's prep &amp; pantry</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 2b · The View (single still, short section) -->
+    <div class="pic-act" data-pic data-room="3" style="height:135vh">
+      <div class="scrub-stage">
+        <img class="pic-img" src="assets/walk/04_view.webp" alt="Primary-level living framing a 180-degree Pacific view (generated sample imagery)" width="2200" height="1238">
+        <div class="scene-caps">
+          <div class="scene-cap on" data-i="3">
+            <span class="cap-idx">04 / 06 &nbsp;·&nbsp; The View</span>
+            <span class="cap-kicker">The reason to be here.</span>
+            <h2 class="cap-title">One hundred and eighty degrees of Pacific</h2>
+            <p class="cap-sub">Primary-level living is lifted to the light, framing open water by day and the coast after dark.</p>
+            <ul class="cap-feats">
+              <li><span class="k">Outlook</span><span class="v">180° ocean &amp; coastline</span></li>
+              <li><span class="k">Exposure</span><span class="v">Southwest · all-day sun</span></li>
+              <li><span class="k">Living</span><span class="v">Elevated primary level</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 3 · scroll-scrub: pool -> coast -->
+    <div class="scrub-track" data-scrub data-rooms="4,5" style="height:300vh">
+      <div class="scrub-stage">
+        <video class="scrub-video" src="assets/walk/wt_c_out.mp4" poster="assets/walk/poster_out.webp"
+               muted playsinline preload="auto" tabindex="-1" disablepictureinpicture></video>
+        <div class="scene-caps">
+          <!-- 5 POOL & TERRACE -->
+          <div class="scene-cap on" data-i="5">
+            <span class="cap-idx">05 / 06 &nbsp;·&nbsp; Pool &amp; Ocean Terrace</span>
+            <span class="cap-kicker">Where the room meets the water.</span>
+            <h2 class="cap-title">An infinity edge over the Pacific</h2>
+            <p class="cap-sub">The terrace steps down to a sixty-foot infinity pool that reads straight into the tideline, with private beach frontage below.</p>
+            <ul class="cap-feats">
+              <li><span class="k">Pool</span><span class="v">60 ft · infinity edge</span></li>
+              <li><span class="k">Terrace</span><span class="v">Ipe &amp; travertine deck</span></li>
+              <li><span class="k">Frontage</span><span class="v">Direct Carbon Beach access</span></li>
+            </ul>
+          </div>
+          <!-- 6 THE SETTING (close + CTA) — as the outlook opens to the coast -->
+          <div class="scene-cap" data-i="6" data-from="0.55">
+            <span class="cap-idx">06 / 06 &nbsp;·&nbsp; The Setting</span>
+            <span class="cap-kicker">Few addresses close like this one.</span>
+            <h2 class="cap-title">Arrange a private showing</h2>
+            <p class="cap-sub">The Glass Promontory is shown by appointment only. Reach The Hale Group to walk it in person, or request the full package.</p>
+            <div class="gp-close-actions">
+              <a class="btn gold" href="contact.html">Request a private showing
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn" href="tel:+13105550148">Call +1 (310) 555 0148</a>
+            </div>
+            <span class="gp-samp">$24,500,000 · 5 bd · 7 ba · 8,200 sq ft · Malibu, Carbon Beach · sample listing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============ STATIC BACKBONE (no-JS · reduced-motion · mobile) ============ -->
+  <div class="rooms-static">
+
+    <!-- playable walkthrough (real render, reachable without the scrub) -->
+    <section class="static-hero" aria-label="Walkthrough film and listing summary">
+      <video controls playsinline preload="none" poster="assets/walk/poster.webp"
+             width="1280" height="720" src="assets/walk/walkthrough.mp4"></video>
+      <div class="sh-cap">
+        <span class="cap-idx">01 / 06 &nbsp;·&nbsp; The Glass Promontory</span>
+        <h1 class="cap-title" style="margin-top:14px">The Glass Promontory</h1>
+        <div class="gp-loc" style="margin-top:18px">Malibu · Carbon Beach</div>
+        <div class="gp-price">$24,500,000</div>
+        <span class="gp-tag">For Sale · Private Walkthrough</span>
+        <span class="gp-samp sh-note">Press play for the full cinematic walkthrough — or scroll on for the room-by-room tour. Sample listing · generated imagery pending final photography.</span>
+      </div>
+    </section>
+
+    <section class="sroom" id="room-2" aria-label="The great room">
+      <div class="sr-media"><img src="assets/walk/02_greatroom.webp" alt="Great room with retractable floor-to-ceiling glass opening to the golden Pacific (generated sample imagery)" width="1600" height="900" loading="lazy"></div>
+      <div class="room-cap">
+        <span class="cap-idx">02 / 06 &nbsp;·&nbsp; The Great Room</span>
+        <span class="cap-kicker">Where the walls disappear.</span>
+        <h2 class="cap-title">Living on the edge of the Pacific</h2>
+        <p class="cap-sub">Retractable glass dissolves the seam between room and shoreline, so the ocean becomes the fourth wall.</p>
+        <ul class="cap-feats">
+          <li><span class="k">Glass Walls</span><span class="v">Retractable · 24 ft clear span</span></li>
+          <li><span class="k">Ceilings</span><span class="v">14 ft · rift white oak</span></li>
+          <li><span class="k">Hearth</span><span class="v">Book-matched stone monolith</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sroom" id="room-3" aria-label="The kitchen">
+      <div class="sr-media"><img src="assets/walk/03_kitchen.webp" alt="Chef's kitchen with dual honed-marble islands and ocean glass beyond (generated sample imagery)" width="1600" height="900" loading="lazy"></div>
+      <div class="room-cap">
+        <span class="cap-idx">03 / 06 &nbsp;·&nbsp; The Kitchen</span>
+        <span class="cap-kicker">Built for the way you actually cook.</span>
+        <h2 class="cap-title">A chef's kitchen in honed stone</h2>
+        <p class="cap-sub">Two full islands, a separate scullery, and a professional suite kept quietly out of sight of the great room.</p>
+        <ul class="cap-feats">
+          <li><span class="k">Islands</span><span class="v">Dual · honed marble</span></li>
+          <li><span class="k">Appointments</span><span class="v">Integrated pro suite</span></li>
+          <li><span class="k">Scullery</span><span class="v">Separate chef's prep &amp; pantry</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sroom" id="room-4" aria-label="The view">
+      <div class="sr-media"><img src="assets/walk/04_view.webp" alt="Primary-level living framing a 180-degree Pacific and coastline view through frameless glass (generated sample imagery)" width="1600" height="900" loading="lazy"></div>
+      <div class="room-cap">
+        <span class="cap-idx">04 / 06 &nbsp;·&nbsp; The View</span>
+        <span class="cap-kicker">The reason to be here.</span>
+        <h2 class="cap-title">One hundred and eighty degrees of Pacific</h2>
+        <p class="cap-sub">Primary-level living is lifted to the light, framing open water by day and the coast after dark.</p>
+        <ul class="cap-feats">
+          <li><span class="k">Outlook</span><span class="v">180° ocean &amp; coastline</span></li>
+          <li><span class="k">Exposure</span><span class="v">Southwest · all-day sun</span></li>
+          <li><span class="k">Living</span><span class="v">Elevated primary level</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sroom" id="room-5" aria-label="Pool and ocean terrace">
+      <div class="sr-media"><img src="assets/walk/06_pool.webp" alt="Sixty-foot infinity-edge pool reading into the golden Pacific at dusk (generated sample imagery)" width="1600" height="900" loading="lazy"></div>
+      <div class="room-cap">
+        <span class="cap-idx">05 / 06 &nbsp;·&nbsp; Pool &amp; Ocean Terrace</span>
+        <span class="cap-kicker">Where the property meets the sand.</span>
+        <h2 class="cap-title">An infinity edge over Carbon Beach</h2>
+        <p class="cap-sub">The terrace steps down to a sixty-foot infinity pool that reads straight into the tideline, with private beach frontage below.</p>
+        <ul class="cap-feats">
+          <li><span class="k">Pool</span><span class="v">60 ft · infinity edge</span></li>
+          <li><span class="k">Terrace</span><span class="v">Ipe &amp; travertine deck</span></li>
+          <li><span class="k">Frontage</span><span class="v">Direct Carbon Beach access</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sroom" id="room-6" aria-label="The setting and enquiry">
+      <div class="sr-media"><img src="assets/walk/07_setting.webp" alt="The Malibu coastline at dusk with the glass promontory house on the bluff (generated sample imagery)" width="1600" height="900" loading="lazy"></div>
+      <div class="room-cap">
+        <span class="cap-idx">06 / 06 &nbsp;·&nbsp; The Setting</span>
+        <span class="cap-kicker">Few addresses close like this one.</span>
+        <h2 class="cap-title">Arrange a private showing</h2>
+        <p class="cap-sub">The Glass Promontory is shown by appointment only. Reach The Hale Group to walk it in person, or request the full package.</p>
+        <div class="gp-close-actions">
+          <a class="btn gold" href="contact.html">Request a private showing
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn" href="tel:+13105550148">Call +1 (310) 555 0148</a>
+        </div>
+        <span class="gp-samp">$24,500,000 · 5 bd · 7 ba · 8,200 sq ft · Malibu, Carbon Beach — sample listing, figures illustrative</span>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- STICKY PROPERTY HUD -->
+<div class="hud" role="region" aria-label="Property summary">
+  <div class="hud-inner">
+    <div class="hud-id">
+      <span class="hud-name">The Glass Promontory</span>
+      <span class="hud-loc">Malibu · Carbon Beach</span>
+    </div>
+    <div class="hud-mid">
+      <ul class="hud-specs" aria-label="Key facts">
+        <li>$24.5M</li>
+        <li>5 <span class="u">bd</span></li>
+        <li>7 <span class="u">ba</span></li>
+        <li>8,200 <span class="u">sqft</span></li>
+      </ul>
+      <div class="hud-prog">
+        <div class="hud-dots" role="img" aria-label="Walkthrough progress">
+          <span class="hud-dot on" aria-current="true"></span>
+          <span class="hud-dot"></span><span class="hud-dot"></span>
+          <span class="hud-dot"></span><span class="hud-dot"></span><span class="hud-dot"></span>
+        </div>
+        <span class="hud-count"><b data-room-idx>01</b>&nbsp;/&nbsp;06 · <span data-room-name>Arrival</span></span>
+      </div>
+    </div>
+    <a class="hud-cta" href="contact.html"><span class="cta-long">Request a private showing</span><span class="cta-short">Enquire</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</div>
+
+<footer class="gp-foot">
+  <div class="wrap">
+    <span class="big serif">The Hale Group · a small, deliberate brokerage for California's rarest addresses.</span>
+    <span class="sample-note">Sample showcase · generated imagery pending final photography · <a href="index.html" style="color:var(--brass-bright)">Back to The Hale Group</a></span>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+/* THE GLASS PROMONTORY — scroll-scrubbed walkthrough.
+   Classic script, file://-safe. Native scroll drives everything (no scroll hijack,
+   so a single flick can never run away). Desktop pointer + motion allowed => the scrub;
+   otherwise the static backbone (no-JS / reduced-motion / touch / small screens). */
+(function () {
+  "use strict";
+  var LABELS = ["Arrival","The Great Room","The Kitchen","The View","Pool & Terrace","The Setting"];
+  var SEG = 7; /* continuous flow, bridged transitions: 7 room waypoints across the walk */
+  var dots  = [].slice.call(document.querySelectorAll(".hud-dot"));
+  var idxEl = document.querySelector("[data-room-idx]");
+  var nameEl= document.querySelector("[data-room-name]");
+  var lastIdx = -1;
+
+  function setHud(i){
+    if (i > LABELS.length - 1) i = LABELS.length - 1;   /* clamp (static doc has more rooms than the glide) */
+    if (i === lastIdx || i < 0) return;
+    lastIdx = i;
+    for (var d = 0; d < dots.length; d++){
+      if (d <= i) dots[d].classList.add("on"); else dots[d].classList.remove("on");
+      dots[d].setAttribute("aria-current", d === i ? "true" : "false");
+    }
+    if (idxEl)  idxEl.textContent  = ("0" + (i + 1)).slice(-2);
+    if (nameEl) nameEl.textContent = LABELS[i] || "";
+  }
+
+  var mq = window.matchMedia || function(){ return { matches:false, addListener:function(){} }; };
+  var reduce = mq("(prefers-reduced-motion: reduce)").matches;
+  var coarse = mq("(hover: none), (pointer: coarse)").matches;
+  var small  = window.innerWidth < 900;
+  var canScrub = !reduce && !coarse && !small &&
+                 "requestAnimationFrame" in window && !!document.querySelector(".scrub-video");
+
+  if (canScrub) initScrub(); else initStatic();
+
+  /* ---------------- desktop: 3 acts — scrub A, auto B, scrub C ---------------- */
+  function initScrub(){
+    document.documentElement.classList.add("scrub-on");
+    [].slice.call(document.querySelectorAll(".scrub-track[data-scrub]")).forEach(setupScrubTrack);
+    [].slice.call(document.querySelectorAll(".scrub-track[data-split]")).forEach(setupSplitTrack);
+    [].slice.call(document.querySelectorAll(".auto-act[data-auto]")).forEach(setupAutoAct);
+    [].slice.call(document.querySelectorAll(".pic-act[data-pic]")).forEach(setupPicAct);
+  }
+
+  /* a single still-picture section: updates the HUD/room when it scrolls into view */
+  function setupPicAct(act){
+    var caps = [].slice.call(act.querySelectorAll(".scene-cap"));
+    var room = parseInt(act.getAttribute("data-room"), 10) || 0;
+    caps.forEach(function(c){ c.classList.add("on"); });
+    if ("IntersectionObserver" in window){
+      new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if (e.isIntersecting && e.intersectionRatio >= 0.4) setHud(room); });
+      }, { threshold: [0.4, 0.7] }).observe(act);
+    }
+  }
+
+  /* a scroll-scrubbed act: scroll position drives video.currentTime while its stage is on screen */
+  function setupScrubTrack(track){
+    var stage = track.querySelector(".scrub-stage");
+    var video = track.querySelector(".scrub-video");
+    var caps  = [].slice.call(track.querySelectorAll(".scene-cap"));
+    var rooms = (track.getAttribute("data-rooms") || "0").split(",").map(function(s){ return parseInt(s, 10); });
+    var froms = caps.map(function(c, i){ var f = parseFloat(c.getAttribute("data-from")); return isNaN(f) ? i / caps.length : f; });
+    var dur = 0, cur = 0, running = false, primed = false, lastLocal = -1;
+
+    function inView(){ var r = stage.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight; }
+    function progress(){
+      var r = track.getBoundingClientRect();
+      var scrollable = r.height - window.innerHeight;
+      if (scrollable <= 0) return 0;
+      var p = -r.top / scrollable;
+      return p < 0 ? 0 : p > 1 ? 1 : p;
+    }
+    function prime(){ if (primed) return; primed = true;
+      var pr = video.play();
+      if (pr && pr.then) pr.then(function(){ video.pause(); }).catch(function(){ try { video.pause(); } catch(e){} });
+      else { try { video.pause(); } catch(e){} }
+    }
+    function tick(){
+      if (inView()){
+        prime();
+        var p = progress();
+        var target = p * dur;
+        cur += (target - cur) * 0.16;                 /* smooth/lerp for a buttery scrub */
+        if (Math.abs(target - cur) < 0.004) cur = target;
+        if (dur && video.readyState >= 1 && Math.abs(video.currentTime - cur) > 0.01){
+          try { video.currentTime = cur; } catch (e) {}
+        }
+        var li = 0;
+        for (var k = 0; k < froms.length; k++){ if (p >= froms[k]) li = k; }
+        if (li !== lastLocal){ lastLocal = li;
+          for (var c = 0; c < caps.length; c++) caps[c].classList.toggle("on", c === li);
+          setHud(rooms[Math.min(li, rooms.length - 1)]);
+        }
+        stage.classList.toggle("at-start", p < 0.02);
+      }
+      running = requestAnimationFrame(tick);
+    }
+    function onMeta(){ dur = video.duration || 5; if (!running){ running = requestAnimationFrame(tick); } }
+    if (video.readyState >= 1) onMeta();
+    video.addEventListener("loadedmetadata", onMeta);
+    video.load();
+  }
+
+  /* the 'cool transition' act: a still-image slideshow (kitchen, view) that cuts on its own while on
+     screen — NOT scrubbed, NOT a video. Single no-transition rooms are shown as images. */
+  function setupAutoAct(act){
+    var imgs  = [].slice.call(act.querySelectorAll(".auto-img"));
+    var caps  = [].slice.call(act.querySelectorAll(".scene-cap"));
+    var rooms = (act.getAttribute("data-rooms") || "2,3").split(",").map(function(s){ return parseInt(s, 10); });
+    var idx = -1, timer = null, DWELL = 3800;
+
+    function show(i){
+      if (i === idx) return; idx = i;
+      for (var n = 0; n < imgs.length; n++) imgs[n].classList.toggle("on", n === i);
+      for (var c = 0; c < caps.length; c++) caps[c].classList.toggle("on", c === i);
+      setHud(rooms[Math.min(i, rooms.length - 1)]);
+    }
+    function advance(){ if (idx < imgs.length - 1){ show(idx + 1); timer = setTimeout(advance, DWELL); } }
+    function begin(){ if (timer) clearTimeout(timer); show(0); timer = setTimeout(advance, DWELL); }
+
+    if ("IntersectionObserver" in window){
+      new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting){ if (idx < 0) begin(); }
+          else { if (timer){ clearTimeout(timer); timer = null; } idx = -1; }  /* replays on re-enter */
+        });
+      }, { threshold: [0, 0.3] }).observe(act);
+    } else { show(0); }
+  }
+
+  /* the pool act: a still image for the first stretch (the single, no-transition pool), then the
+     scroll scrubs the pool -> coast transition video for the end. */
+  function setupSplitTrack(track){
+    var stage = track.querySelector(".scrub-stage");
+    var img   = track.querySelector(".split-img");
+    var video = track.querySelector(".scrub-video");
+    var caps  = [].slice.call(track.querySelectorAll(".scene-cap"));
+    var rooms = (track.getAttribute("data-rooms") || "4,5").split(",").map(function(s){ return parseInt(s, 10); });
+    var froms = caps.map(function(c, i){ var f = parseFloat(c.getAttribute("data-from")); return isNaN(f) ? i / caps.length : f; });
+    var SPLIT = 0.62;   /* hold the pool still most of the way; the camera only starts moving to the outlook near the end */
+    var dur = 0, cur = 0, running = false, primed = false, lastLocal = -1, phase = "";
+
+    function inView(){ var r = stage.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight; }
+    function progress(){ var r = track.getBoundingClientRect(); var s = r.height - window.innerHeight;
+      if (s <= 0) return 0; var p = -r.top / s; return p < 0 ? 0 : p > 1 ? 1 : p; }
+    function prime(){ if (primed) return; primed = true;
+      var pr = video.play();
+      if (pr && pr.then) pr.then(function(){ video.pause(); }).catch(function(){ try { video.pause(); } catch(e){} });
+      else { try { video.pause(); } catch(e){} }
+    }
+    function tick(){
+      if (inView()){
+        var p = progress();
+        if (p < SPLIT){
+          if (phase !== "img"){ phase = "img"; img.classList.remove("hide"); }
+        } else {
+          if (phase !== "vid"){ phase = "vid"; img.classList.add("hide"); prime(); }
+          var vp = (p - SPLIT) / (1 - SPLIT);
+          var target = vp * dur;
+          cur += (target - cur) * 0.16;
+          if (Math.abs(target - cur) < 0.004) cur = target;
+          if (dur && video.readyState >= 1 && Math.abs(video.currentTime - cur) > 0.01){
+            try { video.currentTime = cur; } catch (e) {}
+          }
+        }
+        var li = 0;
+        for (var k = 0; k < froms.length; k++){ if (p >= froms[k]) li = k; }
+        if (li !== lastLocal){ lastLocal = li;
+          for (var c = 0; c < caps.length; c++) caps[c].classList.toggle("on", c === li);
+          setHud(rooms[Math.min(li, rooms.length - 1)]);
+        }
+      }
+      running = requestAnimationFrame(tick);
+    }
+    function onMeta(){ dur = video.duration || 10; if (!running){ running = requestAnimationFrame(tick); } }
+    if (video.readyState >= 1) onMeta();
+    video.addEventListener("loadedmetadata", onMeta);
+    video.load();
+  }
+
+  /* ---------------- static: IntersectionObserver drives the HUD ---------------- */
+  function initStatic(){
+    var rooms = [].slice.call(document.querySelectorAll(".rooms-static [id^='room-']"));
+    /* rooms are room-2..room-6 -> HUD indices 1..5; arrival(0) is the default (bathroom removed) */
+    setHud(0);
+    if (!("IntersectionObserver" in window) || !rooms.length) return;
+    var io = new IntersectionObserver(function(entries){
+      var best = null;
+      entries.forEach(function(e){ if (e.isIntersecting && (!best || e.intersectionRatio > best.intersectionRatio)) best = e; });
+      if (best){
+        var n = parseInt(best.target.id.replace("room-",""), 10) - 1; /* room-2 -> 1 */
+        if (!isNaN(n)) setHud(n);
+      }
+    }, { threshold:[0.4,0.65,0.9] });
+    rooms.forEach(function(r){ io.observe(r); });
+  }
+})();
+</script>
+</body>
+</html>

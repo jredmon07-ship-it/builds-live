@@ -1,0 +1,60 @@
+/* ==========================================================================
+   HALDEN WATCH CO. — Signature graphics: hero watch + in-house movement
+   Self-contained, file://-safe. No imports. All metal built from gradients.
+   STATIC-FIRST: every layer renders complete with JS OFF. watch.js only
+   animates the seconds sweep + balance oscillation (reduced-motion freezes).
+   ========================================================================== */
+
+:root{
+  --hw-ink:#0B0C0E; --hw-raised:#131519; --hw-graphite:#1C1F24;
+  --hw-platinum:#E8E9EB; --hw-steel:#9AA0A8; --hw-steel-dim:#6B7079;
+  --hw-champagne:#C8A35B; --hw-champagne-hi:#E7C988; --hw-champagne-lo:#8A6E32;
+  --hw-ruby:#9E2B25; --hw-crystal:#BFD2D8;
+  /* dial theme (override per model: --dial-a/--dial-b/--dial-sheen) */
+  --dial-a:#152535; --dial-b:#2c4763; --dial-sheen:#5b7ea0;
+}
+
+
+/* (hero-watch CSS illustration removed 2026-07-02 — replaced by photographic renders; see OWNER-NOTES-GRAPHICS.md) */
+/* ----------------------------------------------------------------------- *
+ * 2 · MOVEMENT — the SVG carries the metal; this just frames & sizes it
+ * ----------------------------------------------------------------------- */
+.mv{
+  --mv-size:clamp(300px,52vw,640px);
+  position:relative;width:var(--mv-size);height:var(--mv-size);
+  margin:0 auto;border-radius:50%;
+  background:
+    radial-gradient(circle at 32% 26%,rgba(255,255,255,.10),transparent 40%),
+    radial-gradient(circle at 50% 50%,#23262b,#14161a 70%,#0c0d10);
+  box-shadow:
+    inset 0 0 0 10px #1b1d22,
+    inset 0 0 0 12px rgba(255,255,255,.05),
+    inset 0 6px 22px rgba(0,0,0,.7),
+    0 26px 60px rgba(0,0,0,.6);
+  overflow:hidden;
+}
+/* exhibition-caseback ring: brushed steel rim, the movement sits within */
+.mv::before{
+  content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;
+  background:
+    repeating-conic-gradient(from 0deg,rgba(255,255,255,.045) 0deg,rgba(0,0,0,.05) 1.4deg,rgba(255,255,255,.045) 2.8deg);
+  -webkit-mask:radial-gradient(circle,transparent 0 91%,#000 91.5%);
+          mask:radial-gradient(circle,transparent 0 91%,#000 91.5%);
+}
+.mv svg{position:absolute;inset:0;width:100%;height:100%;display:block;}
+.mv__rim-spec{
+  position:absolute;inset:0;border-radius:50%;pointer-events:none;
+  background:conic-gradient(from 200deg,transparent 0deg,rgba(255,255,255,.4) 18deg,transparent 52deg);
+  -webkit-mask:radial-gradient(circle,transparent 0 90%,#000 90.5% 96%,transparent 96.5%);
+          mask:radial-gradient(circle,transparent 0 90%,#000 90.5% 96%,transparent 96.5%);
+  mix-blend-mode:screen;
+}
+
+/* ----------------------------------------------------------------------- *
+ * 3 · MOTION — enhancement only. JS adds .is-live; reduced-motion freezes.
+ * ----------------------------------------------------------------------- */
+/* JS rotates these via the SVG transform attribute (rotate deg cx cy);
+   reduced-motion leaves them at their drawn flattering positions. */
+@media (prefers-reduced-motion:reduce){
+  .mv__balance{animation:none !important;}
+}

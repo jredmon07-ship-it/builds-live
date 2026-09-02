@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- Halden monogram seal — hand-drawn, engraved-plate register -->
+  <rect width="48" height="48" rx="10" fill="#0B0C0E"/>
+  <circle cx="24" cy="24" r="18.6" fill="none" stroke="#E8E9EB" stroke-width="2.1"/>
+  <path d="M16.9 13.5h3.4v21h-3.4ZM27.7 13.5h3.4v21h-3.4ZM20.3 22.8h2.2v2.4h-2.2ZM25.5 22.8h2.2v2.4h-2.2Z" fill="#E8E9EB"/>
+  <circle cx="24" cy="24" r="2" fill="#C8A35B"/>
+</svg>

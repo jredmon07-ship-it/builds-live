@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Hale Group, Coastal &amp; Metropolitan California Luxury Real Estate</title>
+<meta name="description" content="The Hale Group is a boutique luxury brokerage representing distinctive coastal and metropolitan California property. Sample showcase site.">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.hero-slide{opacity:1!important}.quote{position:relative!important;opacity:1!important}</style></noscript>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0b'/%3E%3Cpath d='M9 7v18M23 7v18M9 16h14' stroke='%23d6a965' stroke-width='2'/%3E%3C/svg%3E">
+<meta property="og:title" content="The Hale Group, California Luxury Real Estate">
+<meta property="og:description" content="A boutique luxury brokerage for distinctive coastal and metropolitan California property.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Hale Group, California Luxury Real Estate">
+<meta name="twitter:description" content="A boutique luxury brokerage for distinctive coastal and metropolitan California property.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "The Hale Group",
+  "description": "A boutique luxury real-estate brokerage representing distinctive coastal and metropolitan California property. Sample showcase brand.",
+  "areaServed": "California",
+  "telephone": "+1-310-555-0148",
+  "email": "hello@halegroup.example",
+  "address": [
+    {"@type": "PostalAddress","streetAddress": "22500 Pacific Coast Hwy","addressLocality": "Malibu","addressRegion": "CA","postalCode": "90265","addressCountry": "US"},
+    {"@type": "PostalAddress","streetAddress": "9200 Wilshire Blvd, Ste 400","addressLocality": "Beverly Hills","addressRegion": "CA","postalCode": "90212","addressCountry": "US"},
+    {"@type": "PostalAddress","streetAddress": "2100 Fillmore Street","addressLocality": "San Francisco","addressRegion": "CA","postalCode": "94115","addressCountry": "US"}
+  ]
+}
+</script>
+
+<style>
+/* homepage — single featured residence */
+.hero .hero-bg::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:linear-gradient(90deg,rgba(5,5,6,.8),rgba(5,5,6,.44) 44%,rgba(5,5,6,0) 74%)}
+.feature-hero{position:relative;display:block;border:1px solid var(--line);overflow:hidden;margin-top:8px}
+.feature-hero .fh-media{aspect-ratio:16/9;overflow:hidden}
+.feature-hero .fh-media img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.feature-hero:hover .fh-media img{transform:scale(1.04)}
+.feature-hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(5,5,6,0) 38%,rgba(5,5,6,.88) 100%)}
+.feature-hero .prop-tag{position:absolute;top:20px;left:20px;z-index:2}
+.fh-body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:clamp(24px,4vw,52px)}
+.fh-body .prop-loc{font-family:"Archivo";font-weight:600;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass-bright)}
+.fh-body h3{font-family:"Archivo";font-weight:800;font-size:clamp(1.9rem,4.2vw,3.2rem);letter-spacing:-.02em;margin:10px 0 0;color:var(--ink);line-height:1}
+.fh-body .price{font-family:"Archivo";font-weight:700;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--ink);margin-top:10px}
+.fh-body .prop-specs{display:flex;gap:22px;margin-top:14px;flex-wrap:wrap}
+.fh-body .prop-specs span{font-family:"Manrope";color:var(--ink-2);font-size:.92rem}
+.fh-body .prop-specs b{color:var(--ink);font-weight:700}
+.fh-cta{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-family:"Archivo";font-weight:700;
+  font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#0a0a0b;background:var(--brass);padding:13px 22px;transition:.3s var(--ease)}
+.fh-cta svg{width:14px;height:14px}
+.feature-hero:hover .fh-cta{background:var(--brass-bright)}
+.feature-strip{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.feature-strip li{position:relative;overflow:hidden;aspect-ratio:4/3;border:1px solid var(--line)}
+.feature-strip img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.feature-strip li:hover img{transform:scale(1.05)}
+.feature-strip li::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 42%,rgba(5,5,6,.74))}
+.feature-strip span{position:absolute;left:13px;bottom:11px;z-index:2;font-family:"Archivo";font-weight:600;
+  font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.85)}
+@media(max-width:720px){.feature-strip{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-head">
+  <a class="brand" href="index.html" aria-label="The Hale Group, home">
+    <svg class="brand-glyph" viewBox="0 0 34 34" aria-hidden="true">
+      <rect x="1" y="1" width="32" height="32" fill="none" stroke="#b88a4e" stroke-width="1"/>
+      <path d="M11 8v18M23 8v18M11 17h12" stroke="#d6a965" stroke-width="1.6" fill="none"/>
+    </svg>
+    <span class="mark">Hale<small>Group · California</small></span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a href="glass-promontory.html">Featured</a>
+    <a href="sellers.html">Sell</a>
+    <a href="buyers.html">Buy</a>
+    <a href="about.html">About</a>
+    <a class="cta" href="contact.html">Contact</a>
+  </nav>
+  <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+</header>
+
+<div class="mnav" id="mnav">
+  <a href="glass-promontory.html">Featured<small>The Residence</small></a>
+  <a href="sellers.html">Sell<small>List With Us</small></a>
+  <a href="buyers.html">Buy<small>Represented</small></a>
+  <a href="about.html">About<small>The Firm</small></a>
+  <a href="contact.html">Contact<small>Three Offices</small></a>
+</div>
+
+<!-- SIDE RAIL -->
+<aside class="rail" aria-hidden="true">
+  <span class="vtext">Coast to City</span>
+  <span class="soc" role="img" aria-label="Instagram (sample)" title="Instagram, sample"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+  <span class="soc" role="img" aria-label="LinkedIn (sample)" title="LinkedIn, sample"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"/></svg></span>
+  <span class="line"></span>
+</aside>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-slide active"><img src="assets/home_hero.webp" alt="A contemporary glass-and-steel oceanfront residence on a Malibu bluff at golden-hour dusk, the Pacific beyond" width="2200" height="1257" fetchpriority="high"></div>
+  </div>
+  <div class="hero-inner wrap">
+    <p class="label reveal">Boutique California Brokerage</p>
+    <h1 class="display reveal d1">Few homes.<br>Full attention.</h1>
+    <p class="lede reveal d2">A short, considered list of coastal and metropolitan California homes.</p>
+    <div class="hero-meta reveal d3">
+      <div><div class="n">$1.4B+</div><div class="k">Lifetime Volume</div></div>
+      <div><div class="n">320+</div><div class="k">Homes Closed</div></div>
+      <div><div class="n">3</div><div class="k">California Offices</div></div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><span class="bar"></span><span class="k">Scroll</span></div>
+</section>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="label reveal">The Firm</p>
+        <h2 class="reveal d1">We do not<br>chase volume.</h2>
+      </div>
+      <p class="aside reveal d2">We take a few homes each season and do the whole job ourselves: the photography, the strategy, the negotiation.</p>
+    </div>
+    <div class="mt reveal d2">
+      <a class="link-arrow" href="about.html">Meet the firm <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FEATURED RESIDENCE (single house) -->
+<section class="section" id="featured">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="label reveal">The Residence</p>
+        <h2 class="reveal d1">We are showing<br>one home this season.</h2>
+      </div>
+      <p class="aside reveal d2"><span class="sample-note">Sample listing · figures illustrative</span><br><br>Walk it end to end, from the arrival to the shoreline.</p>
+    </div>
+
+    <a class="feature-hero reveal d1" href="glass-promontory.html" aria-label="The Glass Promontory, enter the walkthrough">
+      <div class="fh-media"><img src="assets/walk/01_arrival.webp" alt="The Glass Promontory, a glass-and-steel oceanfront residence on Carbon Beach at golden hour" width="1600" height="900" loading="lazy"></div>
+      <span class="prop-tag">For Sale · Walkthrough</span>
+      <div class="fh-body">
+        <div class="prop-loc">Malibu · Carbon Beach</div>
+        <h3>The Glass Promontory</h3>
+        <div class="price">$24,500,000</div>
+        <div class="prop-specs"><span><b>5</b> Beds</span><span><b>7</b> Baths</span><span><b>8,200</b> Sq Ft</span></div>
+        <span class="fh-cta">Walk through the residence
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+
+    <ul class="feature-strip reveal d2" aria-label="Inside The Glass Promontory">
+      <li><a href="glass-promontory.html" aria-label="The great room"><img src="assets/walk/02_greatroom.webp" alt="The great room with retractable glass walls opening to the Pacific" width="800" height="600" loading="lazy"><span>The Great Room</span></a></li>
+      <li><a href="glass-promontory.html" aria-label="The kitchen"><img src="assets/walk/03_kitchen.webp" alt="Chef's kitchen with dual honed-marble islands" width="800" height="600" loading="lazy"><span>The Kitchen</span></a></li>
+      <li><a href="glass-promontory.html" aria-label="The view"><img src="assets/walk/04_view.webp" alt="Primary-level living framing a 180-degree Pacific view" width="800" height="600" loading="lazy"><span>The View</span></a></li>
+      <li><a href="glass-promontory.html" aria-label="The pool and terrace"><img src="assets/walk/06_pool.webp" alt="Sixty-foot infinity-edge pool over Carbon Beach" width="800" height="600" loading="lazy"><span>Pool &amp; Terrace</span></a></li>
+    </ul>
+
+    <div class="center mt reveal">
+      <a class="btn gold" href="glass-promontory.html">Enter the walkthrough
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <p class="label reveal" style="margin-bottom:36px">By The Numbers <span class="sample-note" style="margin-left:8px">Sample</span></p>
+    <div class="stats reveal d1">
+      <div class="stat"><div class="n"><span data-count="21">0</span></div><div class="k">Years On The Coast</div></div>
+      <div class="stat"><div class="n"><span data-count="98">0</span><span class="suf">%</span></div><div class="k">Of List, On Average</div></div>
+      <div class="stat"><div class="n"><span data-count="6">0</span></div><div class="k">Markets, Coast To City</div></div>
+      <div class="stat"><div class="n"><span data-count="70">0</span><span class="suf">%</span></div><div class="k">Clients Returning Or Referred</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT FEATURE -->
+<section class="section">
+  <div class="wrap">
+    <div class="split">
+      <div class="media wide reveal"><img src="assets/walk/02_greatroom.webp" alt="Interior great room with floor-to-ceiling glass and warm golden-hour light over the Pacific" width="1600" height="900" loading="lazy"></div>
+      <div class="reveal d1">
+        <p class="label">Sellers</p>
+        <h2>List with intent.</h2>
+        <p>We take a home to market once, with film-grade photography, a quiet pre-market, and a plan built around the buyer it should reach.</p>
+                <a class="link-arrow" href="sellers.html" style="margin-top:8px">How we sell <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="split rev">
+      <div class="reveal order">
+        <p class="label">Buyers</p>
+        <h2>See it first.</h2>
+        <p>The homes worth wanting rarely reach a public listing. Our buyers see off-market and pre-market homes first.</p>
+                <a class="link-arrow" href="buyers.html" style="margin-top:8px">Buy with us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="media wide reveal d1"><img src="assets/walk/06_pool.webp" alt="Infinity-edge pool at golden-hour dusk overlooking the Pacific" width="1600" height="900" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" style="background:var(--bg-2)">
+  <div class="wrap">
+    <p class="label center reveal" style="justify-content:center;margin-bottom:48px">In Their Words <span class="sample-note" style="margin-left:8px">Sample</span></p>
+    <div class="quotes reveal d1">
+      <figure class="quote active">
+        <q>They sold a home three other firms could not, and never once looked hurried doing it. Twelve days, over asking.</q>
+        <figcaption class="by">A Seller<span>Montecito</span></figcaption>
+      </figure>
+      <figure class="quote">
+        <q>We saw the house before it ever hit the market. That is the whole reason we have it.</q>
+        <figcaption class="by">A Buyer<span>Pacific Heights</span></figcaption>
+      </figure>
+      <figure class="quote">
+        <q>Calm, precise, and always a step ahead. The Hale Group is the only firm we call now.</q>
+        <figcaption class="by">A Returning Client<span>Beverly Hills</span></figcaption>
+      </figure>
+    </div>
+    <div class="q-dots" role="tablist" aria-label="Testimonials">
+      <button role="tab" aria-selected="true" aria-label="Testimonial 1"></button>
+      <button role="tab" aria-selected="false" aria-label="Testimonial 2"></button>
+      <button role="tab" aria-selected="false" aria-label="Testimonial 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- OFFICE MARQUEE -->
+<section style="padding:0">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Malibu</span><span class="marquee-item">Beverly Hills</span><span class="marquee-item">Montecito</span><span class="marquee-item">Pacific Heights</span><span class="marquee-item">Newport Coast</span><span class="marquee-item">Carmel</span>
+      <span class="marquee-item">Malibu</span><span class="marquee-item">Beverly Hills</span><span class="marquee-item">Montecito</span><span class="marquee-item">Pacific Heights</span><span class="marquee-item">Newport Coast</span><span class="marquee-item">Carmel</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section center">
+  <div class="wrap">
+    <p class="label center reveal" style="justify-content:center">Begin</p>
+    <h2 class="display reveal d1" style="font-size:clamp(2.4rem,6vw,5rem);margin:24px auto 0;max-width:14ch">Start with a conversation.</h2>
+    <p class="muted reveal d2" style="max-width:46ch;margin:24px auto 0">Whether you are buying, selling, or simply curious what your home is worth right now, reach us directly.</p>
+    <div class="mt reveal d2"><a class="btn gold" href="contact.html">Contact the firm
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <span class="big serif">A small, deliberate brokerage for California's rarest addresses.</span>
+        <p class="sample-note" style="margin-top:28px">Sample showcase site · The Hale Group is a demonstration brand</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="glass-promontory.html">Featured</a></li>
+          <li><a href="sellers.html">List With Us</a></li>
+          <li><a href="buyers.html">Buy With Us</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Offices</h4>
+        <ul>
+          <li>Malibu, CA</li>
+          <li>Beverly Hills, CA</li>
+          <li>Pacific Heights, SF</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Direct</h4>
+        <ul>
+          <li><a href="tel:+13105550148">+1 (310) 555 0148</a></li>
+          <li><a href="mailto:hello@halegroup.example">hello@halegroup.example</a></li>
+          <li><a href="contact.html">Book a consultation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; <span data-year>2026</span> The Hale Group. Sample build. DRE #0X00000 (sample).</span>
+      <span class="socials">
+        <span class="soc" role="img" aria-label="Instagram (sample)" title="Instagram, sample"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+        <span class="soc" role="img" aria-label="LinkedIn (sample)" title="LinkedIn, sample"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"/></svg></span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
