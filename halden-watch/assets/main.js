@@ -311,7 +311,9 @@
     var pars = [].slice.call(d.querySelectorAll("[data-par]"));
     var bar = d.querySelector(".sbar"), thumb = bar ? bar.querySelector(".sbar__thumb") : null;
     var railTrack = d.querySelector("[data-rail-track]");
-    if (!pars.length && !bar && !railTrack) return;
+    var pinSec = d.querySelector("[data-pin]");
+    var risers = [].slice.call(d.querySelectorAll("[data-rise]"));
+    if (!pars.length && !bar && !railTrack && !pinSec) return;
 
     /* R78 (owner: the squares should run "almost out of the screen"). The
        reference clamps around 180px; the gallery plates are given much more room
@@ -347,6 +349,25 @@
         var mid = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
         var shift = mid * RANGE * depth;
         el.style.transform = "translate3d(0," + shift.toFixed(1) + "px,0)";
+      }
+
+      /* R95: the pinned statement. While its section passes, each plate climbs
+         from below the fold to above it. `data-rise` is where in the run that
+         plate begins, so they arrive one after another instead of together. */
+      if (pinSec) {
+        var pb = pinSec.getBoundingClientRect();
+        var prun = pinSec.offsetHeight - vh;
+        var pp = prun > 0 ? Math.max(0, Math.min(1, (-pb.top) / prun)) : 0;
+        for (var k = 0; k < risers.length; k++) {
+          var rp = risers[k];
+          var start = parseFloat(rp.getAttribute("data-rise")) || 0;
+          /* each plate uses the part of the run after its own start */
+          var local = Math.max(0, Math.min(1, (pp - start) / (1 - start || 1)));
+          /* from below the fold, up through the word, out of the top */
+          var from = vh * 0.62, to = -vh * 0.62;
+          var yy = from + (to - from) * local;
+          rp.style.transform = "translate3d(0," + yy.toFixed(1) + "px,0)";
+        }
       }
 
       /* R94: the watch rail. Its section is deliberately taller than the

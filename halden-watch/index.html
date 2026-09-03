@@ -204,29 +204,32 @@
   </div>
 </section>
 
-<!-- ============ IN HOUSE — scattered plates through a single word ==========
-     R92 (owner, studying the reference's own gallery): this is not a grid. One
-     enormous thin word runs the width of the screen and square plates are
-     scattered THROUGH it — some passing in front of the letters, some behind —
-     each drifting at its own rate. The depth against the type is what makes the
-     squares read as lifted off the page. -->
-<section class="scatter scatter--full g-paper" aria-labelledby="scatter-t">
-  <h2 class="scatter__word" id="scatter-t" data-reveal="block">In house</h2>
-  <div class="scatter__field">
-      <figure class="scatter__p scatter__p--a" data-mask data-par="0.95">
-        <img src="assets/img/s13-no1-quarter.webp" alt="Halden No. 1 at three-quarters, the blue sunburst dial under a low light." width="900" height="900" loading="lazy">
-      </figure>
-      <figure class="scatter__p scatter__p--b" data-mask data-par="0.45">
-        <img src="assets/img/s9-movement-holders.webp" alt="Movements resting in brass holders on the bench between timing runs." width="900" height="900" loading="lazy">
-      </figure>
-      <figure class="scatter__p scatter__p--c" data-mask data-par="1.15">
-        <img src="assets/img/s5-meridian-dial-macro.webp" alt="The Meridian's guilloche field in macro, engine-turned to the edge." width="900" height="900" loading="lazy">
-      </figure>
-      <figure class="scatter__p scatter__p--d" data-mask data-par="0.70">
-        <img src="assets/img/s14-no1-bench.webp" alt="Halden No. 1 on the bench beside a loupe and tweezers." width="900" height="900" loading="lazy">
-      </figure>
+<!-- ============ IN HOUSE — the page holds while the plates rise ===========
+     R95 (owner): the section PINS. The word stays put and the square plates climb
+     up through it from below the fold, each starting at its own point in the
+     scroll so they arrive one after another rather than as a sheet. The page only
+     moves on once they have passed. Without JS, or under reduced motion, it is a
+     single static screen with the plates simply placed. -->
+<section class="scatter g-paper" data-pin aria-labelledby="scatter-t">
+  <div class="scatter__stage" data-pin-stage>
+    <h2 class="scatter__word" id="scatter-t">In house</h2>
+    <div class="scatter__field">
+        <figure class="scatter__p scatter__p--a" data-rise="0.00">
+          <img src="assets/img/s13-no1-quarter.webp" alt="Halden No. 1 at three-quarters, the blue sunburst dial under a low light." width="900" height="900" loading="lazy">
+        </figure>
+        <figure class="scatter__p scatter__p--b" data-rise="0.18">
+          <img src="assets/img/s9-movement-holders.webp" alt="Movements resting in brass holders on the bench between timing runs." width="900" height="900" loading="lazy">
+        </figure>
+        <figure class="scatter__p scatter__p--c" data-rise="0.34">
+          <img src="assets/img/s5-meridian-dial-macro.webp" alt="The Meridian's guilloche field in macro, engine-turned to the edge." width="900" height="900" loading="lazy">
+        </figure>
+        <figure class="scatter__p scatter__p--d" data-rise="0.50">
+          <img src="assets/img/s14-no1-bench.webp" alt="Halden No. 1 on the bench beside a loupe and tweezers." width="900" height="900" loading="lazy">
+        </figure>
+    </div>
   </div>
 </section>
+
 <!-- ============ THE WATCHES — a row that scrolls past =====================
      R94 (owner): the five references are gone as a block. The watches travel
      across the screen as the page scrolls instead, and each one goes to its own

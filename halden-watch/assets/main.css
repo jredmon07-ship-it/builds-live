@@ -1828,13 +1828,6 @@ html.js .form--steps .step.is-on{
 }
 
 
-/* ================= R94: the opening statement, full screen ================= */
-.scatter--full{
-  min-height:100svh;
-  display:flex;align-items:center;
-  padding-block:clamp(3rem,8vh,7rem);
-}
-.scatter--full .scatter__word{width:100%;}
 
 /* ================= R94: the watches travel past ============================
    A row that moves across the screen as the page scrolls down, so nothing has
@@ -1879,3 +1872,64 @@ html.no-js .rail__view{position:static;height:auto;overflow-x:auto;}
   .rail__view{position:static;height:auto;overflow-x:auto;}
   .rail__track{transform:none !important;}
 }
+
+
+/* ================= R95: the statement pins while the plates rise ============
+   The section is three screens tall. Its stage sticks to the viewport for that
+   whole run, so the page appears to hold; meanwhile the plates climb from below
+   the fold, through the word, and out of the top. Each starts at its own point
+   in the run, so they arrive in sequence. */
+.scatter{position:relative;height:300vh;padding:0;overflow-x:clip;}
+.scatter__stage{
+  position:sticky;top:0;height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.scatter__word{
+  position:relative;z-index:2;width:100%;
+  font-family:var(--font-display);font-weight:400;text-transform:uppercase;
+  letter-spacing:-.02em;line-height:.82;
+  font-size:clamp(3.5rem,17vw,17rem);
+  text-align:center;color:var(--tx);margin:0;pointer-events:none;
+}
+.scatter__field{position:absolute;inset:0;pointer-events:none;}
+.scatter__p{
+  position:absolute;margin:0;aspect-ratio:1/1;overflow:hidden;
+  background:var(--bg-raised);
+  box-shadow:0 26px 60px rgba(11,12,14,.22);
+  will-change:transform;
+}
+.scatter__p img{width:100%;height:100%;object-fit:cover;display:block;}
+/* two ride behind the word, two in front of it */
+.scatter__p--a{left:8%;  width:min(21%,17rem); z-index:1;}
+.scatter__p--b{right:11%;width:min(16%,13rem); z-index:1;}
+.scatter__p--c{left:22%; width:min(25%,20rem); z-index:3;}
+.scatter__p--d{right:7%; width:min(22%,18rem); z-index:3;}
+.scatter__p{top:50%;}
+
+@media (max-width:900px){
+  .scatter{height:260vh;}
+  .scatter__word{font-size:clamp(3rem,19vw,9rem);}
+  .scatter__p--a{left:2%;width:32%;}
+  .scatter__p--b{right:3%;width:26%;}
+  .scatter__p--c{left:9%;width:36%;}
+  .scatter__p--d{right:2%;width:32%;}
+}
+/* no pinning without JS or under reduced motion — one static screen instead */
+html.no-js .scatter,
+html[data-motion="reduced"] .scatter{height:auto;}
+html.no-js .scatter__stage,
+html[data-motion="reduced"] .scatter__stage{position:static;height:auto;padding-block:14vh;}
+html.no-js .scatter__p,
+html[data-motion="reduced"] .scatter__p{position:relative;top:auto;transform:none !important;
+  display:inline-block;width:38%;margin:1%;}
+html.no-js .scatter__field,
+html[data-motion="reduced"] .scatter__field{position:static;text-align:center;margin-top:2rem;}
+
+
+/* R96 (owner: the cream screen is "just a touch too small"). It was set in svh —
+   the SMALLEST viewport height, which in a real browser is the size with the
+   toolbars showing. That leaves a sliver whenever they are retracted. dvh tracks
+   the viewport as it actually is, with vh as the fallback for older browsers. */
+.scatter__stage{height:100vh;height:100dvh;}
+.rail__view{height:100vh;height:100dvh;}
