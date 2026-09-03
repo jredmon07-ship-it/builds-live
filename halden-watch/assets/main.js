@@ -219,6 +219,59 @@
     });
   })();
 
+
+  /* ------------------------------------------------------------------ *
+   * R70 · Scroll-linked parallax + the custom scrollbar.
+   *      Measured off the reference: it runs NATIVE scrolling (no Lenis,
+   *      no Locomotive, no GSAP) with its own scrollbar element, and moves
+   *      imagery on scroll with the travel clamped near 180px. One rAF
+   *      loop drives both, and it only runs while something is in view.
+   * ------------------------------------------------------------------ */
+  (function scrollMotion() {
+    if (!motionOn()) return;
+    var pars = [].slice.call(d.querySelectorAll("[data-par]"));
+    var bar = d.querySelector(".sbar"), thumb = bar ? bar.querySelector(".sbar__thumb") : null;
+    if (!pars.length && !bar) return;
+
+    var MAX = 180;               /* the clamp the reference uses */
+    var ticking = false, lastY = -1;
+
+    function frame() {
+      ticking = false;
+      var y = w.scrollY || w.pageYOffset;
+      var vh = w.innerHeight;
+
+      for (var i = 0; i < pars.length; i++) {
+        var el = pars[i];
+        var r = el.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) continue;   /* offscreen: skip */
+        var depth = parseFloat(el.getAttribute("data-par")) || 0.18;
+        /* -1 above the fold .. +1 below it, 0 when centred */
+        var mid = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
+        var shift = Math.max(-MAX, Math.min(MAX, mid * MAX * depth));
+        el.style.transform = "translate3d(0," + shift.toFixed(1) + "px,0)";
+      }
+
+      if (thumb) {
+        var doc = d.documentElement;
+        var max = doc.scrollHeight - vh;
+        var frac = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+        var h = Math.max(40, vh * (vh / doc.scrollHeight));
+        thumb.style.height = h + "px";
+        thumb.style.transform = "translateY(" + ((vh - h) * frac).toFixed(1) + "px)";
+        bar.classList.toggle("is-live", max > 200);
+      }
+    }
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      w.requestAnimationFrame(frame);
+    }
+    w.addEventListener("scroll", onScroll, { passive: true });
+    w.addEventListener("resize", onScroll);
+    frame();
+  })();
+
   /* ------------------------------------------------------------------ *
    * 4a · Site search (W5, owner): Rolex-style panel under the bar.
    *      A small hand-kept index of everything on the site; typing

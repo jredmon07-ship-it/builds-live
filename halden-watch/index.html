@@ -283,7 +283,7 @@
      hero -> carousel -> chapter -> chapter with no change of gear. This is the
      break: type over image, nothing explained. -->
 <section class="fband" aria-labelledby="fband-title">
-  <img class="fband__img" src="assets/img/s5-meridian-dial-macro.webp" alt="The Halden Meridian dial in macro: a champagne guilloche field under polished dauphine hands." width="1600" height="1067" loading="lazy">
+  <img data-par="0.22" class="fband__img" src="assets/img/s5-meridian-dial-macro.webp" alt="The Halden Meridian dial in macro: a champagne guilloche field under polished dauphine hands." width="1600" height="1067" loading="lazy">
   <div class="fband__copy">
     <h2 class="fband__t" id="fband-title" data-reveal="lines">Halden Meridian</h2>
     <p class="fband__s" data-reveal="block">39 mm, polished steel <span class="meta">[SAMPLE]</span></p>
@@ -297,7 +297,7 @@
      a full-bleed image with a name and one CTA over it, and puts specification in
      its own centred strip. Rebuilt to that. -->
 <section class="fband fband--tall" aria-labelledby="cal-title">
-  <img class="fband__img" src="assets/img/s6-movement-macro-a.webp" width="2752" height="1536" loading="lazy"
+  <img data-par="0.22" class="fband__img" src="assets/img/s6-movement-macro-a.webp" width="2752" height="1536" loading="lazy"
        alt="Macro of the Calibre H-1: German-silver bridges under Geneva striping, ruby jewels in gold chatons, blued screws, the champagne rotor edge entering the frame.">
   <div class="fband__copy">
     <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 02</p>
@@ -330,7 +330,7 @@
     </dl>
     <p class="footnote" data-reveal="block"><span class="meta">[SAMPLE]</span></p>
   </div>
-  <img class="manu__img" src="assets/img/s8-bench-portrait.webp" width="1856" height="2304" loading="lazy"
+  <img data-par="0.14" class="manu__img" src="assets/img/s8-bench-portrait.webp" width="1856" height="2304" loading="lazy"
        alt="A watchmaker's hands adjusting a movement in a brass holder under a warm bench lamp, loupe and tweezers nearby.">
 </section>
 
@@ -346,22 +346,22 @@
     <h2 class="title" id="gal-t" data-reveal="lines">The house, seen</h2>
   </div>
   <div class="shell gallery__grid">
-      <figure class="gtile gtile--tall" data-reveal="rise" style="--i:0">
+      <figure data-mask class="gtile gtile--tall" data-reveal="rise" style="--i:0">
         <img src="assets/img/s13-no1-quarter.webp" alt="Halden No. 1 at three-quarters, the blue sunburst dial catching a low light." width="1200" height="1200" loading="lazy">
       </figure>
-      <figure class="gtile gtile--wide" data-reveal="rise" style="--i:1">
+      <figure data-mask class="gtile gtile--wide" data-reveal="rise" style="--i:1">
         <img src="assets/img/s5-meridian-dial-macro.webp" alt="The Meridian's champagne guilloche in macro, the engine-turned field running to the edge." width="1200" height="1200" loading="lazy">
       </figure>
-      <figure class="gtile gtile--sq" data-reveal="rise" style="--i:2">
+      <figure data-mask class="gtile gtile--sq" data-reveal="rise" style="--i:2">
         <img src="assets/img/s9-movement-holders.webp" alt="Movements resting in brass holders on the bench between timing runs." width="1200" height="1200" loading="lazy">
       </figure>
-      <figure class="gtile gtile--sq" data-reveal="rise" style="--i:3">
+      <figure data-mask class="gtile gtile--sq" data-reveal="rise" style="--i:3">
         <img src="assets/img/s7-movement-macro-b.webp" alt="The Calibre H-1 from the bridge side, blued screws and gold chatons." width="1200" height="1200" loading="lazy">
       </figure>
-      <figure class="gtile gtile--wide" data-reveal="rise" style="--i:4">
+      <figure data-mask class="gtile gtile--wide" data-reveal="rise" style="--i:4">
         <img src="assets/img/s14-no1-bench.webp" alt="Halden No. 1 on the watchmaker's bench beside a loupe and tweezers." width="1200" height="1200" loading="lazy">
       </figure>
-      <figure class="gtile gtile--tall" data-reveal="rise" style="--i:5">
+      <figure data-mask class="gtile gtile--tall" data-reveal="rise" style="--i:5">
         <img src="assets/img/s4-field-plate.webp" alt="Halden Field straight on, the salmon dial and printed minute track." width="1200" height="1200" loading="lazy">
       </figure>
   </div>
@@ -476,5 +476,7 @@
 </footer>
 
 
+  <!-- R70: custom scroll indicator, driven by the same rAF loop as the parallax -->
+  <div class="sbar" aria-hidden="true"><i class="sbar__thumb"></i></div>
 </body>
 </html>
