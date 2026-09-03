@@ -362,3 +362,26 @@ section{position:relative}
   .tcard .tphoto img,.tcard h3::after{transition:none}
   .tcard .tphoto img{filter:none;transform:none}
 }
+
+
+/* ---------- R59 (owner, ogroup reference) ---------- */
+/* The services / markets grid. On their site this is the substance of the seller
+   page — the thing that makes it worth visiting rather than a hero and a button. */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:44px}
+.tiles--wide{grid-template-columns:repeat(3,1fr)}
+.tile{display:block;background:var(--bg);padding:30px 26px 34px;text-decoration:none;color:inherit;
+  transition:background .5s var(--ease)}
+.tile:hover,.tile:focus-visible{background:var(--panel)}
+.tile__n{display:block;font-family:"Archivo";font-weight:600;font-size:.62rem;letter-spacing:.24em;
+  color:var(--brass-bright);margin-bottom:18px}
+.tile__t{display:block;font-size:1.12rem;margin-bottom:8px}
+.tile__d{display:block;color:var(--ink-2);font-size:.92rem;line-height:1.6}
+.tile{position:relative}
+.tile::after{content:'';position:absolute;left:26px;right:26px;bottom:22px;height:1px;
+  background:var(--brass-bright);transform:scaleX(0);transform-origin:left;
+  transition:transform .55s var(--ease)}
+.tile:hover::after,.tile:focus-visible::after{transform:scaleX(1)}
+@media (max-width:1000px){.tiles,.tiles--wide{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.tiles,.tiles--wide{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.tile,.tile::after{transition:none}}
