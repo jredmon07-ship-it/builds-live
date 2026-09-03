@@ -890,3 +890,10 @@ html.motion-on .car__card{--stagger:110ms;}
 .factpair--center{justify-content:center;text-align:center;}
 .manu__img{display:block;width:min(30rem,72vw);margin:clamp(2.5rem,5vw,4rem) auto 0;
   border:1px solid var(--line);}
+
+
+/* R60: the hero's spec line, set like the catalogue's — the opener names one
+   watch and states it, the way the reference house does. */
+.film__spec{margin-top:1rem;font-family:var(--font-mono);font-size:.8rem;
+  letter-spacing:.1em;color:var(--steel);}
+.film__copy .tlink{margin-top:1.6rem;}
