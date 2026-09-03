@@ -277,14 +277,18 @@ html.no-js .spanel{display:none;}
 }
 .menu.is-open .menu__scrim{opacity:1;}
 .menu__panel{
-  position:absolute;top:0;right:0;bottom:0;
+  /* R58 (owner): the drawer opens from the LEFT. The Menu button sits at the top
+     LEFT of the header, so a panel flying in from the opposite edge had no
+     relationship to the control that summoned it — and the reference houses open
+     left too. It now comes from under its own button. */
+  position:absolute;top:0;left:0;bottom:0;
   width:min(30rem,88vw);
   background:var(--ink);
-  border-left:1px solid var(--line);
+  border-right:1px solid var(--line);
   display:flex;flex-direction:column;
   padding:calc(var(--header-h) + 2rem) clamp(1.5rem,3vw,2.5rem) 3rem;
   overflow:auto;   /* W5: never clip Home under the bar on short viewports */
-  transform:translateX(100%);
+  transform:translateX(-100%);
   transition:transform .5s var(--ease-master);
 }
 .menu.is-open .menu__panel{transform:none;}
