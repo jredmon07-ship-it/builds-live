@@ -1231,3 +1231,55 @@ html:has(.film, .fband--top) .hdr:not(.is-shrunk) .hdr__cta:hover{
 html:has(.film, .fband--top) .hdr:not(.is-shrunk) .hdr__searchbtn{
   color:var(--platinum);
 }
+
+
+/* ================= R68: matched to the reference's actual measurements =======
+   Rendered the reference and read its computed styles rather than guessing. Its
+   section headings run 100-160px at weight 300, uppercase, very tight leading,
+   with a short paragraph set small beside them. Halden's titles were 48px
+   sentence-case — that single gap was most of why the two did not feel alike. */
+
+.title{
+  font-size:clamp(2.6rem,8.6vw,8.6rem);
+  line-height:.88;
+  letter-spacing:-.012em;
+  text-transform:uppercase;
+}
+.display{
+  font-size:clamp(3rem,9.4vw,9.4rem);
+  line-height:.86;
+  letter-spacing:-.015em;
+  text-transform:uppercase;
+}
+/* the band titles sit over photography and stay a step smaller so they do not
+   crowd the image they are labelling */
+.fband__t{font-size:clamp(2.2rem,6vw,5.4rem);line-height:.9;text-transform:uppercase;letter-spacing:-.01em;}
+.fband__t--h1{font-size:clamp(2.6rem,7.4vw,7rem);}
+
+/* A short paragraph set beside the big heading, not under it. */
+.headrow{display:grid;grid-template-columns:1fr;gap:clamp(1.2rem,3vw,3rem);align-items:end;}
+@media (min-width:900px){
+  .headrow{grid-template-columns:minmax(0,1.55fr) minmax(15rem,.85fr);}
+  .headrow .lede{margin:0;padding-bottom:.55rem;font-size:.98rem;line-height:1.62;}
+}
+
+/* The product name, in wide-letterspaced caps behind a small accent dot. */
+.car__card h3,.rec h2{
+  text-transform:uppercase;letter-spacing:.22em;font-size:.92rem;
+  display:flex;align-items:center;justify-content:center;gap:.7rem;
+}
+.car__card h3::before,.rec h2::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--accent);flex:none;
+}
+
+/* Registration ticks at the corners of each plate — the reference marks its
+   image frames this way and it is what makes them read as plates, not photos. */
+.car__card figure,.gtile{position:relative;}
+.car__card figure::before,.car__card figure::after,
+.gtile::before,.gtile::after{
+  content:'';position:absolute;width:9px;height:9px;pointer-events:none;
+  border:0 solid var(--accent);opacity:.75;
+}
+.car__card figure::before,.gtile::before{top:-1px;left:-1px;border-top-width:1px;border-left-width:1px;}
+.car__card figure::after,.gtile::after{bottom:-1px;right:-1px;border-bottom-width:1px;border-right-width:1px;}
