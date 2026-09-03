@@ -362,9 +362,22 @@
           var rp = risers[k];
           var start = parseFloat(rp.getAttribute("data-rise")) || 0;
           /* each plate uses the part of the run after its own start */
-          var local = Math.max(0, Math.min(1, (pp - start) / (1 - start || 1)));
-          /* from below the fold, up through the word, out of the top */
-          var from = vh * 0.62, to = -vh * 0.62;
+          /* R100 (owner): the plates must all be GONE before the page moves on.
+             They finish their climb by 78% of the run, and the last stretch is a
+             deliberate empty hold on the word alone — so nothing is still on
+             screen when the next section starts to arrive. */
+          var END = 0.78;
+          var span = Math.max(0.01, END - start);
+          var local = Math.max(0, Math.min(1, (pp - start) / span));
+          /* R101: the travel has to be measured from the plate's OWN size, not a
+             fixed slice of the viewport. Each plate is anchored at the middle of
+             the stage, so to be fully below the fold it must sit at least half a
+             viewport down, and to be fully clear of the top it must rise half a
+             viewport PLUS its own height. A fixed fraction left the taller ones
+             still on screen at the end of the run. */
+          var ph = rp.offsetHeight;
+          var from = vh * 0.5 + 40;
+          var to = -(vh * 0.5 + ph + 40);
           var yy = from + (to - from) * local;
           rp.style.transform = "translate3d(0," + yy.toFixed(1) + "px,0)";
         }
