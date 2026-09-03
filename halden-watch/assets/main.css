@@ -1335,3 +1335,27 @@ html[data-motion="reduced"] .sbar{display:none;}
     clip-path:none;transform:none;opacity:1;transition:none;}
   .sbar{display:none;}
 }
+
+
+/* R72: the masked line reveal existed but every line fired at once, so a
+   two-line heading rose as one slab. The reference cascades them. Each line now
+   waits on the one above it, and the rise uses the expo curve measured off the
+   reference rather than the generic master ease — it travels further, faster,
+   and settles longer, which is what makes it read as weight rather than a slide. */
+html.motion-on .rl > span{
+  transition:transform 1150ms var(--e-expo);
+}
+html.motion-on .rl:nth-child(1) > span{transition-delay:0ms;}
+html.motion-on .rl:nth-child(2) > span{transition-delay:90ms;}
+html.motion-on .rl:nth-child(3) > span{transition-delay:180ms;}
+html.motion-on .rl:nth-child(4) > span{transition-delay:270ms;}
+html.motion-on .rl:nth-child(5) > span{transition-delay:360ms;}
+
+/* the kicker above a heading leads it in, rather than arriving together */
+html.motion-on .kicker[data-reveal]{transition-delay:0ms;}
+html.motion-on .title[data-reveal],
+html.motion-on .display[data-reveal]{transition-delay:60ms;}
+
+@media (prefers-reduced-motion:reduce){
+  html.motion-on .rl > span{transition:none;transform:none;}
+}

@@ -98,9 +98,24 @@
     var hdr = d.querySelector("[data-hdr]");
     if (!hdr) return;
     var lastY = w.scrollY;
+    /* R71 (owner): the bar was materialising after 72px — 8% of the viewport —
+       so over a full-bleed opening it went solid almost immediately and the
+       transparent state was never really seen. It should hold for the whole
+       hero and take its ground as the hero leaves. Measured from the hero
+       itself, so it is right at any viewport height; pages without a full-bleed
+       opening keep the original small threshold. */
+    var heroEl = d.querySelector(".film, .fband--top");
+    var solidAt = w.innerHeight * 0.08;
+    function measureHero() {
+      solidAt = heroEl
+        ? Math.max(120, heroEl.getBoundingClientRect().height - hdr.offsetHeight * 1.2)
+        : w.innerHeight * 0.08;
+    }
+    measureHero();
+    w.addEventListener("resize", measureHero);
     w.addEventListener("scroll", function () {
       var y = w.scrollY;
-      hdr.classList.toggle("is-shrunk", y > w.innerHeight * 0.08);
+      hdr.classList.toggle("is-shrunk", y > solidAt);
       if (y > 100 && y > lastY + 4) hdr.classList.add("is-hidden");
       else if (y < lastY - 4 || y <= 100) hdr.classList.remove("is-hidden");
       d.body.classList.toggle("hdr-hidden", hdr.classList.contains("is-hidden"));
