@@ -1359,3 +1359,106 @@ html.motion-on .display[data-reveal]{transition-delay:60ms;}
 @media (prefers-reduced-motion:reduce){
   html.motion-on .rl > span{transition:none;transform:none;}
 }
+
+
+/* ================= R73 (owner) ============================================= */
+
+/* 1 · The bar. The reference runs an INLINE nav — logo hard left, the links in
+   wide letterspaced caps hard right, no burger at all on desktop. Halden was
+   burger-left / wordmark-centre / pill-right, which is a different bar entirely.
+   The burger stays for small screens, where an inline nav will not fit. */
+@media (min-width:900px){
+  .hdr__burger{display:none;}
+  .hdr__in{display:flex;align-items:center;gap:2rem;}
+  .hdr__mark{margin-right:auto;}
+  .hdr__nav{margin-left:0;gap:2.6rem;align-items:center;}
+  .hdr__nav > a,.hdr__group > a{
+    font-family:var(--font-mono);
+    font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:400;
+  }
+  .hdr__searchbtn{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;}
+  .hdr__cta{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;}
+}
+
+/* 2 · The full-bleed opening settles instead of simply appearing: the film holds
+   a slow scale-down over four seconds on the expo curve, the same treatment the
+   plates get. */
+html.motion-on .film__vid.is-on{
+  animation:filmSettle 4.5s var(--e-expo) both;
+}
+@keyframes filmSettle{
+  from{transform:scale(1.12);}
+  to{transform:scale(1);}
+}
+html.motion-on .film__poster{
+  transition:opacity 1.2s var(--e-cubic);
+}
+/* the poster sits BEFORE the video in the DOM, so a sibling combinator can
+   never reach it — :has() on the shared parent is the only form that works */
+html.motion-on .film__media:has(.film__vid.is-on) .film__poster{opacity:0;}
+
+@media (prefers-reduced-motion:reduce){
+  html.motion-on .film__vid.is-on{animation:none;}
+}
+
+
+/* ================= R74 (owner: "the text for some breaks apart") ============
+   Two real faults, both caused by pushing the display scale to 8.6vw:
+
+   1. A line wider than its own mask was being CUT OFF, because the masked line
+      wrapper needs overflow:hidden for the rise and that clips horizontally too.
+      Measured 886px of text inside a 736px box on the homepage.
+   2. Short titles shattered into one-word lines — "REQUEST / A / VIEWING" on the
+      contact page, "CALIBRE / H-1" on the calibre page.
+
+   The scale comes back to a size that still reads as display type but lets a
+   short phrase hold together, and every heading balances its lines rather than
+   leaving orphans. */
+.title{
+  font-size:clamp(2.2rem,6.2vw,6.2rem);
+  text-wrap:balance;
+  overflow-wrap:normal;
+  hyphens:none;
+}
+.display{
+  font-size:clamp(2.5rem,7vw,7.2rem);
+  text-wrap:balance;
+  overflow-wrap:normal;
+  hyphens:none;
+}
+/* the mask may clip vertically — that is the whole effect — but it must never
+   swallow the end of a line. A little horizontal room costs nothing because the
+   transform only ever moves the line up and down. */
+html.motion-on .rl{overflow:clip;overflow-clip-margin:0 0.35em;}
+
+
+/* ================= R75: the real cause of the shattered headings ===========
+   Measured: the band title was rendering at 106.56px inside a 480px column,
+   because .fband__copy > * caps every child at 30rem. A 106px line cannot fit
+   480px, so "REQUEST A VIEWING" broke into three one-word lines and "CALIBRE
+   H-1" into two. The title gets room to be a title; the spec line and the link
+   keep the narrow measure that suits them. */
+.fband__copy > .fband__t,
+.fband__copy > .fband__t--h1{
+  max-width:min(64rem,88vw);
+}
+.fband__t{font-size:clamp(2rem,5vw,4.6rem);}
+.fband__t--h1{font-size:clamp(2.2rem,5.6vw,5.6rem);}
+.fband__copy > .fband__s,
+.fband__copy > .tlink,
+.fband__copy > .crumbs,
+.fband__copy > .kicker{max-width:min(34rem,80vw);}
+
+/* Section headings were running 89px, which put a two-word title across most of
+   the screen. Still display scale, no longer the whole viewport. */
+.title{font-size:clamp(2.1rem,5.4vw,5.4rem);}
+.display{font-size:clamp(2.3rem,6vw,6rem);}
+
+
+/* R76: the desktop inline nav did not take, because `html.js .hdr__burger{flex}`
+   outranks a bare `.hdr__burger` — a media query adds no specificity of its own.
+   Matched here so the burger really does stand down on desktop and the nav reads
+   inline, the way the reference's bar does. */
+@media (min-width:900px){
+  html.js .hdr__burger{display:none;}
+}

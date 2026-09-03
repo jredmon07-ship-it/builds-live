@@ -553,7 +553,7 @@
         var portrait = w.matchMedia("(max-width: 768px)").matches;
         vid.src = portrait ? vid.getAttribute("data-src-portrait") : vid.getAttribute("data-src");
         var timer = w.setTimeout(function () { /* poster stays; no hole */ }, 2500);
-        vid.addEventListener("canplay", function () {
+        vid.addEventListener("loadeddata", function () {
           w.clearTimeout(timer);
           vid.classList.add("is-on");
           var p = vid.play(); if (p && p.catch) p.catch(function () {});
@@ -561,8 +561,14 @@
         vid.load();
       });
     };
-    if (d.readyState === "complete") start();
-    else w.addEventListener("load", start, { once: true });
+    /* R73 (owner: "the video doesn't play on startup"). It was waiting on the
+       window LOAD event, which does not fire until every image on the page has
+       finished — several seconds — and only then began fetching a 7MB file. The
+       hero sat on its poster the whole time. Start as soon as the DOM is ready,
+       and reveal on loadeddata rather than canplay so the first frame shows the
+       moment there is one. */
+    if (d.readyState !== "loading") start();
+    else d.addEventListener("DOMContentLoaded", start, { once: true });
   }
   function teardownVideo() {
     if (!vid || !videoReady) return;
