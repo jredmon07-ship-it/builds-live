@@ -176,7 +176,7 @@
     if (!wrap) return;
     /* the homepage filters its carousel, the collection page its catalogue
        grid; the tablist names its own target so one behaviour drives both. */
-    var track = d.querySelector(wrap.getAttribute("data-target") || ".car__track");
+    var track = d.querySelector(wrap.getAttribute("data-target") || ".car__grid, .car__track");
     if (!track) return;
     var cards = [].slice.call(track.querySelectorAll("[data-mm]"));
     if (!cards.length) return;
@@ -218,6 +218,27 @@
    *      still takes you to the field. With JS it also picks that city,
    *      which saves the visitor doing it twice.
    * ------------------------------------------------------------------ */
+  /* R78 (owner): every city on the homepage used to land on the same page with
+     nothing selected, so "it always takes you to the request a viewing page" was
+     literally true. Each city now arrives with ?boutique=<city>; this reads it,
+     selects that boutique and moves focus to it. */
+  (function boutiqueFromQuery() {
+    var sel = d.getElementById("boutique");
+    if (!sel) return;
+    var want;
+    try { want = new URLSearchParams(w.location.search).get("boutique"); } catch (e) { return; }
+    if (!want) return;
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value.toLowerCase() === want.toLowerCase() ||
+          sel.options[i].text.toLowerCase() === want.toLowerCase()) {
+        sel.selectedIndex = i;
+        sel.dispatchEvent(new Event("change", { bubbles: true }));
+        try { sel.focus({ preventScroll: true }); } catch (e) { sel.focus(); }
+        break;
+      }
+    }
+  })();
+
   (function boutiqueRows() {
     var wrap = d.querySelector("[data-boutique-rows]");
     var sel = d.getElementById("boutique");
@@ -248,7 +269,10 @@
     var bar = d.querySelector(".sbar"), thumb = bar ? bar.querySelector(".sbar__thumb") : null;
     if (!pars.length && !bar) return;
 
-    var MAX = 180;               /* the clamp the reference uses */
+    /* R78 (owner: the squares should run "almost out of the screen"). The
+       reference clamps around 180px; the gallery plates are given much more room
+       because their pictures are oversized inside their frames and can afford it. */
+    var MAX = 180, MAX_BIG = 340;
     var ticking = false, lastY = -1;
 
     function frame() {
@@ -263,7 +287,8 @@
         var depth = parseFloat(el.getAttribute("data-par")) || 0.18;
         /* -1 above the fold .. +1 below it, 0 when centred */
         var mid = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
-        var shift = Math.max(-MAX, Math.min(MAX, mid * MAX * depth));
+        var cap = depth > 0.4 ? MAX_BIG : MAX;
+        var shift = Math.max(-cap, Math.min(cap, mid * cap * depth));
         el.style.transform = "translate3d(0," + shift.toFixed(1) + "px,0)";
       }
 
@@ -612,7 +637,12 @@
   (function carousel() {
     var car = d.querySelector("[data-car]");
     if (!car) return;
+    /* R80: the five references are a GRID now, not a horizontal scroller, so the
+       track and the prev/next buttons are gone. This threw on a null element and
+       took the tab filter down with it, because both live in this file. Bail
+       cleanly when there is nothing to drive. */
     var track = car.querySelector(".car__track");
+    if (!track) return;
     var step = function () {
       var card = track.querySelector(".car__card");
       return card ? card.offsetWidth + 24 : 320;

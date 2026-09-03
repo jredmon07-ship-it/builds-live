@@ -80,6 +80,7 @@
       <span class="visually-hidden">Halden Watch Co.</span>
     </a>
     <nav class="hdr__nav" aria-label="Primary">
+      <a href="collection.html#catalogue">Catalogue</a>
       <div class="hdr__group" data-wnav>
         <a href="collection.html">Watches</a>
         <div class="wpanel">
@@ -217,21 +218,13 @@
       <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 01</p>
       <h2 class="title" data-reveal="lines">The five references</h2>
     </div>
-    <div class="car__nav" aria-hidden="false">
-      <button class="car__btn" type="button" data-car-btn="prev" aria-label="Previous reference">
-        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M10.5 2 5 8l5.5 6" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
-      </button>
-      <button class="car__btn" type="button" data-car-btn="next" aria-label="Next reference">
-        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M5.5 2 11 8l-5.5 6" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
-      </button>
-    </div>
   </div>
   <!-- R61 (owner, Omega reference): their product section sits under a row of
        TABS and swaps the carousel's contents. Ours filters the same five on case
        size, which is the axis they themselves use ("Explore a Smaller Size").
        JS-only: without it the list simply stays whole, which is the correct
        no-JS result. -->
-  <div class="shell car__tabs" data-cartabs hidden>
+  <div class="shell car__tabs" data-cartabs data-target=".car__grid" hidden>
     <div class="tabs" role="tablist" aria-label="Filter the references by case size">
       <button class="tab is-on" role="tab" type="button" aria-selected="true"  data-filter="all">All five</button>
       <button class="tab"       role="tab" type="button" aria-selected="false" data-filter="small">38 mm and under</button>
@@ -239,7 +232,9 @@
     </div>
   </div>
 
-  <ul class="car__track" tabindex="0" aria-label="The five references. Use the arrow keys to move between watches.">
+  <!-- R78 (owner): this was a horizontal snap scroller and he had to drag it
+       sideways to see all five. It is a grid now — every reference on screen. -->
+  <ul class="car__grid" aria-label="The five references">
     <li class="car__card" data-reveal="lift" data-mm="38" style="--i:0">
       <figure><img src="assets/img/s2-no1-plate.webp" width="1856" height="2304" loading="lazy" alt="Halden No. 1, straight on: blue sunburst dial, brushed steel case, crown to the right."></figure>
       <h3>Halden No. 1</h3>
@@ -291,6 +286,93 @@
   </div>
 </section>
 
+
+<!-- R77 (owner): the manufacture chapter is off the homepage — founding dates
+     are not what a visitor came for. The Calibre page still carries the record. -->
+
+
+<!-- ============ THE HOUSE, SEEN ============
+     R66 (owner, Vanguart reference): a gallery of varied-ratio plates that RISE
+     into place as the page scrolls, staggered, each one lifting slightly out of
+     depth. Built from Halden's own photography — no copy on it at all, the images
+     are the section. -->
+<section class="gallery g-paper" aria-labelledby="gal-t">
+  <div class="shell gallery__head">
+    <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 05</p>
+    <h2 class="title" id="gal-t" data-reveal="lines">The house, seen</h2>
+  </div>
+  <div class="shell gallery__grid">
+      <figure data-mask  class="gtile gtile--tall" data-reveal="rise" style="--i:0">
+        <img data-par="0.85" src="assets/img/s13-no1-quarter.webp" alt="Halden No. 1 at three-quarters, the blue sunburst dial catching a low light." width="1200" height="1200" loading="lazy">
+      </figure>
+      <figure data-mask  class="gtile gtile--wide" data-reveal="rise" style="--i:1">
+        <img data-par="0.55" src="assets/img/s5-meridian-dial-macro.webp" alt="The Meridian's champagne guilloche in macro, the engine-turned field running to the edge." width="1200" height="1200" loading="lazy">
+      </figure>
+      <figure data-mask  class="gtile gtile--sq" data-reveal="rise" style="--i:2">
+        <img data-par="0.95" src="assets/img/s9-movement-holders.webp" alt="Movements resting in brass holders on the bench between timing runs." width="1200" height="1200" loading="lazy">
+      </figure>
+      <figure data-mask  class="gtile gtile--sq" data-reveal="rise" style="--i:3">
+        <img data-par="0.62" src="assets/img/s7-movement-macro-b.webp" alt="The Calibre H-1 from the bridge side, blued screws and gold chatons." width="1200" height="1200" loading="lazy">
+      </figure>
+      <figure data-mask  class="gtile gtile--wide" data-reveal="rise" style="--i:4">
+        <img data-par="0.78" src="assets/img/s14-no1-bench.webp" alt="Halden No. 1 on the watchmaker's bench beside a loupe and tweezers." width="1200" height="1200" loading="lazy">
+      </figure>
+      <figure data-mask  class="gtile gtile--tall" data-reveal="rise" style="--i:5">
+        <img data-par="0.90" src="assets/img/s4-field-plate.webp" alt="Halden Field straight on, the salmon dial and printed minute track." width="1200" height="1200" loading="lazy">
+      </figure>
+  </div>
+</section>
+
+<!-- ============ 06 · THE BOUTIQUES ============ -->
+<section class="chapter chapter--tight grain">
+  <div class="shell">
+    <div class="block">
+      <!-- R77 (owner): no heading. Five city names are self-evidently the boutiques. -->
+    </div>
+    <!-- R61 (owner: "the boutique part could be a little better, nicer aesthetic").
+         A dot-separated line of city names was a list, not a section. Each city
+         now holds its own bordered cell with the street it sits on, set in the
+         display face, with the appointment line appearing on hover — the same
+         hairline-grid language the specification strip uses. -->
+    <!-- R62 (owner: "you just added more text instead of making it graphically
+         pleasing"). Correct — street names were more words, not more design. The
+         cities are the graphic now: each set LARGE in the display face on its own
+         rule, the row sliding right and the city going champagne under the cursor.
+         Five words on the whole section. -->
+    <div class="brows" data-reveal="block">
+      <a class="brow" href="contact.html?boutique=New%20York#boutique">
+        <span class="brow__i">01</span>
+        <span class="brow__city">New York</span>
+        <span class="brow__go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="brow" href="contact.html?boutique=London#boutique">
+        <span class="brow__i">02</span>
+        <span class="brow__city">London</span>
+        <span class="brow__go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="brow" href="contact.html?boutique=Geneva#boutique">
+        <span class="brow__i">03</span>
+        <span class="brow__city">Geneva</span>
+        <span class="brow__go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="brow" href="contact.html?boutique=Tokyo#boutique">
+        <span class="brow__i">04</span>
+        <span class="brow__city">Tokyo</span>
+        <span class="brow__go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="brow" href="contact.html?boutique=Singapore#boutique">
+        <span class="brow__i">05</span>
+        <span class="brow__city">Singapore</span>
+        <span class="brow__go" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+    <p class="bstrip__note" data-reveal="block">[SAMPLE] &mdash; boutique cities are illustrative for this concept build.</p>
+  </div>
+</section>
+
+<!-- ============ 07 · VIEWING BAND ============ -->
+<!-- R78 (owner): the Calibre sits near the END of the homepage now — the
+     watches lead, the movement closes.  -->
 <!-- ============ 04 · CALIBRE H-1 (full-bleed, then a centred spec strip) ====
      R57 (owner): every chapter was the same photo-beside-a-paragraph block, which
      is exactly why this read like the other site. Omega does not do that — it runs
@@ -319,103 +401,6 @@
   </div>
 </section>
 
-<!-- ============ 05 · THE MANUFACTURE (centred, figures as the subject) ==== -->
-<section class="chapter chapter--tight grain manu">
-  <div class="shell manu__in">
-    <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 03</p>
-    <h2 class="title" data-reveal="lines">The manufacture</h2>
-    <dl class="factpair factpair--center" data-reveal="block">
-      <div><dt>Founded</dt><dd>2013</dd></div>
-      <div><dt>H-1 cased since</dt><dd>2023</dd></div>
-    </dl>
-    <p class="footnote" data-reveal="block"><span class="meta">[SAMPLE]</span></p>
-  </div>
-  <img data-par="0.14" class="manu__img" src="assets/img/s8-bench-portrait.webp" width="1856" height="2304" loading="lazy"
-       alt="A watchmaker's hands adjusting a movement in a brass holder under a warm bench lamp, loupe and tweezers nearby.">
-</section>
-
-
-<!-- ============ THE HOUSE, SEEN ============
-     R66 (owner, Vanguart reference): a gallery of varied-ratio plates that RISE
-     into place as the page scrolls, staggered, each one lifting slightly out of
-     depth. Built from Halden's own photography — no copy on it at all, the images
-     are the section. -->
-<section class="gallery g-paper" aria-labelledby="gal-t">
-  <div class="shell gallery__head">
-    <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 05</p>
-    <h2 class="title" id="gal-t" data-reveal="lines">The house, seen</h2>
-  </div>
-  <div class="shell gallery__grid">
-      <figure data-mask  class="gtile gtile--tall" data-reveal="rise" style="--i:0">
-        <img data-par="0.1" src="assets/img/s13-no1-quarter.webp" alt="Halden No. 1 at three-quarters, the blue sunburst dial catching a low light." width="1200" height="1200" loading="lazy">
-      </figure>
-      <figure data-mask  class="gtile gtile--wide" data-reveal="rise" style="--i:1">
-        <img data-par="0.2" src="assets/img/s5-meridian-dial-macro.webp" alt="The Meridian's champagne guilloche in macro, the engine-turned field running to the edge." width="1200" height="1200" loading="lazy">
-      </figure>
-      <figure data-mask  class="gtile gtile--sq" data-reveal="rise" style="--i:2">
-        <img data-par="0.14" src="assets/img/s9-movement-holders.webp" alt="Movements resting in brass holders on the bench between timing runs." width="1200" height="1200" loading="lazy">
-      </figure>
-      <figure data-mask  class="gtile gtile--sq" data-reveal="rise" style="--i:3">
-        <img data-par="0.24" src="assets/img/s7-movement-macro-b.webp" alt="The Calibre H-1 from the bridge side, blued screws and gold chatons." width="1200" height="1200" loading="lazy">
-      </figure>
-      <figure data-mask  class="gtile gtile--wide" data-reveal="rise" style="--i:4">
-        <img data-par="0.12" src="assets/img/s14-no1-bench.webp" alt="Halden No. 1 on the watchmaker's bench beside a loupe and tweezers." width="1200" height="1200" loading="lazy">
-      </figure>
-      <figure data-mask  class="gtile gtile--tall" data-reveal="rise" style="--i:5">
-        <img data-par="0.18" src="assets/img/s4-field-plate.webp" alt="Halden Field straight on, the salmon dial and printed minute track." width="1200" height="1200" loading="lazy">
-      </figure>
-  </div>
-</section>
-
-<!-- ============ 06 · THE BOUTIQUES ============ -->
-<section class="chapter chapter--tight grain">
-  <div class="shell">
-    <div class="block">
-      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 06</p>
-      <h2 class="title" data-reveal="lines">The boutiques</h2>
-    </div>
-    <!-- R61 (owner: "the boutique part could be a little better, nicer aesthetic").
-         A dot-separated line of city names was a list, not a section. Each city
-         now holds its own bordered cell with the street it sits on, set in the
-         display face, with the appointment line appearing on hover — the same
-         hairline-grid language the specification strip uses. -->
-    <!-- R62 (owner: "you just added more text instead of making it graphically
-         pleasing"). Correct — street names were more words, not more design. The
-         cities are the graphic now: each set LARGE in the display face on its own
-         rule, the row sliding right and the city going champagne under the cursor.
-         Five words on the whole section. -->
-    <div class="brows" data-reveal="block">
-      <a class="brow" href="contact.html">
-        <span class="brow__i">01</span>
-        <span class="brow__city">New York</span>
-        <span class="brow__go" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="brow" href="contact.html">
-        <span class="brow__i">02</span>
-        <span class="brow__city">London</span>
-        <span class="brow__go" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="brow" href="contact.html">
-        <span class="brow__i">03</span>
-        <span class="brow__city">Geneva</span>
-        <span class="brow__go" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="brow" href="contact.html">
-        <span class="brow__i">04</span>
-        <span class="brow__city">Tokyo</span>
-        <span class="brow__go" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="brow" href="contact.html">
-        <span class="brow__i">05</span>
-        <span class="brow__city">Singapore</span>
-        <span class="brow__go" aria-hidden="true">&rarr;</span>
-      </a>
-    </div>
-    <p class="bstrip__note" data-reveal="block">[SAMPLE] &mdash; boutique cities are illustrative for this concept build.</p>
-  </div>
-</section>
-
-<!-- ============ 07 · VIEWING BAND ============ -->
 <section class="cta-band grain">
   <div class="shell in">
     <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> By appointment</p>

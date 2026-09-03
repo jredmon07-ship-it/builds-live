@@ -1462,3 +1462,77 @@ html.motion-on .rl{overflow:clip;overflow-clip-margin:0 0.35em;}
 @media (min-width:900px){
   html.js .hdr__burger{display:none;}
 }
+
+
+/* ================= R78 (owner) ============================================= */
+
+/* 1 · The five references were a horizontal snap scroller — he had to drag
+   sideways to see them all. Every reference is on screen now. */
+.car__grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:clamp(.9rem,1.6vw,1.7rem);
+  list-style:none;margin:0;padding:0;
+  perspective:1200px;
+}
+@media (max-width:1180px){ .car__grid{grid-template-columns:repeat(3,1fr);} }
+@media (max-width:760px){  .car__grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:430px){  .car__grid{grid-template-columns:1fr;} }
+.car__grid .car__card{scroll-snap-align:none;}
+
+/* 2 · The squares now really travel. They sit in a fixed frame with the picture
+   deliberately taller than it, so it can drift a long way without ever showing
+   an edge — which is what lets them run almost out of the frame as you scroll. */
+.gtile{overflow:hidden;}
+.gtile img{height:132%;position:relative;top:-16%;will-change:transform;}
+
+/* 3 · The nav hover. The underline wipes in from the left on the reference's own
+   easing, and the label lifts a little as it does. */
+@media (min-width:900px){
+  .hdr__nav > a,.hdr__group > a{
+    position:relative;display:inline-flex;align-items:center;
+    transition:transform .45s var(--e-quint),color .45s var(--e-quint);
+  }
+  .hdr__nav > a::after,.hdr__group > a::after{
+    transition:transform .55s var(--e-quint);
+    height:1px;background:currentColor;
+  }
+  .hdr__nav > a:hover,.hdr__group > a:hover,
+  .hdr__nav > a:focus-visible,.hdr__group > a:focus-visible{
+    transform:translateY(-2px);
+  }
+  .hdr__nav > a:hover::after,.hdr__group > a:hover::after,
+  .hdr__nav > a:focus-visible::after,.hdr__group > a:focus-visible::after{
+    transform:scaleX(1);
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .hdr__nav > a,.hdr__group > a,.hdr__nav > a::after{transition:none;transform:none;}
+  .gtile img{position:static;height:100%;top:auto;}
+}
+
+
+/* R79: the grid still scrolled sideways, and the cause was my own product-name
+   rule. Making the h3 a flex container turned its text into a single anonymous
+   flex item, which does not wrap — so "HALDEN CROSSING" at .22em tracking simply
+   ran past a 270px column. The dot is an inline marker instead, so the name wraps
+   like normal text and the grid holds its width. */
+.car__card h3,.rec h2{
+  display:block;
+  letter-spacing:.14em;
+  font-size:.8rem;
+  line-height:1.5;
+  overflow-wrap:anywhere;
+}
+.car__card h3::before,.rec h2::before{
+  display:inline-block;vertical-align:middle;
+  margin-right:.55em;position:relative;top:-1px;
+}
+
+
+/* R80: the grid's perspective projects its un-revealed cards past the viewport
+   and gave the PAGE a 1533px scroll width at a 1440px viewport — a horizontal
+   scrollbar with nothing actually sticking out. Clipping on the x axis only
+   contains the projection without touching the vertical lift. */
+.car{overflow-x:clip;}
+.gallery{overflow-x:clip;}
