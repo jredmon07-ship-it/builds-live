@@ -945,3 +945,38 @@ html.motion-on .car__card{--stagger:110ms;}
   .bcard,.bcard__cta{transition:none;}
   .bcard__cta{opacity:1;transform:none;}
 }
+
+
+/* R62: a band carrying the page's H1 needs display scale, not section scale. */
+.fband__t--h1{font-size:var(--fs-display);}
+
+
+/* ---------- R62 (owner): the boutiques, as a graphic ---------- */
+.fband--top{margin-top:0;}
+.fband--top .fband__img{height:clamp(560px,92vh,940px);}
+
+.brows{margin-top:var(--space-4);border-top:1px solid var(--line);}
+.brow{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:1.6rem;
+  padding:1.5rem .5rem;border-bottom:1px solid var(--line);
+  text-decoration:none;color:inherit;
+  transition:padding-left .55s var(--ease-master),background .55s var(--ease-master);
+}
+.brow:hover,.brow:focus-visible{padding-left:1.6rem;background:var(--bg-raised);}
+.brow__i{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.18em;color:var(--tx3);}
+.brow__city{
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem,4.4vw,3.4rem);line-height:1;color:var(--tx);
+  transition:color .45s var(--ease-master);
+}
+.brow:hover .brow__city,.brow:focus-visible .brow__city{color:var(--accent);}
+.brow__go{
+  font-family:var(--font-mono);color:var(--accent);
+  opacity:0;transform:translateX(-10px);
+  transition:opacity .45s var(--ease-master),transform .45s var(--ease-master);
+}
+.brow:hover .brow__go,.brow:focus-visible .brow__go{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .brow,.brow__city,.brow__go{transition:none;}
+  .brow__go{opacity:1;transform:none;}
+}
