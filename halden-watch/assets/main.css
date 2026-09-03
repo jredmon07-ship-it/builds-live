@@ -1933,3 +1933,31 @@ html[data-motion="reduced"] .scatter__field{position:static;text-align:center;ma
    the viewport as it actually is, with vh as the fallback for older browsers. */
 .scatter__stage{height:100vh;height:100dvh;}
 .rail__view{height:100vh;height:100dvh;}
+
+
+/* R98 (owner): "the menu when hovering over the watches doesn't always match".
+   It did not. Over a full-bleed opening the bar is transparent on a dark film,
+   but the dropdown still opened as a white sheet — two different surfaces from
+   the same bar. The panel now takes the bar's own state: dark while the bar is
+   dark, and its ordinary paper once the bar has taken its white ground. */
+html:has(.film, .fband--top) .hdr:not(.is-shrunk) .wpanel{
+  background:rgba(11,12,14,.94);
+  border-bottom-color:rgba(233,231,226,.16);
+  box-shadow:0 24px 44px rgba(0,0,0,.45);
+}
+html:has(.film, .fband--top) .hdr:not(.is-shrunk) .wpanel .nm{color:var(--platinum);}
+html:has(.film, .fband--top) .hdr:not(.is-shrunk) .wpanel .dl{color:var(--steel);}
+html:has(.film, .fband--top) .hdr:not(.is-shrunk) .wpanel__item:hover .nm{color:var(--accent);}
+html:has(.film, .fband--top) .hdr:not(.is-shrunk) .wpanel__item img{border-color:rgba(233,231,226,.22);}
+html:has(.film, .fband--top) .hdr:not(.is-shrunk) .wpanel__all{
+  color:var(--platinum);border-color:rgba(233,231,226,.35);
+}
+html:has(.film, .fband--top) .hdr:not(.is-shrunk) .wpanel__all:hover{
+  color:var(--ink);background:var(--platinum);border-color:var(--platinum);
+}
+/* the bar carries a wash of its own while transparent, so the two read as one
+   surface rather than a floating panel under nothing */
+html:has(.film, .fband--top) .hdr:not(.is-shrunk):has(.hdr__group:hover){
+  background:rgba(11,12,14,.94);
+  border-bottom-color:transparent;
+}

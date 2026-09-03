@@ -189,54 +189,11 @@
      have repeated the homepage block verbatim. Each cell jumps to the
      boutique field; script also selects that city there, which is a
      convenience, not the mechanism. -->
-<section class="g-paper chapter chapter--tight">
-  <div class="shell">
-    <div class="block">
-      <p class="kicker" data-reveal="block">01</p>
-      <h2 class="title" data-reveal="lines">The boutiques</h2>
-    </div>
-    <div class="bgrid" data-reveal="block" data-boutique-rows>
-      <a class="bcard" href="#boutique" data-city="New York">
-        <span class="bcard__st">01</span>
-        <span class="bcard__city">New York</span>
-        <span class="bcard__cta">Choose &rarr;</span>
-      </a>
-      <a class="bcard" href="#boutique" data-city="London">
-        <span class="bcard__st">02</span>
-        <span class="bcard__city">London</span>
-        <span class="bcard__cta">Choose &rarr;</span>
-      </a>
-      <a class="bcard" href="#boutique" data-city="Geneva">
-        <span class="bcard__st">03</span>
-        <span class="bcard__city">Geneva</span>
-        <span class="bcard__cta">Choose &rarr;</span>
-      </a>
-      <a class="bcard" href="#boutique" data-city="Tokyo">
-        <span class="bcard__st">04</span>
-        <span class="bcard__city">Tokyo</span>
-        <span class="bcard__cta">Choose &rarr;</span>
-      </a>
-      <a class="bcard" href="#boutique" data-city="Singapore">
-        <span class="bcard__st">05</span>
-        <span class="bcard__city">Singapore</span>
-        <span class="bcard__cta">Choose &rarr;</span>
-      </a>
-    </div>
-    <p class="bstrip__note" data-reveal="block">Boutique cities are illustrative for this concept build.</p>
-  </div>
-</section>
+<!-- R99 (owner): the grid of place boxes is gone. Step one of the request
+     already asks which boutique, so this was the same question twice. -->
 
 <!-- ============ THE FACTS (centred strip, catalogue manners) ============ -->
-<section class="specstrip g-paper" aria-label="Visiting">
-  <div class="shell">
-    <dl class="specrow specrow--4" data-reveal="block">
-      <div><dt>Hours</dt><dd>Wednesday to Saturday</dd></div>
-      <div><dt>Viewings</dt><dd>Private and unhurried</dd></div>
-      <div><dt>Address</dt><dd>Shared on confirmation</dd></div>
-      <div><dt>Email</dt><dd><a href="mailto:hello@halden.sample">hello@halden.sample</a></dd></div>
-    </dl>
-  </div>
-</section>
+<!-- R97 (owner): the hours/address strip is gone; the page goes straight to the request. -->
 
 <!-- ============ THE INQUIRY ============================================
      R63: the form used to sit in the right-hand half of a two-column spread
@@ -288,6 +245,11 @@
             <input type="radio" name="boutique" value="Singapore">
             <span class="pick__city">Singapore</span>
             <span class="pick__st">Orchard Road</span>
+          </label>
+          <label class="pick">
+            <input type="radio" name="boutique" value="Dubai">
+            <span class="pick__city">Dubai</span>
+            <span class="pick__st">Fashion Avenue</span>
           </label>
         </div>
       </fieldset>
