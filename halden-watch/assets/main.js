@@ -222,6 +222,49 @@
      nothing selected, so "it always takes you to the request a viewing page" was
      literally true. Each city now arrives with ?boutique=<city>; this reads it,
      selects that boutique and moves focus to it. */
+  /* ------------------------------------------------------------------ *
+   * R93 · The viewing request, step by step.
+   *      Choosing a boutique opens the time step; choosing a time opens the
+   *      details. Each opens IN PLACE so the whole request stays on one
+   *      screen. Focus moves to the step that just appeared, and the bar at
+   *      the top marks where you are. Guarded so that if anything here fails
+   *      the form is simply shown whole rather than left half hidden.
+   * ------------------------------------------------------------------ */
+  (function stepForm() {
+    var form = d.querySelector("[data-steps]");
+    if (!form) return;
+    var steps = [].slice.call(form.querySelectorAll(".step"));
+    var marks = [].slice.call(form.querySelectorAll(".stepbar li"));
+    if (steps.length < 2) return;
+
+    function showUpTo(n) {
+      steps.forEach(function (s, i) { s.classList.toggle("is-on", i <= n); });
+      marks.forEach(function (m, i) {
+        m.classList.toggle("is-done", i < n);
+        m.classList.toggle("is-now", i === n);
+      });
+    }
+    function openNext(from) {
+      if (from + 1 >= steps.length) return;
+      var already = steps[from + 1].classList.contains("is-on");
+      showUpTo(from + 1);
+      if (already) return;
+      var next = steps[from + 1];
+      var first = next.querySelector("input,select,textarea,button");
+      /* let it paint before moving focus, or the animation is skipped */
+      w.requestAnimationFrame(function () {
+        if (first) { try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); } }
+      });
+    }
+    showUpTo(0);
+    steps.forEach(function (step, i) {
+      step.addEventListener("change", function () { openNext(i); });
+    });
+    /* If JS is present but something above threw, the form must never be left
+       with steps hidden — reveal everything on submit as a last resort. */
+    form.addEventListener("submit", function () { showUpTo(steps.length - 1); });
+  })();
+
   (function boutiqueFromQuery() {
     var sel = d.getElementById("boutique");
     if (!sel) return;
@@ -272,8 +315,22 @@
     /* R78 (owner: the squares should run "almost out of the screen"). The
        reference clamps around 180px; the gallery plates are given much more room
        because their pictures are oversized inside their frames and can afford it. */
-    var MAX = 180, MAX_BIG = 340;
-    var ticking = false, lastY = -1;
+    /* R83 (owner: "the parallax is horrible"). It was. A fixed clamp of up to
+       340px was moving pictures further than their frames could hide, so every
+       plate showed a bare strip at the bottom — measured gaps of 55 to 215px.
+
+       A picture may only travel as far as its own overflow allows. Each element's
+       headroom is (its height - its frame's height) / 2, so the shift is clamped
+       to that, less a 2px margin. The drift is now as large as the frame can
+       afford and never larger, at any viewport, for any image size. */
+    var ticking = false;
+
+    /* R91: the element itself travels. Its own box is what moves, so there is no
+       frame to overflow and no headroom to respect — the limit is simply how far
+       it should rise relative to the page. RANGE is the total travel across a
+       full crossing of the viewport; depth varies it per plate so they separate
+       instead of moving as one sheet. */
+    var RANGE = 150;
 
     function frame() {
       ticking = false;
@@ -283,12 +340,11 @@
       for (var i = 0; i < pars.length; i++) {
         var el = pars[i];
         var r = el.getBoundingClientRect();
-        if (r.bottom < -200 || r.top > vh + 200) continue;   /* offscreen: skip */
-        var depth = parseFloat(el.getAttribute("data-par")) || 0.18;
-        /* -1 above the fold .. +1 below it, 0 when centred */
+        if (r.bottom < -300 || r.top > vh + 300) continue;   /* offscreen: skip */
+        var depth = parseFloat(el.getAttribute("data-par")) || 0.5;
+        /* +1 while still below the fold, 0 centred, -1 once above it */
         var mid = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
-        var cap = depth > 0.4 ? MAX_BIG : MAX;
-        var shift = Math.max(-cap, Math.min(cap, mid * cap * depth));
+        var shift = mid * RANGE * depth;
         el.style.transform = "translate3d(0," + shift.toFixed(1) + "px,0)";
       }
 
@@ -457,7 +513,9 @@
    * ------------------------------------------------------------------ */
   (function reveals() {
     if (!motionOn() || !("IntersectionObserver" in w)) return;
-    var els = d.querySelectorAll("[data-reveal]");
+    /* R82: [data-mask] elements were never revealing, because this observer only
+       watched [data-reveal] and a bare mask carries no reveal kind. Watch both. */
+    var els = d.querySelectorAll("[data-reveal],[data-mask]");
     function splitLines(el) {
       var text = el.textContent.trim();
       /* each line becomes its own block-level mask, so the element's text

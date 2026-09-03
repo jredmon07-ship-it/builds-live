@@ -1536,3 +1536,293 @@ html.motion-on .rl{overflow:clip;overflow-clip-margin:0 0.35em;}
    contains the projection without touching the vertical lift. */
 .car{overflow-x:clip;}
 .gallery{overflow-x:clip;}
+
+
+/* R81: the collection page gets the homepage's motion. Its picker grid carries
+   the same perspective the reference grid does, so the plates rise out of depth
+   rather than fading, and its stagger is its own. */
+.picker{perspective:1200px;}
+html.motion-on .picker{--stagger:90ms;}
+.picker li{position:relative;}
+
+/* a mask on an <img> needs the clip on the frame, not the picture */
+html.motion-on img[data-mask]{clip-path:inset(100% 0 0 0);transition:clip-path 1s var(--e-inout);}
+html.motion-on img[data-mask].is-in{clip-path:inset(0 0 0 0);}
+
+
+/* ================= R82 (owner: the five references "look horrible") =========
+   They were type-heavy cards in a rigid five-across row. They read as an image
+   grid now, the way the gallery does: the plate is the card, its picture drifts
+   inside its own frame as you scroll, and the name and price sit quietly under
+   it. Uneven row heights give it the staggered look the reference has rather
+   than five identical boxes in a line. */
+.car__grid{grid-template-columns:repeat(10,1fr);gap:clamp(1rem,2vw,2.2rem);}
+.car__grid .car__card{grid-column:span 2;}
+/* first and last sit lower, middle sits higher — a grid that breathes */
+.car__grid .car__card:nth-child(1),
+.car__grid .car__card:nth-child(5){margin-top:clamp(1.5rem,4vw,4.5rem);}
+.car__grid .car__card:nth-child(3){margin-top:calc(-1 * clamp(1rem,2.4vw,2.6rem));}
+
+.car__card figure{overflow:hidden;aspect-ratio:29/38;}
+.car__card figure img{
+  width:100%;height:130%;object-fit:cover;
+  position:relative;top:-15%;
+  aspect-ratio:auto;
+  will-change:transform;
+}
+.car__card h3{margin-top:1.1rem;}
+
+@media (max-width:1180px){
+  .car__grid{grid-template-columns:repeat(6,1fr);}
+  .car__grid .car__card{grid-column:span 2;}
+  .car__grid .car__card:nth-child(n){margin-top:0;}
+}
+@media (max-width:760px){
+  .car__grid{grid-template-columns:repeat(4,1fr);}
+}
+@media (max-width:430px){
+  .car__grid{grid-template-columns:1fr;}
+  .car__grid .car__card{grid-column:span 1;}
+}
+@media (prefers-reduced-motion:reduce){
+  .car__card figure img{position:static;height:100%;top:auto;}
+}
+
+
+/* R83b: as a horizontal scroller this row was deliberately edge-to-edge so it
+   could be dragged. As a grid that just means the plates do not line up with the
+   heading above them. It sits on the same measure as every other section now. */
+.car__grid{
+  max-width:var(--shell-max);
+  margin-inline:auto;
+  padding-inline:var(--shell-pad);
+}
+
+
+/* R84: the watches dropdown opened correctly but rendered at ZERO height, so it
+   was invisible either way. Its thumbnails are lazy images inside a
+   visibility:hidden panel — a browser will not load those, so each item
+   collapsed and took the panel's height with it. Reserving the aspect ratio
+   gives the panel its height whether or not the pictures have arrived. */
+.wpanel__item img{aspect-ratio:720/965;height:auto;}
+.wpanel__item{min-height:1px;}
+
+
+/* R85: the site's original architecture was burger+drawer whenever JS is on —
+   `html.js .hdr__nav{display:none}` — with the inline nav kept only as the no-JS
+   fallback. When I hid the burger to get the reference's inline bar, I left the
+   desktop with NO navigation at all, and the watches dropdown measured zero
+   because its whole nav was display:none. Desktop now commits to the inline nav
+   (matching that rule's specificity so it actually wins); the burger and drawer
+   stay for narrow screens, where an inline bar will not fit. */
+@media (min-width:900px){
+  html.js .hdr__nav{display:flex;}
+}
+
+
+/* R86 (owner): the bar and the drawer disagreed — a white bar sitting above an
+   ink drawer. They share a ground now, so opening the menu reads as the bar
+   growing rather than two different surfaces meeting. */
+.menu__panel{
+  background:var(--bar-white);
+  border-right:1px solid var(--bar-line);
+}
+.menu a.big{color:var(--text-ink);border-bottom-color:var(--bar-line);}
+.menu a.big[aria-current="page"],.menu a.big:hover{color:var(--navy);}
+.menu .menu__foot{color:var(--text-ink-2);}
+.menu__watches a{color:var(--text-ink);}
+.menu__watches img{border-color:var(--paper-line);}
+.menu__scrim{background:rgba(23,24,27,.42);}
+
+/* the nav sits hard right, beside search and the viewing button */
+@media (min-width:900px){
+  .hdr__mark{margin-right:auto;}
+  .hdr__nav{margin-left:0;}
+}
+
+
+/* R87 (owner): clicking a watch in the bar jumped to an anchor that sat UNDER
+   the fixed header, so the top of the plate was cut off. Every anchor target
+   reserves the bar's height plus a little air, so the picture starts where the
+   bar ends. */
+:target,[id]{scroll-margin-top:calc(var(--header-h) + 2.2rem);}
+
+/* the five-dot mark is gone from the markup; the kicker keeps its own rhythm */
+.kicker{display:block;}
+.fived{display:none;}
+
+
+/* ================= R88: the viewing request, in three steps ================ */
+.form--steps .step{border:0;margin:0;padding:0;}
+.stepbar{display:flex;gap:1.6rem;list-style:none;margin:0 0 2rem;padding:0;}
+.stepbar li{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--tx3);position:relative;padding-left:1.1rem;}
+.stepbar li::before{content:'';position:absolute;left:0;top:.42em;width:5px;height:5px;
+  border-radius:50%;background:currentColor;opacity:.45;}
+.stepbar li.is-done{color:var(--accent);}
+.stepbar li.is-now{color:var(--tx);}
+.stepbar li.is-now::before,.stepbar li.is-done::before{opacity:1;}
+
+.form--steps legend{
+  font-family:var(--font-display);font-size:clamp(1.3rem,2.4vw,2rem);
+  color:var(--tx);margin-bottom:1.2rem;display:flex;align-items:baseline;gap:.8rem;
+}
+.step__n{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.18em;color:var(--accent);}
+
+/* only with JS do later steps wait their turn — without it the form is whole */
+html.js .form--steps .step{
+  display:none;
+}
+html.js .form--steps .step.is-on{
+  display:block;
+  animation:stepIn .7s var(--e-expo) both;
+}
+@keyframes stepIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+
+.picks{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);}
+.picks--row{grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));margin-top:1.4rem;}
+.pick{background:var(--bg);padding:1.4rem 1.1rem;cursor:pointer;display:block;
+  transition:background .4s var(--e-quint);}
+.pick:hover{background:var(--bg-raised);}
+.pick input{position:absolute;opacity:0;width:1px;height:1px;}
+.pick__city{display:block;font-family:var(--font-display);font-size:1.15rem;color:var(--tx);}
+.pick__st{display:block;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--tx3);margin-top:.35rem;}
+.pick:has(input:checked){background:var(--bg-raised);box-shadow:inset 0 0 0 1px var(--accent);}
+.pick:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:-2px;}
+.pick--slim{padding:1.05rem 1.1rem;}
+
+/* ================= R89 (owner): the plates carry their own facts ============
+   The five references were shouting their specs down the homepage. The picture
+   is the card now: the name, size and price live ON it and arrive on hover or
+   keyboard focus, and the whole plate goes to that watch. The text stays in the
+   DOM so it is still read aloud and still found by search. */
+.car__card{position:relative;}
+.car__card .card__meta{
+  position:absolute;inset:auto 0 0 0;z-index:3;
+  padding:1.1rem 1rem 1.15rem;
+  background:linear-gradient(180deg,rgba(11,12,14,0) 0%,rgba(11,12,14,.86) 55%,rgba(11,12,14,.95) 100%);
+  color:var(--platinum);
+  opacity:0;transform:translateY(10px);
+  transition:opacity .5s var(--e-quint),transform .6s var(--e-quint);
+  pointer-events:none;
+}
+.car__card:hover .card__meta,
+.car__card:focus-within .card__meta{opacity:1;transform:none;}
+.car__card .card__meta h3{margin:0;color:var(--platinum);justify-content:flex-start;}
+.car__card .card__meta .specline{margin:.3rem 0 0;color:var(--platinum);opacity:.82;font-size:.82rem;}
+.car__card .card__meta .ref{margin-top:.35rem;color:var(--platinum);opacity:.6;}
+.car__card .card__meta .tlink{margin-top:.7rem;color:var(--accent);}
+@media (prefers-reduced-motion:reduce){
+  .car__card .card__meta{transition:none;}
+}
+@media (hover:none){
+  /* no hover on touch — the facts simply stay visible */
+  .car__card .card__meta{opacity:1;transform:none;}
+}
+
+
+/* ================= R90: the parallax, properly =============================
+   The point is that a picture rises FASTER than the page it sits in — that speed
+   difference is what makes it read as being in front of the page rather than
+   printed on it. Mine could barely move: I had given the images only 15% of
+   headroom, so the drift was a few pixels and the effect never registered.
+
+   They are now half again as tall as their frames, which is 30% of slack above
+   and below, so a plate can travel over a hundred pixels against its own frame
+   and still never show an edge. */
+.car__card figure img,
+.gtile img{
+  height:160%;
+  top:-30%;
+  position:relative;
+  object-fit:cover;
+  will-change:transform;
+}
+@media (prefers-reduced-motion:reduce){
+  .car__card figure img,.gtile img{height:100%;top:auto;position:static;}
+}
+
+
+/* ================= R91: the animation is OUTSIDE the image =================
+   I had this backwards for several rounds. I was sliding the picture around
+   inside a fixed frame, which is a background technique — it makes an image feel
+   set INTO the page. The plate itself has to travel: the whole card rises faster
+   than the page, and that is what makes it read as floating in front of it.
+
+   So the pictures go back to sitting normally in their frames, and the frames
+   are what move. No oversize, no headroom, nothing to clip. */
+.car__card figure img,
+.gtile img{
+  height:100%;
+  top:auto;
+  position:static;
+  object-fit:cover;
+}
+.car__card figure,
+.gtile{
+  will-change:transform;
+}
+/* the plate is lifted off the page, so it gets a shadow that says so */
+.car__card figure{box-shadow:0 18px 44px rgba(11,12,14,.18);}
+.gtile{box-shadow:0 22px 54px rgba(11,12,14,.20);}
+
+
+/* ================= R92: plates scattered through one word ==================
+   The reference's gallery is a single enormous word with square plates thrown
+   across it at different sizes and offsets — some in front of the letters, some
+   behind. Each drifts at its own rate, so the section has real depth rather than
+   being a tidy row of pictures. */
+.scatter{
+  position:relative;
+  padding-block:clamp(6rem,16vh,12rem);
+  overflow-x:clip;
+}
+.scatter__word{
+  font-family:var(--font-display);
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:-.02em;
+  line-height:.82;
+  font-size:clamp(3.5rem,17vw,17rem);
+  text-align:center;
+  color:var(--tx);
+  margin:0;
+  position:relative;
+  z-index:2;                       /* the word sits between the plates */
+  pointer-events:none;
+}
+.scatter__field{
+  position:absolute;inset:0;
+  max-width:var(--shell-max);
+  margin-inline:auto;
+  pointer-events:none;
+}
+.scatter__p{
+  position:absolute;margin:0;
+  aspect-ratio:1/1;
+  overflow:hidden;
+  background:var(--bg-raised);
+  box-shadow:0 26px 60px rgba(11,12,14,.22);
+  will-change:transform;
+}
+.scatter__p img{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* one behind the word, one across it, one low and right, one small and left */
+.scatter__p--a{left:6%;  top:4%;   width:min(21%,17rem); z-index:1;}
+.scatter__p--b{right:9%; top:0;    width:min(16%,13rem); z-index:1;}
+.scatter__p--c{left:17%; top:38%;  width:min(25%,20rem); z-index:3;}
+.scatter__p--d{right:6%; bottom:2%;width:min(22%,18rem); z-index:3;}
+
+@media (max-width:900px){
+  .scatter{padding-block:clamp(4rem,10vh,7rem);}
+  .scatter__word{font-size:clamp(3rem,19vw,9rem);}
+  .scatter__p--a{left:2%;top:2%;width:30%;}
+  .scatter__p--b{right:3%;top:0;width:24%;}
+  .scatter__p--c{left:8%;top:52%;width:34%;}
+  .scatter__p--d{right:2%;bottom:0;width:30%;}
+}
+@media (prefers-reduced-motion:reduce){
+  .scatter__p{transition:none;}
+}
