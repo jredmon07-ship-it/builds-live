@@ -1975,3 +1975,55 @@ html:has(.film, .fband--top) .hdr:not(.is-shrunk):has(.hdr__group:hover){
 /* the rail is two watches now, so it centres rather than running off the edge */
 .rail__track{justify-content:center;width:100%;}
 .rail__card{width:clamp(15rem,30vw,28rem);}
+
+
+/* ================= R103: the word holds, the pair close in ================= */
+.closer{position:relative;height:240vh;background:var(--bg);overflow-x:clip;}
+.closer__stage{
+  position:sticky;top:0;height:100vh;height:100dvh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.closer__word{
+  position:relative;z-index:2;margin:0;width:100%;text-align:center;
+  font-family:var(--font-display);font-weight:400;text-transform:uppercase;
+  letter-spacing:-.02em;line-height:.82;
+  font-size:clamp(3.5rem,17vw,17rem);
+  color:var(--tx);pointer-events:none;
+}
+.closer__card{
+  position:absolute;top:50%;z-index:3;
+  width:clamp(11rem,20vw,19rem);
+  text-decoration:none;color:inherit;
+  will-change:transform;
+}
+.closer__card--l{left:8%;}
+.closer__card--r{right:8%;}
+.closer__fig{
+  margin:0;overflow:hidden;aspect-ratio:29/38;
+  background:var(--bg-raised);border:1px solid var(--line);
+  box-shadow:0 26px 60px rgba(11,12,14,.22);
+}
+.closer__fig img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 1.2s var(--e-quint);}
+.closer__card:hover .closer__fig img,
+.closer__card:focus-visible .closer__fig img{transform:scale(1.05);}
+.closer__meta{display:block;margin-top:.9rem;}
+.closer__meta b{display:block;font-family:var(--font-display);font-weight:400;
+  font-size:1rem;letter-spacing:.02em;text-transform:uppercase;color:var(--tx);}
+.closer__meta i{display:block;font-style:normal;margin-top:.25rem;
+  font-family:var(--font-mono);font-size:.64rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--tx3);}
+
+@media (max-width:760px){
+  .closer__card{width:34vw;}
+  .closer__card--l{left:3%;}
+  .closer__card--r{right:3%;}
+}
+/* no pin without JS or under reduced motion — the pair just sit either side */
+html.no-js .closer,
+html[data-motion="reduced"] .closer{height:auto;}
+html.no-js .closer__stage,
+html[data-motion="reduced"] .closer__stage{position:static;height:auto;padding-block:12vh;}
+html.no-js .closer__card,
+html[data-motion="reduced"] .closer__card{transform:none !important;}

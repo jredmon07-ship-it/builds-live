@@ -80,7 +80,6 @@
       <span class="visually-hidden">Halden Watch Co.</span>
     </a>
     <nav class="hdr__nav" aria-label="Primary">
-      <a href="collection.html#catalogue">Catalogue</a>
       <div class="hdr__group" data-wnav>
         <a href="collection.html">Watches</a>
         <div class="wpanel">
@@ -217,45 +216,44 @@
         <figure class="scatter__p scatter__p--a" data-rise="0.00">
           <img src="assets/img/s13-no1-quarter.webp" alt="Halden No. 1 at three-quarters, the blue sunburst dial under a low light." width="900" height="900" loading="lazy">
         </figure>
-        <figure class="scatter__p scatter__p--b" data-rise="0.12">
+        <figure class="scatter__p scatter__p--b" data-rise="0.11">
           <img src="assets/img/s9-movement-holders.webp" alt="Movements resting in brass holders on the bench between timing runs." width="900" height="900" loading="lazy">
         </figure>
-        <figure class="scatter__p scatter__p--e" data-rise="0.24">
+        <figure class="scatter__p scatter__p--e" data-rise="0.22">
           <img src="assets/img/s11-meridian-front.webp" alt="Halden Meridian, straight on: champagne guilloche dial, polished steel case." width="900" height="900" loading="lazy">
         </figure>
-        <figure class="scatter__p scatter__p--c" data-rise="0.36">
+        <figure class="scatter__p scatter__p--c" data-rise="0.33">
           <img src="assets/img/s5-meridian-dial-macro.webp" alt="The Meridian's guilloche field in macro, engine-turned to the edge." width="900" height="900" loading="lazy">
         </figure>
-        <figure class="scatter__p scatter__p--f" data-rise="0.48">
+        <figure class="scatter__p scatter__p--f" data-rise="0.44">
           <img src="assets/img/s15-tide-front.webp" alt="Halden Tide, straight on: black dial, brushed steel case." width="900" height="900" loading="lazy">
         </figure>
-        <figure class="scatter__p scatter__p--d" data-rise="0.60">
+        <figure class="scatter__p scatter__p--d" data-rise="0.56">
           <img src="assets/img/s14-no1-bench.webp" alt="Halden No. 1 on the bench beside a loupe and tweezers." width="900" height="900" loading="lazy">
         </figure>
     </div>
   </div>
 </section>
 
-<!-- ============ THE WATCHES — a row that scrolls past =====================
-     R94 (owner): the five references are gone as a block. The watches travel
-     across the screen as the page scrolls instead, and each one goes to its own
-     page. Driven off scroll rather than a drag, so nothing has to be pulled
-     sideways; with JS off it is a plain scrollable row. -->
-<section class="rail" data-rail aria-labelledby="rail-t">
-  <h2 class="visually-hidden" id="rail-t">The watches</h2>
-  <div class="rail__view">
-    <div class="rail__track" data-rail-track>
-        <a class="rail__card" href="collection.html#tide">
-          <figure class="rail__fig"><img src="assets/img/s15-tide-front.webp" alt="Halden Tide, straight on." width="720" height="965" loading="lazy"></figure>
-          <span class="rail__meta"><b>Halden Tide</b><i>40 mm, brushed steel</i></span>
-        </a>
-        <a class="rail__card" href="collection.html#crossing">
-          <figure class="rail__fig"><img src="assets/img/s16-crossing-front.webp" alt="Halden Crossing, straight on." width="720" height="965" loading="lazy"></figure>
-          <span class="rail__meta"><b>Halden Crossing</b><i>39 mm, polished steel</i></span>
-        </a>
-    </div>
+<!-- ============ NEW — the word holds, two watches close in from the sides ===
+     R103 (owner): after the statement the page settles on one word, and the two
+     watches come in from either side to meet it. It pins for that, then releases
+     and carries on. Each watch is a link to its own page. Without JS, or under
+     reduced motion, the pair simply sit either side of the word. -->
+<section class="closer" data-close aria-labelledby="closer-t">
+  <div class="closer__stage">
+    <h2 class="closer__word" id="closer-t">New</h2>
+    <a class="closer__card closer__card--l" href="collection.html#tide" data-close-l>
+      <figure class="closer__fig"><img src="assets/img/s15-tide-front.webp" alt="Halden Tide, straight on: black dial, brushed steel case." width="720" height="965" loading="lazy"></figure>
+      <span class="closer__meta"><b>Halden Tide</b><i>40 mm, brushed steel</i></span>
+    </a>
+    <a class="closer__card closer__card--r" href="collection.html#crossing" data-close-r>
+      <figure class="closer__fig"><img src="assets/img/s16-crossing-front.webp" alt="Halden Crossing, straight on: navy dial, polished steel case." width="720" height="965" loading="lazy"></figure>
+      <span class="closer__meta"><b>Halden Crossing</b><i>39 mm, polished steel</i></span>
+    </a>
   </div>
 </section>
+
 
 
 <!-- R53 (owner): the numbered "01 — The house" chapter is CUT. With its copy

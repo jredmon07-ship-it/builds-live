@@ -251,9 +251,17 @@
       if (already) return;
       var next = steps[from + 1];
       var first = next.querySelector("input,select,textarea,button");
-      /* let it paint before moving focus, or the animation is skipped */
+      /* R104 (owner: picking a boutique "snaps down and cuts half the form off").
+         Moving focus to the next step scrolled it into view, and with the anchor
+         offset in play that jumped the page and pushed the top of the form off
+         screen. Focus still moves — a keyboard user needs it — but the scroll
+         position is pinned around it, so the page does not move at all. Not every
+         browser honours preventScroll, so it is restored explicitly. */
       w.requestAnimationFrame(function () {
-        if (first) { try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); } }
+        if (!first) return;
+        var keepX = w.scrollX, keepY = w.scrollY;
+        try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); }
+        if (w.scrollX !== keepX || w.scrollY !== keepY) w.scrollTo(keepX, keepY);
       });
     }
     showUpTo(0);
@@ -312,8 +320,10 @@
     var bar = d.querySelector(".sbar"), thumb = bar ? bar.querySelector(".sbar__thumb") : null;
     var railTrack = d.querySelector("[data-rail-track]");
     var pinSec = d.querySelector("[data-pin]");
+    var closeSec = d.querySelector("[data-close]");
+    var closers = [].slice.call(d.querySelectorAll("[data-close-l],[data-close-r]"));
     var risers = [].slice.call(d.querySelectorAll("[data-rise]"));
-    if (!pars.length && !bar && !railTrack && !pinSec) return;
+    if (!pars.length && !bar && !railTrack && !pinSec && !closeSec) return;
 
     /* R78 (owner: the squares should run "almost out of the screen"). The
        reference clamps around 180px; the gallery plates are given much more room
@@ -366,9 +376,15 @@
              They finish their climb by 78% of the run, and the last stretch is a
              deliberate empty hold on the word alone — so nothing is still on
              screen when the next section starts to arrive. */
-          var END = 0.78;
-          var span = Math.max(0.01, END - start);
-          var local = Math.max(0, Math.min(1, (pp - start) / span));
+          /* R102 (owner: they "scroll together, too clustered at once"). They did:
+             every plate was given the whole rest of the run to cross in, so the
+             early ones crawled and all six were in the air together. Each now has
+             the SAME short window — it starts at its own point and crosses in
+             0.22 of the run — so one arrives as the one before it leaves, and at
+             most two share the screen. The last window closes at 0.78, which is
+             where the empty hold begins. */
+          var DUR = 0.22;
+          var local = Math.max(0, Math.min(1, (pp - start) / DUR));
           /* R101: the travel has to be measured from the plate's OWN size, not a
              fixed slice of the viewport. Each plate is anchored at the middle of
              the stage, so to be fully below the fold it must sit at least half a
@@ -380,6 +396,30 @@
           var to = -(vh * 0.5 + ph + 40);
           var yy = from + (to - from) * local;
           rp.style.transform = "translate3d(0," + yy.toFixed(1) + "px,0)";
+        }
+      }
+
+      /* R103: the pair close in. They start beyond either edge and meet the
+         word, arriving by 62% of the run so the rest is a held beat before the
+         page carries on. Their travel is measured from their own distance to the
+         edge, so they always start fully off screen at any width. */
+      if (closeSec) {
+        var cb = closeSec.getBoundingClientRect();
+        var crun = closeSec.offsetHeight - vh;
+        var cp = crun > 0 ? Math.max(0, Math.min(1, (-cb.top) / crun)) : 0;
+        var t = Math.max(0, Math.min(1, cp / 0.62));
+        var ease = 1 - Math.pow(1 - t, 3);          /* settle, do not slide */
+        for (var c2 = 0; c2 < closers.length; c2++) {
+          var card = closers[c2];
+          var fromLeft = card.hasAttribute("data-close-l");
+          /* offsetLeft/offsetWidth are layout values, unaffected by the transform
+             we are about to write — reading a rect here would feed the card's own
+             transform back into its start position and make it drift. */
+          var ol = card.offsetLeft, ow = card.offsetWidth;
+          var stageW = card.offsetParent ? card.offsetParent.offsetWidth : w.innerWidth;
+          var startX = fromLeft ? -(ol + ow + 60) : (stageW - ol + 60);
+          var xx = startX * (1 - ease);
+          card.style.transform = "translate3d(" + xx.toFixed(1) + "px,-50%,0)";
         }
       }
 
