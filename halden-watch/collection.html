@@ -243,22 +243,22 @@
 
 <main id="main">
 
-<!-- ============ THE WATCHES · catalogue head (paper) ============ -->
-<section class="g-paper chapter chapter--top">
-  <div class="shell">
+<!-- ============ THE WATCHES · catalogue head =============================
+     R63: the page opened on a cream slab holding four short lines and about
+     460 px of nothing. The reference house opens a collection on the product,
+     full-bleed, with the name over it. Same band component as the calibre page,
+     so the two page-heads are one system. -->
+<section class="fband fband--tall fband--top" aria-labelledby="watches-t">
+  <img class="fband__img" src="assets/img/s1-hero-keyframe-v2.webp" width="2752" height="1536" fetchpriority="high"
+       alt="Halden No. 1 at a three-quarter angle: a navy sunburst dial catching a raking light, polished dauphine hands at ten past ten, brushed steel case.">
+  <div class="fband__copy">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">The Watches</span>
     </nav>
-    <div class="page-head">
-      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> The collection</p>
-      <h1 class="display" data-reveal="lines">The Watches</h1>
-    </div>
-    <ul class="chips" data-reveal="block">
-      <li><span class="dot" aria-hidden="true"></span>Calibre H-1 throughout</li>
-      <li><span class="dot" aria-hidden="true"></span>Five references</li>
-      <li><span class="dot" aria-hidden="true"></span>By appointment</li>
-    </ul>
-
+    <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> The collection</p>
+    <h1 class="fband__t fband__t--h1" id="watches-t" data-reveal="lines">The Watches</h1>
+    <p class="fband__s" data-reveal="block">Five references &middot; 36 to 40 mm &middot; Calibre H-1 throughout <span class="meta">[SAMPLE]</span></p>
+    <a class="tlink" href="#no1">Discover <span class="arr" aria-hidden="true">&rarr;</span></a>
   </div>
 </section>
 
@@ -273,51 +273,71 @@
   </div>
 </nav>
 
-<!-- ============ THE PICKER (three plates on one axis) ============ -->
+<!-- ============ THE CATALOGUE ROW ========================================
+     R63: the reference house filters its product row on case size and prints
+     the same four things on every card — picture, name, the case size with
+     what it is worn on, price. Ours does the same, on the one axis this
+     collection has.
+     The tablist is [hidden] in the markup and revealed by script, so with JS
+     off the five simply stay whole. -->
 <section class="g-paper chapter--tight">
+  <div class="shell gridhead">
+    <h2 class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> Five references</h2>
+    <div class="tabs" role="tablist" aria-label="Filter the references by case size"
+         data-cartabs data-target=".picker" hidden>
+      <button class="tab is-on" role="tab" type="button" aria-selected="true"  data-filter="all">All five</button>
+      <button class="tab"       role="tab" type="button" aria-selected="false" data-filter="small">38 mm and under</button>
+      <button class="tab"       role="tab" type="button" aria-selected="false" data-filter="large">39 mm and over</button>
+    </div>
+  </div>
   <div class="shell">
     <ul class="picker">
-      <li>
+      <li data-mm="38">
         <a href="#no1">
-          <figure data-reveal="dezoom"><img src="assets/img/s2-no1-plate.webp" width="1856" height="2304" alt="Halden No. 1 catalogue plate: blue sunburst dial, brushed steel, crown right."></figure>
+          <figure data-reveal="dezoom"><img src="assets/img/s10-no1-front.webp" width="720" height="965" loading="lazy" alt="Halden No. 1, straight on: blue sunburst dial, applied champagne indices, gilt dauphine hands, brushed steel case on a navy leather strap."></figure>
           <h3>Halden No. 1</h3>
-          <p class="specline">38 mm, brushed steel — $6,400 <span class="meta">[SAMPLE]</span></p>
+          <p class="specline">38 mm, steel on leather</p>
+          <p class="price">$6,400 <span class="meta">[SAMPLE]</span></p>
           <span class="ref">REF. H1-38-BL</span>
           <span class="go">Discover <span class="arr" aria-hidden="true">&rarr;</span></span>
         </a>
       </li>
-      <li>
+      <li data-mm="39">
         <a href="#meridian">
-          <figure data-reveal="dezoom"><img src="assets/img/s3-meridian-plate.webp" width="1856" height="2304" alt="Halden Meridian catalogue plate: champagne guilloché dial, polished steel, crown right."></figure>
+          <figure data-reveal="dezoom"><img src="assets/img/s11-meridian-front.webp" width="720" height="965" loading="lazy" alt="Halden Meridian, straight on: champagne guilloche dial cut in a rose-engine pattern, polished steel case, brown alligator strap."></figure>
           <h3>Halden Meridian</h3>
-          <p class="specline">39 mm, polished steel — $8,900 <span class="meta">[SAMPLE]</span></p>
+          <p class="specline">39 mm, steel on alligator</p>
+          <p class="price">$8,900 <span class="meta">[SAMPLE]</span></p>
           <span class="ref">REF. MR-39-CH</span>
           <span class="go">Discover <span class="arr" aria-hidden="true">&rarr;</span></span>
         </a>
       </li>
-      <li>
+      <li data-mm="36">
         <a href="#field">
-          <figure data-reveal="dezoom"><img src="assets/img/s4-field-plate.webp" width="1856" height="2304" alt="Halden Field catalogue plate: salmon dial with printed minute track, compact brushed steel case."></figure>
+          <figure data-reveal="dezoom"><img src="assets/img/s12-field-front.webp" width="720" height="965" loading="lazy" alt="Halden Field, straight on: salmon dial with a printed black minute track, compact brushed 36 mm case, grey canvas NATO strap."></figure>
           <h3>Halden Field</h3>
-          <p class="specline">36 mm, brushed steel — $5,800 <span class="meta">[SAMPLE]</span></p>
+          <p class="specline">36 mm, steel on canvas</p>
+          <p class="price">$5,800 <span class="meta">[SAMPLE]</span></p>
           <span class="ref">REF. FD-36-SL</span>
           <span class="go">Discover <span class="arr" aria-hidden="true">&rarr;</span></span>
         </a>
       </li>
-      <li>
+      <li data-mm="40">
         <a href="#tide">
-          <figure data-reveal="dezoom"><img src="assets/img/s15-tide-front.webp" width="720" height="965" alt="Halden Tide catalogue plate: black dial with luminous markers, steel dive bezel, brushed steel bracelet."></figure>
+          <figure data-reveal="dezoom"><img src="assets/img/s15-tide-front.webp" width="720" height="965" loading="lazy" alt="Halden Tide, straight on: black dial with cream luminous markers, steel unidirectional dive bezel, brushed steel bracelet."></figure>
           <h3>Halden Tide</h3>
-          <p class="specline">40 mm, brushed steel — $7,600 <span class="meta">[SAMPLE]</span></p>
+          <p class="specline">40 mm, steel on steel</p>
+          <p class="price">$7,600 <span class="meta">[SAMPLE]</span></p>
           <span class="ref">REF. TD-40-BK</span>
           <span class="go">Discover <span class="arr" aria-hidden="true">&rarr;</span></span>
         </a>
       </li>
-      <li>
+      <li data-mm="39">
         <a href="#crossing">
-          <figure data-reveal="dezoom"><img src="assets/img/s16-crossing-front.webp" width="720" height="965" alt="Halden Crossing catalogue plate: navy sunburst dial, champagne 24-hour hand, engraved steel bezel, steel bracelet."></figure>
+          <figure data-reveal="dezoom"><img src="assets/img/s16-crossing-front.webp" width="720" height="965" loading="lazy" alt="Halden Crossing, straight on: navy sunburst dial, champagne 24-hour hand, polished steel case with engraved 24-hour bezel, steel bracelet."></figure>
           <h3>Halden Crossing</h3>
-          <p class="specline">39 mm, polished steel — $9,400 <span class="meta">[SAMPLE]</span></p>
+          <p class="specline">39 mm, steel on steel</p>
+          <p class="price">$9,400 <span class="meta">[SAMPLE]</span></p>
           <span class="ref">REF. CR-39-NV</span>
           <span class="go">Discover <span class="arr" aria-hidden="true">&rarr;</span></span>
         </a>
@@ -326,264 +346,226 @@
   </div>
 </section>
 
-<!-- ============ 01 · HALDEN NO. 1 ============ -->
-<article class="g-paper pdp" id="no1">
-  <div class="shell">
-    <header class="pdp__head">
-      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 01 — Reference</p>
-      <h2 class="title" data-reveal="lines">Halden No. 1</h2>
-      <span class="pdp__ref">REF. H1-38-BL</span>
-      <p class="pdp__story" data-reveal="block">The original Halden reference, and the one we build most. It has a
-        blue sunburst dial under a flat sapphire crystal, in a case 38 mm across and just under 46 mm
-        lug to lug.</p>
-    </header>
-
-    <div class="pdp__gallery g-ink grain">
-      <figure data-reveal="dezoom"><img src="assets/img/s1-hero-keyframe-v2.webp" width="2752" height="1536" loading="lazy" alt="Halden No. 1 at a three-quarter angle: navy sunburst dial catching a raking light, dauphine hands at ten past ten."></figure>
-      <figure data-reveal="dezoom"><img src="assets/img/s2-no1-plate.webp" width="1856" height="2304" loading="lazy" alt="Halden No. 1, soldier shot on a warm near-black ground."></figure>
+<!-- ============ 01 &middot; HALDEN NO. 1 ============ -->
+<article class="rec" id="no1">
+  <!-- The band IS the record's headline: the watch full-bleed, its number, its
+       name, its one line of size and material. No story paragraph — every fact
+       that paragraph carried now sits in the specification below it, where a
+       catalogue keeps facts. -->
+  <div class="fband fband--ref" aria-labelledby="no1-t">
+    <img class="fband__img" src="assets/img/s13-no1-quarter.webp" width="720" height="965" loading="eager"
+         alt="Halden No. 1 in close macro at a three-quarter angle: a blue sunburst dial falling to near-black, polished dauphine hands, brushed steel case on a dark leather ground.">
+    <div class="fband__copy">
+      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 01</p>
+      <h2 class="fband__t" id="no1-t" data-reveal="lines">Halden No. 1</h2>
+      <p class="fband__s" data-reveal="block">38 mm, brushed steel &middot; blue sunburst dial <span class="meta">[SAMPLE]</span></p>
     </div>
-
-    <div class="pdp__cols">
-      <div>
-        <dl class="spec-table" data-reveal="block">
-          <div><dt>Movement</dt><dd>Calibre H-1 · automatic</dd></div>
-          <div><dt>Case</dt><dd>38 mm · brushed steel</dd></div>
-          <div><dt>Dial</dt><dd>Blue sunburst</dd></div>
-          <div><dt>Crystal</dt><dd>Flat sapphire, AR-coated</dd></div>
-          <div><dt>Series</dt><dd>25 pieces <span class="meta">[SAMPLE]</span></dd></div>
-          <div><dt>Price</dt><dd>$6,400 <span class="meta">[SAMPLE]</span></dd></div>
-        </dl>
-      </div>
-      <div class="block">
-        <p class="lede">Behind the dial sits the same movement as every Halden: the Calibre H-1, regulated over
-          five positions and visible through the exhibition caseback.</p>
-        <a class="tlink" href="movement.html">Discover the calibre <span class="arr" aria-hidden="true">&rarr;</span></a>
-        <div class="pdp__actions">
-          <a class="pill pill--solid" href="contact.html">Reserve · built to order</a>
-          <span class="avail">Built to order · by request</span>
-        </div>
+  </div>
+  <div class="specstrip g-paper">
+    <div class="shell">
+      <dl class="specgrid" data-reveal="block">
+      <div><dt>Reference</dt><dd>H1-38-BL</dd></div>
+      <div><dt>Movement</dt><dd>Calibre H-1 &middot; automatic</dd></div>
+      <div><dt>Regulation</dt><dd>Five positions</dd></div>
+      <div><dt>Case</dt><dd>38 mm &middot; brushed steel</dd></div>
+      <div><dt>Lug to lug</dt><dd>Just under 46 mm <span class="meta">[SAMPLE]</span></dd></div>
+      <div><dt>Dial</dt><dd>Blue sunburst</dd></div>
+      <div><dt>Hands</dt><dd>Gilt dauphine</dd></div>
+      <div><dt>Crystal</dt><dd>Flat sapphire, AR-coated</dd></div>
+      <div><dt>Caseback</dt><dd>Exhibition sapphire</dd></div>
+      <div><dt>Strap</dt><dd>Navy leather</dd></div>
+      <div><dt>Series</dt><dd>25 pieces <span class="meta">[SAMPLE]</span></dd></div>
+      <div><dt>Price</dt><dd>$6,400 <span class="meta">[SAMPLE]</span></dd></div>
+      </dl>
+      <div class="refact">
+        <a class="pill pill--solid" href="contact.html">Reserve</a>
+        <a class="tlink" href="movement.html">Calibre H-1 <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <span class="refact__note">Built to order &middot; by request</span>
       </div>
     </div>
   </div>
 </article>
 
-<!-- ============ 02 · HALDEN MERIDIAN ============ -->
-<article class="g-paper pdp" id="meridian">
-  <div class="shell">
-    <header class="pdp__head">
-      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 02 — Reference</p>
-      <h2 class="title" data-reveal="lines">Halden Meridian</h2>
-      <span class="pdp__ref">REF. MR-39-CH</span>
-      <p class="pdp__story" data-reveal="block">The guilloché dial is cut on a hand-cranked rose engine, one pass
-        at a time. The case is 39 mm in polished steel under a domed box crystal, and it is the dressiest
-        watch in the line.</p>
-    </header>
-
-    <div class="pdp__gallery g-ink grain">
-      <figure data-reveal="dezoom"><img src="assets/img/s5-meridian-dial-macro.webp" width="2528" height="1696" loading="lazy" alt="Extreme macro of the Meridian's champagne guilloché: a rose-engine pattern radiating from the centre, catching a raking light."></figure>
-      <figure data-reveal="dezoom"><img src="assets/img/s3-meridian-plate.webp" width="1856" height="2304" loading="lazy" alt="Halden Meridian, soldier shot on a warm near-black ground."></figure>
+<!-- ============ 02 &middot; HALDEN MERIDIAN ============ -->
+<article class="rec" id="meridian">
+  <!-- The band IS the record's headline: the watch full-bleed, its number, its
+       name, its one line of size and material. No story paragraph — every fact
+       that paragraph carried now sits in the specification below it, where a
+       catalogue keeps facts. -->
+  <div class="fband fband--ref" aria-labelledby="meridian-t">
+    <img class="fband__img" src="assets/img/s5-meridian-dial-macro.webp" width="2528" height="1696" loading="lazy"
+         alt="Extreme macro of the Meridian's champagne guilloche: a rose-engine pattern radiating from the centre under polished dauphine hands.">
+    <div class="fband__copy">
+      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 02</p>
+      <h2 class="fband__t" id="meridian-t" data-reveal="lines">Halden Meridian</h2>
+      <p class="fband__s" data-reveal="block">39 mm, polished steel &middot; champagne guilloch&eacute; <span class="meta">[SAMPLE]</span></p>
     </div>
-
-    <div class="pdp__cols">
-      <div>
-        <dl class="spec-table" data-reveal="block">
-          <div><dt>Movement</dt><dd>Calibre H-1 · automatic</dd></div>
-          <div><dt>Case</dt><dd>39 mm · polished steel</dd></div>
-          <div><dt>Dial</dt><dd>Champagne guilloché</dd></div>
-          <div><dt>Crystal</dt><dd>Box sapphire</dd></div>
-          <div><dt>Series</dt><dd>15 pieces <span class="meta">[SAMPLE]</span></dd></div>
-          <div><dt>Price</dt><dd>$8,900 <span class="meta">[SAMPLE]</span></dd></div>
-        </dl>
-      </div>
-      <div class="block">
-        <p class="lede">Each pass of the rose engine is cut and then checked under the loupe.</p>
-        <a class="tlink" href="movement.html">Discover the calibre <span class="arr" aria-hidden="true">&rarr;</span></a>
-        <div class="pdp__actions">
-          <a class="pill pill--solid" href="contact.html">Reserve · built to order</a>
-          <span class="avail">Built to order · by request</span>
-        </div>
+  </div>
+  <div class="specstrip g-paper">
+    <div class="shell">
+      <dl class="specgrid" data-reveal="block">
+      <div><dt>Reference</dt><dd>MR-39-CH</dd></div>
+      <div><dt>Movement</dt><dd>Calibre H-1 &middot; automatic</dd></div>
+      <div><dt>Case</dt><dd>39 mm &middot; polished steel</dd></div>
+      <div><dt>Dial</dt><dd>Champagne guilloch&eacute;</dd></div>
+      <div><dt>Hands</dt><dd>Polished dauphine</dd></div>
+      <div><dt>Dial cut</dt><dd>Rose engine, hand-cranked</dd></div>
+      <div><dt>Crystal</dt><dd>Domed box sapphire</dd></div>
+      <div><dt>Caseback</dt><dd>Exhibition sapphire</dd></div>
+      <div><dt>Strap</dt><dd>Brown alligator</dd></div>
+      <div><dt>Series</dt><dd>15 pieces <span class="meta">[SAMPLE]</span></dd></div>
+      <div><dt>Price</dt><dd>$8,900 <span class="meta">[SAMPLE]</span></dd></div>
+      </dl>
+      <div class="refact">
+        <a class="pill pill--solid" href="contact.html">Reserve</a>
+        <a class="tlink" href="movement.html">Calibre H-1 <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <span class="refact__note">Built to order &middot; by request</span>
       </div>
     </div>
   </div>
 </article>
 
-<!-- ============ 03 · HALDEN FIELD ============ -->
-<article class="g-paper pdp" id="field">
-  <div class="shell">
-    <header class="pdp__head">
-      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 03 — Reference</p>
-      <h2 class="title" data-reveal="lines">Halden Field</h2>
-      <span class="pdp__ref">REF. FD-36-SL</span>
-      <p class="pdp__story" data-reveal="block">The salmon dial carries a printed minute track, made to be read
-        at a glance. The 36 mm case sits low and wears smaller than the rest of the line.</p>
-    </header>
-
-    <div class="pdp__gallery pdp__gallery--solo g-ink grain">
-      <figure data-reveal="dezoom"><img src="assets/img/s4-field-plate.webp" width="1856" height="2304" loading="lazy" alt="Halden Field, soldier shot: salmon dial, printed minute track, compact brushed case on a warm near-black ground."></figure>
+<!-- ============ 03 &middot; HALDEN FIELD ============ -->
+<article class="rec" id="field">
+  <!-- The band IS the record's headline: the watch full-bleed, its number, its
+       name, its one line of size and material. No story paragraph — every fact
+       that paragraph carried now sits in the specification below it, where a
+       catalogue keeps facts. -->
+  <div class="fband fband--ref" aria-labelledby="field-t">
+    <img class="fband__img" src="assets/img/s4-field-plate.webp" width="1856" height="2304" loading="lazy"
+         alt="Halden Field, catalogue plate: salmon dial with a printed minute track, compact brushed steel case on a grey canvas strap, on a warm near-black ground.">
+    <div class="fband__copy">
+      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 03</p>
+      <h2 class="fband__t" id="field-t" data-reveal="lines">Halden Field</h2>
+      <p class="fband__s" data-reveal="block">36 mm, brushed steel &middot; salmon dial <span class="meta">[SAMPLE]</span></p>
     </div>
-
-    <div class="pdp__cols">
-      <div>
-        <dl class="spec-table" data-reveal="block">
-          <div><dt>Movement</dt><dd>Calibre H-1 · automatic</dd></div>
-          <div><dt>Case</dt><dd>36 mm · brushed steel</dd></div>
-          <div><dt>Dial</dt><dd>Salmon, printed track</dd></div>
-          <div><dt>Crystal</dt><dd>Flat sapphire</dd></div>
-          <div><dt>Series</dt><dd>20 pieces <span class="meta">[SAMPLE]</span></dd></div>
-          <div><dt>Price</dt><dd>$5,800 <span class="meta">[SAMPLE]</span></dd></div>
-        </dl>
-      </div>
-      <div class="block">
-        <p class="lede">The Field is the smallest case we make.</p>
-        <a class="tlink" href="movement.html">Discover the calibre <span class="arr" aria-hidden="true">&rarr;</span></a>
-        <div class="pdp__actions">
-          <a class="pill pill--solid" href="contact.html">Reserve · built to order</a>
-          <span class="avail">Built to order · by request</span>
-        </div>
+  </div>
+  <div class="specstrip g-paper">
+    <div class="shell">
+      <dl class="specgrid" data-reveal="block">
+      <div><dt>Reference</dt><dd>FD-36-SL</dd></div>
+      <div><dt>Movement</dt><dd>Calibre H-1 &middot; automatic</dd></div>
+      <div><dt>Case</dt><dd>36 mm &middot; brushed steel</dd></div>
+      <div><dt>Dial</dt><dd>Salmon</dd></div>
+      <div><dt>Hands</dt><dd>Lumed steel</dd></div>
+      <div><dt>Minute track</dt><dd>Printed</dd></div>
+      <div><dt>Crystal</dt><dd>Flat sapphire</dd></div>
+      <div><dt>Caseback</dt><dd>Exhibition sapphire</dd></div>
+      <div><dt>Strap</dt><dd>Grey canvas</dd></div>
+      <div><dt>Series</dt><dd>20 pieces <span class="meta">[SAMPLE]</span></dd></div>
+      <div><dt>Price</dt><dd>$5,800 <span class="meta">[SAMPLE]</span></dd></div>
+      </dl>
+      <div class="refact">
+        <a class="pill pill--solid" href="contact.html">Reserve</a>
+        <a class="tlink" href="movement.html">Calibre H-1 <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <span class="refact__note">Built to order &middot; by request</span>
       </div>
     </div>
   </div>
 </article>
 
-<!-- ============ 04 · HALDEN TIDE ============ -->
-<article class="g-paper pdp" id="tide">
-  <div class="shell">
-    <header class="pdp__head">
-      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 04 — Reference</p>
-      <h2 class="title" data-reveal="lines">Halden Tide</h2>
-      <span class="pdp__ref">REF. TD-40-BK</span>
-      <p class="pdp__story" data-reveal="block">The Tide is the house's dive watch. Cream luminous markers sit on a
-        black dial under a flat sapphire, the steel bezel turns one way only, and the case is water resistant
-        to 200 metres. <span class="meta">[SAMPLE]</span> At 40 mm on its steel bracelet, it is the largest
-        watch we make.</p>
-    </header>
-
-    <div class="pdp__gallery pdp__gallery--solo g-ink grain">
-      <figure data-reveal="dezoom"><img src="assets/img/s15-tide-front.webp" width="720" height="965" loading="lazy" alt="Halden Tide, soldier shot: black dial with cream luminous markers, steel unidirectional dive bezel, brushed steel bracelet, on a warm near-black ground."></figure>
+<!-- ============ 04 &middot; HALDEN TIDE ============ -->
+<article class="rec" id="tide">
+  <!-- The band IS the record's headline: the watch full-bleed, its number, its
+       name, its one line of size and material. No story paragraph — every fact
+       that paragraph carried now sits in the specification below it, where a
+       catalogue keeps facts. -->
+  <div class="fband fband--ref" aria-labelledby="tide-t">
+    <img class="fband__img" src="assets/img/s15-tide-front.webp" width="720" height="965" loading="lazy"
+         alt="Halden Tide in close crop: cream luminous markers on a black dial inside a steel unidirectional dive bezel, brushed steel bracelet.">
+    <div class="fband__copy">
+      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 04</p>
+      <h2 class="fband__t" id="tide-t" data-reveal="lines">Halden Tide</h2>
+      <p class="fband__s" data-reveal="block">40 mm, brushed steel &middot; black dial, dive bezel <span class="meta">[SAMPLE]</span></p>
     </div>
-
-    <div class="pdp__cols">
-      <div>
-        <dl class="spec-table" data-reveal="block">
-          <div><dt>Movement</dt><dd>Calibre H-1 · automatic</dd></div>
-          <div><dt>Case</dt><dd>40 mm · brushed steel</dd></div>
-          <div><dt>Dial</dt><dd>Black, luminous markers</dd></div>
-          <div><dt>Bezel</dt><dd>Unidirectional steel</dd></div>
-          <div><dt>Water resistance</dt><dd>200 m <span class="meta">[SAMPLE]</span></dd></div>
-          <div><dt>Series</dt><dd>30 pieces <span class="meta">[SAMPLE]</span></dd></div>
-          <div><dt>Price</dt><dd>$7,600 <span class="meta">[SAMPLE]</span></dd></div>
-        </dl>
-      </div>
-      <div class="block">
-        <p class="lede">The Tide runs the Calibre H-1 behind a closed caseback, the only watch in the line
-          without an exhibition view.</p>
-        <a class="tlink" href="movement.html">Discover the calibre <span class="arr" aria-hidden="true">&rarr;</span></a>
-        <div class="pdp__actions">
-          <a class="pill pill--solid" href="contact.html">Reserve · built to order</a>
-          <span class="avail">Built to order · by request</span>
-        </div>
+  </div>
+  <div class="specstrip g-paper">
+    <div class="shell">
+      <dl class="specgrid" data-reveal="block">
+      <div><dt>Reference</dt><dd>TD-40-BK</dd></div>
+      <div><dt>Movement</dt><dd>Calibre H-1 &middot; automatic</dd></div>
+      <div><dt>Case</dt><dd>40 mm &middot; brushed steel</dd></div>
+      <div><dt>Dial</dt><dd>Black, luminous markers</dd></div>
+      <div><dt>Bezel</dt><dd>Unidirectional steel</dd></div>
+      <div><dt>Crystal</dt><dd>Flat sapphire</dd></div>
+      <div><dt>Caseback</dt><dd>Closed steel</dd></div>
+      <div><dt>Bracelet</dt><dd>Steel</dd></div>
+      <div><dt>Water resistance</dt><dd>200 m <span class="meta">[SAMPLE]</span></dd></div>
+      <div><dt>Series</dt><dd>30 pieces <span class="meta">[SAMPLE]</span></dd></div>
+      <div><dt>Price</dt><dd>$7,600 <span class="meta">[SAMPLE]</span></dd></div>
+      </dl>
+      <div class="refact">
+        <a class="pill pill--solid" href="contact.html">Reserve</a>
+        <a class="tlink" href="movement.html">Calibre H-1 <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <span class="refact__note">Built to order &middot; by request</span>
       </div>
     </div>
   </div>
 </article>
 
-<!-- ============ 05 · HALDEN CROSSING ============ -->
-<article class="g-paper pdp" id="crossing">
-  <div class="shell">
-    <header class="pdp__head">
-      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 05 — Reference</p>
-      <h2 class="title" data-reveal="lines">Halden Crossing</h2>
-      <span class="pdp__ref">REF. CR-39-NV</span>
-      <p class="pdp__story" data-reveal="block">The Crossing is the house's travel watch. A champagne 24-hour hand
-        shows home time against the engraved steel bezel while the navy sunburst dial shows local time.
-        <span class="meta">[SAMPLE]</span> It is 39 mm, on the same steel bracelet as the Tide.</p>
-    </header>
-
-    <div class="pdp__gallery pdp__gallery--solo g-ink grain">
-      <figure data-reveal="dezoom"><img src="assets/img/s16-crossing-front.webp" width="720" height="965" loading="lazy" alt="Halden Crossing, soldier shot: navy sunburst dial, champagne 24-hour hand with arrow tip, polished steel case with engraved 24-hour bezel, steel bracelet, on a warm near-black ground."></figure>
+<!-- ============ 05 &middot; HALDEN CROSSING ============ -->
+<article class="rec" id="crossing">
+  <!-- The band IS the record's headline: the watch full-bleed, its number, its
+       name, its one line of size and material. No story paragraph — every fact
+       that paragraph carried now sits in the specification below it, where a
+       catalogue keeps facts. -->
+  <div class="fband fband--ref" aria-labelledby="crossing-t">
+    <img class="fband__img" src="assets/img/s16-crossing-front.webp" width="720" height="965" loading="lazy"
+         alt="Halden Crossing in close crop: navy sunburst dial and champagne 24-hour hand inside an engraved 24-hour steel bezel, steel bracelet.">
+    <div class="fband__copy">
+      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 05</p>
+      <h2 class="fband__t" id="crossing-t" data-reveal="lines">Halden Crossing</h2>
+      <p class="fband__s" data-reveal="block">39 mm, polished steel &middot; navy sunburst, dual time <span class="meta">[SAMPLE]</span></p>
     </div>
-
-    <div class="pdp__cols">
-      <div>
-        <dl class="spec-table" data-reveal="block">
-          <div><dt>Movement</dt><dd>Calibre H-1 · dual time <span class="meta">[SAMPLE]</span></dd></div>
-          <div><dt>Case</dt><dd>39 mm · polished steel</dd></div>
-          <div><dt>Dial</dt><dd>Navy sunburst</dd></div>
-          <div><dt>Bezel</dt><dd>Fixed, 24-hour scale</dd></div>
-          <div><dt>Crystal</dt><dd>Flat sapphire, AR-coated</dd></div>
-          <div><dt>Series</dt><dd>18 pieces <span class="meta">[SAMPLE]</span></dd></div>
-          <div><dt>Price</dt><dd>$9,400 <span class="meta">[SAMPLE]</span></dd></div>
-        </dl>
-      </div>
-      <div class="block">
-        <p class="lede">The Crossing shows two time zones at once.</p>
-        <a class="tlink" href="movement.html">Discover the calibre <span class="arr" aria-hidden="true">&rarr;</span></a>
-        <div class="pdp__actions">
-          <a class="pill pill--solid" href="contact.html">Reserve · built to order</a>
-          <span class="avail">Built to order · by request</span>
-        </div>
+  </div>
+  <div class="specstrip g-paper">
+    <div class="shell">
+      <dl class="specgrid" data-reveal="block">
+      <div><dt>Reference</dt><dd>CR-39-NV</dd></div>
+      <div><dt>Movement</dt><dd>Calibre H-1 &middot; dual time <span class="meta">[SAMPLE]</span></dd></div>
+      <div><dt>Reads</dt><dd>Home and local time</dd></div>
+      <div><dt>Case</dt><dd>39 mm &middot; polished steel</dd></div>
+      <div><dt>Dial</dt><dd>Navy sunburst</dd></div>
+      <div><dt>24-hour hand</dt><dd>Champagne</dd></div>
+      <div><dt>Bezel</dt><dd>Fixed, engraved 24-hour scale</dd></div>
+      <div><dt>Crystal</dt><dd>Flat sapphire, AR-coated</dd></div>
+      <div><dt>Bracelet</dt><dd>Steel</dd></div>
+      <div><dt>Series</dt><dd>18 pieces <span class="meta">[SAMPLE]</span></dd></div>
+      <div><dt>Price</dt><dd>$9,400 <span class="meta">[SAMPLE]</span></dd></div>
+      </dl>
+      <div class="refact">
+        <a class="pill pill--solid" href="contact.html">Reserve</a>
+        <a class="tlink" href="movement.html">Calibre H-1 <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <span class="refact__note">Built to order &middot; by request</span>
       </div>
     </div>
   </div>
 </article>
 
-<!-- ============ ONE MOVEMENT, FIVE DIALS ============ -->
-<section class="compare grain">
-  <div class="shell">
-    <div class="block">
-      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> Side by side</p>
-      <h2 class="title" data-reveal="lines">The same calibre behind five dials.</h2>
-    </div>
-    <div class="compare__grid">
-      <figure data-reveal="block">
-        <img src="assets/img/s10-no1-front.webp" width="720" height="965" loading="lazy" alt="Halden No. 1, straight on: blue sunburst dial, applied champagne indices, gilt dauphine hands at ten past ten, brushed steel case, navy leather strap, on a warm near-black ground.">
-        <figcaption>
-          <span class="nm">Halden No. 1</span>
-          <span class="dl">Blue sunburst dial · 38 mm steel · series of 25 <span class="meta">[SAMPLE]</span></span>
-          <span class="ref">REF. H1-38-BL</span>
-        </figcaption>
-      </figure>
-      <figure data-reveal="block">
-        <img src="assets/img/s11-meridian-front.webp" width="720" height="965" loading="lazy" alt="Halden Meridian, straight on: champagne guilloché dial cut in a rose-engine pattern, polished steel case and dauphine hands, brown alligator strap, on a warm near-black ground.">
-        <figcaption>
-          <span class="nm">Halden Meridian</span>
-          <span class="dl">Champagne guilloché · 39 mm · series of 15 <span class="meta">[SAMPLE]</span></span>
-          <span class="ref">REF. MR-39-CH</span>
-        </figcaption>
-      </figure>
-      <figure data-reveal="block">
-        <img src="assets/img/s12-field-front.webp" width="720" height="965" loading="lazy" alt="Halden Field, straight on: salmon dial with a printed black minute track, polished steel indices and lumed hands, compact brushed 36 mm case, grey canvas NATO strap, on a warm near-black ground.">
-        <figcaption>
-          <span class="nm">Halden Field</span>
-          <span class="dl">Salmon dial · 36 mm · series of 20 <span class="meta">[SAMPLE]</span></span>
-          <span class="ref">REF. FD-36-SL</span>
-        </figcaption>
-      </figure>
-      <figure data-reveal="block">
-        <img src="assets/img/s15-tide-front.webp" width="720" height="965" loading="lazy" alt="Halden Tide, straight on: black dial with cream luminous markers, steel unidirectional dive bezel, brushed steel bracelet, on a warm near-black ground.">
-        <figcaption>
-          <span class="nm">Halden Tide</span>
-          <span class="dl">Black dial · 40 mm · series of 30 <span class="meta">[SAMPLE]</span></span>
-          <span class="ref">REF. TD-40-BK</span>
-        </figcaption>
-      </figure>
-      <figure data-reveal="block">
-        <img src="assets/img/s16-crossing-front.webp" width="720" height="965" loading="lazy" alt="Halden Crossing, straight on: navy sunburst dial, champagne 24-hour hand, polished steel case with engraved 24-hour bezel, steel bracelet, on a warm near-black ground.">
-        <figcaption>
-          <span class="nm">Halden Crossing</span>
-          <span class="dl">Navy sunburst · 39 mm · series of 18 <span class="meta">[SAMPLE]</span></span>
-          <span class="ref">REF. CR-39-NV</span>
-        </figcaption>
-      </figure>
-    </div>
+<!-- ============ ONE CALIBRE ==============================================
+     R63: this was "The same calibre behind five dials." over a second grid of
+     the same five watches the page already opened with — a sentence for a
+     heading and a duplicate of the catalogue row. It is now the break the
+     homepage uses: the movement full-bleed, its name, its numbers, one link. -->
+<section class="fband fband--tall" aria-labelledby="cal-t">
+  <img class="fband__img" src="assets/img/s9-movement-holders.webp" width="2528" height="1696" loading="lazy"
+       alt="Five Calibre H-1 movements in brass holders across a watchmaker's bench under a lamp, screwdrivers laid out on the mat in front of them.">
+  <div class="fband__copy">
+    <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> Behind all five</p>
+    <h2 class="fband__t" id="cal-t" data-reveal="lines">Calibre H-1</h2>
+    <p class="fband__s" data-reveal="block">Automatic &middot; 28,800 vph &middot; 72 h &middot; 27 jewels <span class="meta">[SAMPLE]</span></p>
+    <a class="tlink" href="movement.html">Discover <span class="arr" aria-hidden="true">&rarr;</span></a>
   </div>
 </section>
 
 <!-- ============ CLOSING ============ -->
-<section class="cta-band grain">
+<!-- R63: the closing band followed a full-bleed photograph on the same ink
+     ground, which read as one 1,200 px dark run. On paper it is a change of
+     gear, and the footer below it becomes the cut. -->
+<section class="cta-band grain g-paper">
   <div class="shell in">
     <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> By appointment</p>
-    <h2 class="title" data-reveal="lines">Book a viewing at a boutique.</h2>
+    <h2 class="title" data-reveal="lines">Viewings</h2>
     <a class="pill pill--solid" href="contact.html">Request a viewing</a>
     <p class="note" data-reveal="block">Appointments at any of our boutiques. <span class="meta">[SAMPLE]</span></p>
   </div>

@@ -50,66 +50,113 @@
   <span class="line"></span>
 </aside>
 
-<!-- R54 (owner, ogroup reference): "one simple paragraph then boom contact".
-     The three-step PROCESS block and the marketing section were explaining the
-     job rather than showing it. Hero, one line, the ask, the numbers, done. -->
-<section class="phero">
+<!-- R60 (owner): the display heading was doing nothing but eating the first
+     screen. It is a label now, and the markets start inside the fold. -->
+<section class="phero phero--lead">
   <div class="phero-bg"><img src="assets/buyers_hero.webp" alt="" aria-hidden="true" width="2000" height="1116"></div>
   <div class="wrap">
     <p class="label reveal">Buyers</p>
     <h1 class="display page-title reveal d1">Buy with us</h1>
     <p class="sub reveal d2">The best homes trade quietly. We make sure you are in the room.</p>
-    <div class="mt reveal d2"><a class="btn gold" href="contact.html">Start your search
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="lead-actions reveal d2">
+      <a class="btn gold" href="contact.html">Start your search
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="link-arrow" href="index.html#listings">Current listings
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
   </div>
 </section>
 
-
-
-<!-- R54 (owner, ogroup reference): imagery instead of an explanation. The block
-     that used to sit here ("The list before the listing") talked about access;
-     this shows the kind of house it buys you and says nothing. -->
-<!-- R59 (owner, ogroup "Buy With Us"): their buyer page leads with the ask, then
-     gives region entry points ("Explore Los Angeles / Orange County / San Diego")
-     and a form. No tile grid of services on that one — the regions ARE the grid.
-     Hale's six markets are already named on the home page marquee. -->
-<section class="section" id="markets">
+<!-- R60 (owner): "you could just show the location." The six markets were a
+     text grid; they are the page's lead now, and each one is a photograph.
+     Same six names, same six sub-lines — the reference's region entry points
+     ("Explore Los Angeles / Orange County / San Diego") done in pictures. -->
+<section class="section section--tight" id="markets">
   <div class="wrap">
     <div class="sec-head">
       <div>
         <p class="label reveal">Where we work</p>
-        <h2 class="reveal d1">Six markets, coast to city</h2>
+        <h2 class="reveal d1">Six markets</h2>
       </div>
       <p class="aside reveal d2">Tell us the one you are looking in and we will send what is not yet listed.</p>
     </div>
-    <div class="tiles tiles--wide">
-        <a class="tile reveal" href="contact.html"><span class="tile__t">Malibu</span>
-          <span class="tile__d">Carbon Beach to Point Dume</span></a>
-        <a class="tile reveal" href="contact.html"><span class="tile__t">Beverly Hills</span>
-          <span class="tile__d">Trousdale and the flats</span></a>
-        <a class="tile reveal" href="contact.html"><span class="tile__t">Montecito</span>
-          <span class="tile__d">Hedgerow and the upper village</span></a>
-        <a class="tile reveal" href="contact.html"><span class="tile__t">Pacific Heights</span>
-          <span class="tile__d">Broadway to the Gold Coast</span></a>
-        <a class="tile reveal" href="contact.html"><span class="tile__t">Newport Coast</span>
-          <span class="tile__d">Crystal Cove and Pelican</span></a>
-        <a class="tile reveal" href="contact.html"><span class="tile__t">Carmel</span>
-          <span class="tile__d">Scenic Road and the Point</span></a>
+    <div class="mgrid stagger">
+      <a class="mcard reveal" href="contact.html">
+        <span class="mcard-media"><img src="assets/hero1.webp" alt="An infinity-edge terrace above the Pacific at dusk" width="1920" height="1080" loading="lazy"></span>
+        <span class="mcard-body"><span class="city">Malibu</span>
+          <span class="within">Carbon Beach to Point Dume
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a>
+      <a class="mcard reveal" href="contact.html">
+        <span class="mcard-media"><img src="assets/hero3.webp" alt="A single-level glass house on a ridge above the city lights" width="1920" height="1080" loading="lazy"></span>
+        <span class="mcard-body"><span class="city">Beverly Hills</span>
+          <span class="within">Trousdale and the flats
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a>
+      <a class="mcard reveal" href="contact.html">
+        <span class="mcard-media"><img src="assets/ext_modern.webp" alt="A walled contemporary house set back behind mature trees at twilight" width="1100" height="825" loading="lazy"></span>
+        <span class="mcard-body"><span class="city">Montecito</span>
+          <span class="within">Hedgerow and the upper village
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a>
+      <a class="mcard reveal" href="contact.html">
+        <span class="mcard-media"><img src="assets/view_heights.webp" alt="A bay-window sitting room looking over a hillside city of pale rooftops" width="1600" height="1195" loading="lazy"></span>
+        <span class="mcard-body"><span class="city">Pacific Heights</span>
+          <span class="within">Broadway to the Gold Coast
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a>
+      <a class="mcard reveal" href="contact.html">
+        <span class="mcard-media"><img src="assets/int_pool.webp" alt="A lit terrace and lap pool on a bluff above the shoreline" width="1920" height="1080" loading="lazy"></span>
+        <span class="mcard-body"><span class="city">Newport Coast</span>
+          <span class="within">Crystal Cove and Pelican
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a>
+      <a class="mcard reveal" href="contact.html">
+        <span class="mcard-media"><img src="assets/ocean.webp" alt="A lit house on a rock point above open water after sunset" width="2000" height="1116" loading="lazy"></span>
+        <span class="mcard-body"><span class="city">Carmel</span>
+          <span class="within">Scenic Road and the Point
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a>
     </div>
   </div>
 </section>
 
 <section class="photo-band" aria-hidden="true">
-  <img src="assets/ext_dusk.webp" alt="" width="1600" height="900" loading="lazy">
+  <img src="assets/ext_dusk.webp" alt="" width="1920" height="1080" loading="lazy">
 </section>
 
-<section class="section center">
+<!-- R60 (owner): the reference puts its office cards at the foot of the buy and
+     sell pages. The three offices only existed on the contact page. -->
+<section class="section" id="offices">
   <div class="wrap">
-    <p class="label center reveal" style="justify-content:center">Begin</p>
-    <h2 class="display reveal d1" style="font-size:clamp(2.2rem,5.5vw,4.4rem);margin:24px auto 0;max-width:16ch">Tell us what you are looking for.</h2>
-    <p class="muted reveal d2" style="max-width:44ch;margin:24px auto 0">A short note is enough. We will take it from there.</p>
-    <div class="mt reveal d2"><a class="btn gold" href="contact.html">Start your search
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <p class="label reveal" style="margin-bottom:36px">Three Offices</p>
+    <div class="offices reveal d1">
+      <div class="office">
+        <div class="city">Malibu</div>
+        <div class="addr">22500 Pacific Coast Hwy<br>Malibu, CA 90265<br><a href="tel:+13105550148">+1 (310) 555 0148</a></div>
+      </div>
+      <div class="office">
+        <div class="city">Beverly Hills</div>
+        <div class="addr">9200 Wilshire Blvd, Ste 400<br>Beverly Hills, CA 90212<br><a href="tel:+13105550172">+1 (310) 555 0172</a></div>
+      </div>
+      <div class="office">
+        <div class="city">Pacific Heights</div>
+        <div class="addr">2100 Fillmore Street<br>San Francisco, CA 94115<br><a href="tel:+14155550196">+1 (415) 555 0196</a></div>
+      </div>
+    </div>
+    <p class="sample-note" style="margin-top:24px">Addresses are illustrative for this sample showcase</p>
+  </div>
+</section>
+
+<section class="section center endcta" style="padding-top:0">
+  <div class="wrap">
+    <p class="label center reveal" style="justify-content:center">Enquire</p>
+    <h2 class="reveal d1">Start your search</h2>
+    <div class="endcta-actions reveal d2">
+      <a class="btn gold" href="contact.html">Send a note
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="tel" href="tel:+13105550148">+1 (310) 555 0148</a>
+    </div>
   </div>
 </section>
 

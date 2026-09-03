@@ -158,9 +158,12 @@
    * ------------------------------------------------------------------ */
   (function refTabs() {
     var wrap = d.querySelector("[data-cartabs]");
-    var track = d.querySelector(".car__track");
-    if (!wrap || !track) return;
-    var cards = [].slice.call(track.querySelectorAll(".car__card"));
+    if (!wrap) return;
+    /* the homepage filters its carousel, the collection page its catalogue
+       grid; the tablist names its own target so one behaviour drives both. */
+    var track = d.querySelector(wrap.getAttribute("data-target") || ".car__track");
+    if (!track) return;
+    var cards = [].slice.call(track.querySelectorAll("[data-mm]"));
     if (!cards.length) return;
     wrap.removeAttribute("hidden");
     var tabs = [].slice.call(wrap.querySelectorAll(".tab"));
@@ -179,7 +182,9 @@
         t.classList.toggle("is-on", on);
         t.setAttribute("aria-selected", on ? "true" : "false");
       });
-      track.scrollTo({ left: 0, behavior: motionOn() ? "smooth" : "auto" });
+      if (track.scrollWidth > track.clientWidth) {
+        track.scrollTo({ left: 0, behavior: motionOn() ? "smooth" : "auto" });
+      }
     }
     tabs.forEach(function (t) {
       t.addEventListener("click", function () { apply(t.getAttribute("data-filter"), t); });
@@ -189,6 +194,28 @@
         if (e.key === "ArrowLeft") n = tabs[(i - 1 + tabs.length) % tabs.length];
         if (n) { e.preventDefault(); n.focus(); apply(n.getAttribute("data-filter"), n); }
       });
+    });
+  })();
+
+  /* ------------------------------------------------------------------ *
+   * 4c · Boutique rows -> the boutique field (contact page)
+   *      Each city row is a real anchor to #boutique, so with JS off it
+   *      still takes you to the field. With JS it also picks that city,
+   *      which saves the visitor doing it twice.
+   * ------------------------------------------------------------------ */
+  (function boutiqueRows() {
+    var wrap = d.querySelector("[data-boutique-rows]");
+    var sel = d.getElementById("boutique");
+    if (!wrap || !sel) return;
+    wrap.addEventListener("click", function (e) {
+      var row = e.target.closest ? e.target.closest("[data-city]") : null;
+      if (!row) return;
+      var city = row.getAttribute("data-city");
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === city) { sel.selectedIndex = i; break; }
+      }
+      /* the anchor still does the scrolling; we only move focus after it */
+      w.setTimeout(function () { try { sel.focus({ preventScroll: true }); } catch (err) { sel.focus(); } }, 0);
     });
   })();
 
@@ -340,6 +367,10 @@
     var els = d.querySelectorAll("[data-reveal]");
     function splitLines(el) {
       var text = el.textContent.trim();
+      /* each line becomes its own block-level mask, so the element's text
+         content loses the spaces BETWEEN lines ("Request a" + "viewing").
+         Name the element with the original string, as splitChars does. */
+      el.setAttribute("aria-label", text);
       var words = text.split(/\s+/);
       el.textContent = "";
       var spans = words.map(function (wd) {

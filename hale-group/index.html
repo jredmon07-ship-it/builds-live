@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
-<noscript><style>.reveal{opacity:1!important;transform:none!important}.hero-slide{opacity:1!important}.quote{position:relative!important;opacity:1!important}</style></noscript>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.hero-slide{opacity:1!important}.quote{position:relative!important;opacity:1!important}.lcard-media::after{opacity:0!important}</style></noscript>
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0b'/%3E%3Cpath d='M9 7v18M23 7v18M9 16h14' stroke='%23d6a965' stroke-width='2'/%3E%3C/svg%3E">
 <meta property="og:title" content="The Hale Group, California Luxury Real Estate">
@@ -138,7 +138,10 @@
       </div>
       <p class="aside reveal d2"><span class="sample-note">Sample listings · figures illustrative</span></p>
     </div>
-    <div class="listings reveal d1">
+    <!-- R60 (owner): the cards used to sit there. The container no longer
+         reveals as one block — each card reveals on its own, and the CSS
+         column delays turn every row into a left-to-right cascade. -->
+    <div class="listings stagger">
       <article class="lcard reveal">
         <a href="contact.html" aria-label="Malibu · Point Dume, $18,750,000 — enquire">
           <div class="lcard-media"><img src="assets/prop1.webp" alt="Sea-cliff contemporary above Little Dume" width="1200" height="800" loading="lazy"></div>
@@ -252,39 +255,45 @@
   <div class="wrap">
     <p class="label reveal" style="margin-bottom:36px">By The Numbers <span class="sample-note" style="margin-left:8px">Sample</span></p>
     <div class="stats reveal d1">
-      <div class="stat"><div class="n"><span data-count="21">0</span></div><div class="k">Years On The Coast</div></div>
-      <div class="stat"><div class="n"><span data-count="98">0</span><span class="suf">%</span></div><div class="k">Of List, On Average</div></div>
-      <div class="stat"><div class="n"><span data-count="6">0</span></div><div class="k">Markets, Coast To City</div></div>
-      <div class="stat"><div class="n"><span data-count="70">0</span><span class="suf">%</span></div><div class="k">Clients Returning Or Referred</div></div>
+      <div class="stat"><div class="n"><span data-count="21">21</span></div><div class="k">Years On The Coast</div></div>
+      <div class="stat"><div class="n"><span data-count="98">98</span><span class="suf">%</span></div><div class="k">Of List, On Average</div></div>
+      <div class="stat"><div class="n"><span data-count="6">6</span></div><div class="k">Markets, Coast To City</div></div>
+      <div class="stat"><div class="n"><span data-count="70">70</span><span class="suf">%</span></div><div class="k">Clients Returning Or Referred</div></div>
     </div>
   </div>
 </section>
 
-<!-- SPLIT FEATURE -->
-<section class="section">
-  <div class="wrap">
-    <div class="split">
-      <div class="media wide reveal"><img src="assets/walk/02_greatroom.webp" alt="Interior great room with floor-to-ceiling glass and warm golden-hour light over the Pacific" width="1600" height="900" loading="lazy"></div>
-      <div class="reveal d1">
-        <p class="label">Sellers</p>
-        <h2>One launch per home.</h2>
-        <p>Film-grade photography, a quiet pre-market, then the listing.</p>
-                <a class="link-arrow" href="sellers.html" style="margin-top:8px">How we sell <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- R60: this was two "photo on one side, paragraph on the other" blocks — the
+     banned pattern, and the reason the front page read like a template. The
+     reference site closes its listings run with a hub of four entry points
+     instead. Every line the two blocks carried is kept, as the entries' own
+     one-liners. -->
 <section class="section" style="padding-top:0">
   <div class="wrap">
-    <div class="split rev">
-      <div class="reveal order">
-        <p class="label">Buyers</p>
-        <h2>Before it lists.</h2>
-        <p>Most of what we sell never reaches a public listing.</p>
-                <a class="link-arrow" href="buyers.html" style="margin-top:8px">Buy with us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="sec-head">
+      <div>
+        <p class="label reveal">Where next</p>
+        <h2 class="reveal d1">The firm</h2>
       </div>
-      <div class="media wide reveal d1"><img src="assets/walk/06_pool.webp" alt="Infinity-edge pool at golden-hour dusk overlooking the Pacific" width="1600" height="900" loading="lazy"></div>
+      <p class="aside reveal d2">Every one of these reaches a person, not a queue.</p>
+    </div>
+    <div class="hub stagger-4">
+      <a class="hub-item reveal" href="sellers.html">
+        <span><span class="hub-t">List With Us</span><span class="hub-d">One launch per home: film-grade photography, a quiet pre-market, then the listing.</span></span>
+        <span class="hub-go">Sell <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="hub-item reveal" href="buyers.html">
+        <span><span class="hub-t">Buy With Us</span><span class="hub-d">Most of what we sell never reaches a public listing. Six markets, coast to city.</span></span>
+        <span class="hub-go">Buy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="hub-item reveal" href="contact.html">
+        <span><span class="hub-t">Home Valuation</span><span class="hub-d">Private, and it carries no obligation.</span></span>
+        <span class="hub-go">Request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="hub-item reveal" href="contact.html#offices">
+        <span><span class="hub-t">Our Offices</span><span class="hub-d">Malibu, Beverly Hills and Pacific Heights.</span></span>
+        <span class="hub-go">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </div>
 </section>

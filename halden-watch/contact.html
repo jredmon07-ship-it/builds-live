@@ -162,92 +162,151 @@
 
 <main id="main">
 
-<!-- ============ REQUEST A VIEWING (paper, calm single spread) ============ -->
-<section class="g-paper chapter chapter--top">
+<!-- ============ REQUEST A VIEWING · page head ============================
+     R63: the page opened with a heading that restated its own eyebrow and two
+     paragraphs that restated the form under them ("tell us which reference",
+     "we'll write back with a time" — the select and the error copy already say
+     both). Same full-bleed head band as the collection and the calibre pages. -->
+<section class="fband fband--tall fband--top" aria-labelledby="viewing-t">
+  <img class="fband__img" src="assets/img/s14-no1-bench.webp" width="720" height="965" fetchpriority="high"
+       alt="A Halden No. 1 watch head, not yet strapped, resting on a worn leather bench mat in a pool of warm lamp light, a brass loupe beside it.">
+  <div class="fband__copy">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Request a viewing</span>
+    </nav>
+    <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> By appointment</p>
+    <h1 class="fband__t fband__t--h1" id="viewing-t" data-reveal="lines">Request a viewing</h1>
+    <p class="fband__s" data-reveal="block"><a href="mailto:hello@halden.sample">hello@halden.sample</a></p>
+    <a class="tlink" href="#inquiry">Enquire <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- ============ THE BOUTIQUES ===========================================
+     The five cities are the page's other real fact, so they are set as five
+     cells across the full measure rather than crammed into one line of a
+     table. Full-width rows (the homepage's treatment) would have left five
+     lengths of empty paper to the right of five short city names, and would
+     have repeated the homepage block verbatim. Each cell jumps to the
+     boutique field; script also selects that city there, which is a
+     convenience, not the mechanism. -->
+<section class="g-paper chapter chapter--tight">
   <div class="shell">
-    <div class="page-head">
-      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> Request a viewing</p>
-      <h1 class="display" data-reveal="lines">Viewings by appointment.</h1>
-      <p class="lede" data-reveal="block">Tell us which reference you'd like to see and the boutique that suits you.
-        We'll write back with a time. <span class="meta">[SAMPLE]</span></p>
-      <p class="lede" data-reveal="block">You can see any of the five references running. Each boutique schedules
-        appointments individually, so viewings are private and unhurried.</p>
+    <div class="block">
+      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 01</p>
+      <h2 class="title" data-reveal="lines">The boutiques</h2>
+    </div>
+    <div class="bgrid" data-reveal="block" data-boutique-rows>
+      <a class="bcard" href="#boutique" data-city="New York">
+        <span class="bcard__st">01</span>
+        <span class="bcard__city">New York</span>
+        <span class="bcard__cta">Choose &rarr;</span>
+      </a>
+      <a class="bcard" href="#boutique" data-city="London">
+        <span class="bcard__st">02</span>
+        <span class="bcard__city">London</span>
+        <span class="bcard__cta">Choose &rarr;</span>
+      </a>
+      <a class="bcard" href="#boutique" data-city="Geneva">
+        <span class="bcard__st">03</span>
+        <span class="bcard__city">Geneva</span>
+        <span class="bcard__cta">Choose &rarr;</span>
+      </a>
+      <a class="bcard" href="#boutique" data-city="Tokyo">
+        <span class="bcard__st">04</span>
+        <span class="bcard__city">Tokyo</span>
+        <span class="bcard__cta">Choose &rarr;</span>
+      </a>
+      <a class="bcard" href="#boutique" data-city="Singapore">
+        <span class="bcard__st">05</span>
+        <span class="bcard__city">Singapore</span>
+        <span class="bcard__cta">Choose &rarr;</span>
+      </a>
+    </div>
+    <p class="bstrip__note" data-reveal="block">[SAMPLE] &mdash; boutique cities are illustrative for this concept build.</p>
+  </div>
+</section>
+
+<!-- ============ THE FACTS (centred strip, catalogue manners) ============ -->
+<section class="specstrip g-paper" aria-label="Visiting">
+  <div class="shell">
+    <dl class="specrow specrow--4" data-reveal="block">
+      <div><dt>Hours</dt><dd>Wednesday to Saturday <span class="meta">[SAMPLE]</span></dd></div>
+      <div><dt>Viewings</dt><dd>Private and unhurried <span class="meta">[SAMPLE]</span></dd></div>
+      <div><dt>Address</dt><dd>Shared on confirmation <span class="meta">[SAMPLE]</span></dd></div>
+      <div><dt>Email</dt><dd><a href="mailto:hello@halden.sample">hello@halden.sample</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ THE INQUIRY ============================================
+     R63: the form used to sit in the right-hand half of a two-column spread
+     with a photograph and a fact list in the left — the photo-beside-a-column
+     block this site has been taking out everywhere. It is now on the page's
+     centre axis, on its own. -->
+<section class="g-paper chapter chapter--tight" id="inquiry">
+  <div class="shell inquiry">
+    <div class="block">
+      <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 02</p>
+      <h2 class="title" id="inquiry-t" data-reveal="lines">The inquiry</h2>
     </div>
 
-    <div class="invite">
-      <div>
-        <ul class="invite__facts" data-reveal="block">
-          <li><span class="k">Boutiques</span><span class="v">New York · London · Geneva · Tokyo · Singapore <span class="meta">[SAMPLE]</span></span></li>
-          <li><span class="k">Hours</span><span class="v">By appointment · Wednesday to Saturday <span class="meta">[SAMPLE]</span></span></li>
-          <li><span class="k">Email</span><a class="v" href="mailto:hello@halden.sample">hello@halden.sample</a></li>
-          <li><span class="k">Address</span><span class="v">The boutique's address is shared when we confirm a time. <span class="meta">[SAMPLE]</span></span></li>
-        </ul>
-        <figure class="invite__jewel">
-          <img src="assets/img/s14-no1-bench.webp" width="720" height="965" loading="lazy" alt="A Halden No. 1 watch head, not yet strapped, resting on a worn leather bench mat in a pool of warm lamp light, a brass loupe beside it.">
-          <figcaption>Halden No.&nbsp;1 · blue sunburst · [SAMPLE]</figcaption>
-        </figure>
+    <form class="form" data-form action="mailto:hello@halden.sample" method="post" enctype="text/plain" aria-labelledby="inquiry-t">
+      <div class="field">
+        <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-err" placeholder="Your name">
+        <p class="err" id="name-err">Add a name so we know who to expect.</p>
       </div>
 
-      <form class="form" data-form action="mailto:hello@halden.sample" method="post" enctype="text/plain" aria-labelledby="form-title">
-        <p class="kicker form__eyebrow" id="form-title"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> The inquiry</p>
+      <div class="field">
+        <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-err" placeholder="you@example.com">
+        <p class="err" id="email-err">Enter an email so we can write back with a time.</p>
+      </div>
 
+      <div class="field-row">
         <div class="field">
-          <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
-          <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-err" placeholder="Your name">
-          <p class="err" id="name-err">Add a name so we know who to expect.</p>
-        </div>
-
-        <div class="field">
-          <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
-          <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-err" placeholder="you@example.com">
-          <p class="err" id="email-err">Enter an email so we can write back with a time.</p>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label for="model">Model of interest</label>
-            <div class="select-wrap">
-              <select id="model" name="model">
-                <option value="No.1">Halden No. 1 (blue)</option>
-                <option value="Meridian">Halden Meridian (champagne)</option>
-                <option value="Field">Halden Field (salmon)</option>
-                <option value="Tide">Halden Tide (black)</option>
-                <option value="Crossing">Halden Crossing (navy)</option>
-                <option value="Undecided">Not yet decided</option>
-              </select>
-            </div>
-          </div>
-          <div class="field">
-            <label for="boutique">Boutique</label>
-            <div class="select-wrap">
-              <select id="boutique" name="boutique">
-                <option value="New York">New York</option>
-                <option value="London">London</option>
-                <option value="Geneva">Geneva</option>
-                <option value="Tokyo">Tokyo</option>
-                <option value="Singapore">Singapore</option>
-              </select>
-            </div>
+          <label for="model">Model of interest</label>
+          <div class="select-wrap">
+            <select id="model" name="model">
+              <option value="No.1">Halden No. 1 (blue)</option>
+              <option value="Meridian">Halden Meridian (champagne)</option>
+              <option value="Field">Halden Field (salmon)</option>
+              <option value="Tide">Halden Tide (black)</option>
+              <option value="Crossing">Halden Crossing (navy)</option>
+              <option value="Undecided">Not yet decided</option>
+            </select>
           </div>
         </div>
-
         <div class="field">
-          <label for="date">Preferred date</label>
-          <input type="date" id="date" name="preferred_date">
+          <label for="boutique">Boutique</label>
+          <div class="select-wrap">
+            <select id="boutique" name="boutique">
+              <option value="New York">New York</option>
+              <option value="London">London</option>
+              <option value="Geneva">Geneva</option>
+              <option value="Tokyo">Tokyo</option>
+              <option value="Singapore">Singapore</option>
+            </select>
+          </div>
         </div>
+      </div>
 
-        <div class="field">
-          <label for="message">What you'd like to see</label>
-          <textarea id="message" name="message" placeholder="Tell us which dial, size, or detail you'd like to see."></textarea>
-        </div>
+      <div class="field">
+        <label for="date">Preferred date</label>
+        <input type="date" id="date" name="preferred_date">
+      </div>
 
-        <button type="submit" class="pill pill--solid">Send the request</button>
+      <div class="field">
+        <label for="message">What you'd like to see</label>
+        <textarea id="message" name="message" placeholder="Tell us which dial, size, or detail you'd like to see."></textarea>
+      </div>
 
-        <p class="form__note">This opens your email to send to
-          <a href="mailto:hello@halden.sample">hello@halden.sample</a>; nothing is
-          stored here. You can also write to that address directly. <span class="meta">[SAMPLE]</span></p>
-      </form>
-    </div>
+      <button type="submit" class="pill pill--solid">Send the request</button>
+
+      <p class="form__note">This opens your email to send to
+        <a href="mailto:hello@halden.sample">hello@halden.sample</a>; nothing is
+        stored here. You can also write to that address directly. <span class="meta">[SAMPLE]</span></p>
+    </form>
   </div>
 </section>
 

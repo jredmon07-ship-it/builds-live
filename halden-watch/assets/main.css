@@ -559,13 +559,6 @@ html.js .car__nav{display:flex;}
 .bstrip__note{margin-top:1.6rem;color:var(--tx3);font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;}
 
 /* mono chip row (collection intro facts) */
-.chips{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;margin-top:2rem;}
-.chips li{
-  display:flex;align-items:center;gap:.6rem;
-  font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tx3);
-}
-.chips .dot{flex:none;width:4px;height:4px;border-radius:50%;background:var(--champagne);}
-
 /* ---------- breadcrumb ---------- */
 .crumbs{display:flex;gap:.7rem;align-items:center;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;color:var(--tx3);margin-bottom:2.2rem;}
 .crumbs a{color:var(--tx2);transition:color var(--t-micro);}
@@ -632,39 +625,11 @@ html.no-js .mnav{position:static;}
   .picker li{scroll-snap-align:center;scroll-snap-stop:always;}
 }
 
-.pdp{padding-block:var(--space-5);border-top:1px solid var(--line);scroll-margin-top:calc(var(--header-h) + 3.2rem);}
-.pdp__head{max-width:46rem;}
-.pdp__ref{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;color:var(--tx3);margin-top:.9rem;display:block;}
-.pdp__story{margin-top:1.4rem;color:var(--tx2);max-width:56ch;}
-.pdp__gallery{
-  margin-block:var(--space-4);
-  display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(1rem,2.5vw,2rem);
-  padding:clamp(1.25rem,3vw,2.5rem);
-}
-.pdp__gallery--solo{grid-template-columns:1fr;}
-.pdp__gallery--solo img{max-height:32rem;}
-.pdp__gallery img{width:100%;height:100%;object-fit:cover;border:1px solid var(--graphite);}
-.pdp__gallery .hw{--hw-size:clamp(220px,26vw,340px);margin-block:auto;}
-.pdp__gallery figcaption{
-  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;color:var(--steel-dim);
-  margin-top:.8rem;
-}
 .pdp__cols{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start;}
 .spec-table{border-top:1px solid var(--line);}
 .spec-table div{display:flex;justify-content:space-between;gap:1.5rem;padding:.74rem 0;border-bottom:1px solid var(--line);}
 .spec-table dt{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);}
 .spec-table dd{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.05em;color:var(--tx);text-align:right;}
-.pdp__note{margin-top:1.6rem;color:var(--tx2);font-size:var(--fs-small);}
-.pdp__actions{display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem;margin-top:2rem;}
-.pdp__actions .avail{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;color:var(--tx3);}
-
-.compare{padding-block:var(--space-5);}
-.compare__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(1rem,2.5vw,2.2rem);margin-top:var(--space-4);}
-.compare__grid img{width:100%;height:auto;aspect-ratio:720/965;object-fit:cover;border:1px solid var(--graphite);}
-.compare__grid figcaption{text-align:center;margin-top:1.3rem;}
-.compare__grid .nm{font-weight:600;display:block;}
-.compare__grid .dl{color:var(--tx2);font-size:var(--fs-small);display:block;margin-top:.2rem;}
-
 /* advantages grid */
 .adv{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:var(--space-4);}
 .adv li{background:var(--bg);padding:1.8rem 1.6rem;}
@@ -711,17 +676,6 @@ html.no-js .mnav{position:static;}
 .practice__media figcaption{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;color:var(--steel-dim);margin-top:.8rem;}
 
 /* ---------- contact ---------- */
-.invite{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,6vw,5rem);align-items:start;}
-.invite__facts{margin-top:2.4rem;border-top:1px solid var(--line);}
-.invite__facts li{display:grid;grid-template-columns:9rem 1fr;gap:1.5rem;padding:.85rem 0;border-bottom:1px solid var(--line);}
-.invite__facts .k{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);padding-top:.15em;}
-.invite__facts .v{color:var(--tx);}
-.invite__facts a.v{justify-self:start;border-bottom:1px solid var(--line);transition:color var(--t-micro),border-color var(--t-micro);}
-.invite__facts a.v:hover{color:var(--accent);border-color:var(--accent);}
-.invite__jewel{margin-top:var(--space-4);}
-.invite__jewel img{width:min(100%,24rem);height:auto;border:1px solid var(--line);display:block;}
-.invite__jewel figcaption{text-align:center;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;color:var(--tx2);margin-top:1.2rem;}
-
 .form{background:var(--bg-raised);border:1px solid var(--line);padding:clamp(1.5rem,4vw,2.75rem);}
 .form__eyebrow{margin-bottom:1.8rem;}
 .field{margin-bottom:1.4rem;}
@@ -754,22 +708,17 @@ body.menu-open{overflow:hidden;}
 .rw{display:inline-block;white-space:nowrap;}
 
 /* ---------- shared page heads ---------- */
-.page-head{max-width:52rem;}
-.page-head .lede{margin-top:1.5rem;}
-
 /* ---------- responsive ---------- */
 @media (max-width:960px){
   .ftr__bar ul{grid-template-columns:1fr 1fr;}
   .ftr__grid{grid-template-columns:1fr 1fr;}
-  .pdp__gallery{grid-template-columns:1fr;}
   .adv{grid-template-columns:1fr 1fr;}
 }
 @media (max-width:760px){
   .duo,.duo--flip{grid-template-columns:1fr;}
   .duo--flip>.duo__media{order:0;}
-  .pdp__cols,.letter,.invite{grid-template-columns:1fr;}
-  .compare__grid,.finishing,.practice{grid-template-columns:1fr;}
-  .compare__grid{gap:3rem;}
+  .pdp__cols{grid-template-columns:1fr;}
+  .finishing{grid-template-columns:1fr;}
   .adv{grid-template-columns:1fr;}
   .field-row{grid-template-columns:1fr;}
   .ftr__bar ul{grid-template-columns:1fr;}
@@ -979,4 +928,226 @@ html.motion-on .car__card{--stagger:110ms;}
 @media (prefers-reduced-motion:reduce){
   .brow,.brow__city,.brow__go{transition:none;}
   .brow__go{opacity:1;transform:none;}
+}
+
+
+/* ==========================================================================
+   R63 — the catalogue, brought to the homepage's rhythm
+   The collection page was ten thousand pixels of the same block repeated five
+   times: an explanatory paragraph, then a photo, then a spec table with a
+   second paragraph beside it. Every reference is now a full-bleed band (the
+   watch, its number, its name, one line of size and material) followed by a
+   centred specification — the same band-then-strip rhythm the homepage uses
+   for the calibre. Facts moved out of the prose and into the specification.
+   ========================================================================== */
+
+/* the per-reference band: shorter than a page-head band, five in a row */
+.rec{scroll-margin-top:calc(var(--header-h) + 3.4rem);}
+.fband--ref .fband__img{height:clamp(360px,54vh,560px);object-position:50% 46%;}
+.fband--ref .fband__copy > *{max-width:min(34rem,76vw);}
+
+/* the breadcrumb, when it rides on a page-head band */
+.fband .crumbs{margin-bottom:1.4rem;color:var(--steel-dim);}
+.fband .crumbs a{color:var(--steel);}
+.fband .crumbs a:hover{color:var(--champagne);}
+
+/* The specification: one hairline list flowing down two columns under the
+   band, never a column hung off the side of a picture. Multi-column flow keeps
+   every row bordered whatever the count — nine facts or eleven. */
+.specgrid{columns:2;column-gap:clamp(2.5rem,6vw,5.5rem);border-top:1px solid var(--line);}
+.specgrid > div{
+  display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;
+  padding:.8rem 0;border-bottom:1px solid var(--line);
+  break-inside:avoid;-webkit-column-break-inside:avoid;
+}
+.specgrid dt{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--tx3);flex:none;}
+.specgrid dd{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.05em;
+  color:var(--tx);text-align:right;}
+@media (max-width:700px){ .specgrid{columns:1;} }
+
+/* one action row per reference, on the same axis as the specification */
+.refact{display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem 1.8rem;margin-top:clamp(1.8rem,3vw,2.6rem);}
+.refact__note{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;color:var(--tx3);}
+
+/* the catalogue row's head: the label on the left, the size filter on the right */
+.gridhead{display:flex;align-items:center;justify-content:space-between;gap:1.5rem 2rem;flex-wrap:wrap;}
+.gridhead .tabs{border-bottom:0;}
+.picker li[hidden]{display:none;}
+/* the reference house prints the price on its own line under the size */
+.picker .price{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.06em;
+  color:var(--tx);margin-top:.35rem;}
+
+/* a page-head band carries its H1 low; give the copy room under the fixed bar */
+.fband--top .fband__copy{bottom:clamp(2.5rem,8vh,5.5rem);}
+
+/* three- and four-up variants of the centred spec strip (the contact page's
+   facts sit in four cells, not five) */
+.specrow--4{grid-template-columns:repeat(4,1fr);}
+@media (max-width:900px){ .specrow--4{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:460px){ .specrow--4{grid-template-columns:1fr;} }
+
+
+/* the inquiry form sits on the page's centre axis, not beside a photograph */
+.inquiry{max-width:46rem;margin-inline:auto;}
+.inquiry .form{margin-top:var(--space-4);}
+
+/* --- R63 fixes, taken off the render ------------------------------------- */
+
+/* The head band's qualifier is a longer line than a product name's; at 30rem it
+   was breaking "[SAMPLE]" onto a line of its own. */
+.fband__s{max-width:min(44rem,84vw);}
+
+/* Legibility over a bright photograph. The single left-to-right scrim was built
+   for a dark movement macro; a champagne guilloche or a lit steel bezel washes
+   the mono line out completely. Page-head and reference bands carry a second,
+   bottom-up scrim under the copy, and the copy carries its own shadow. */
+.fband--ref::after,.fband--top::after{
+  background:
+    linear-gradient(90deg,rgba(11,12,14,.90) 0%,rgba(11,12,14,.56) 42%,rgba(11,12,14,0) 80%),
+    linear-gradient(0deg,rgba(11,12,14,.80) 0%,rgba(11,12,14,.22) 44%,rgba(11,12,14,0) 68%);
+}
+.fband--ref .fband__copy > *,.fband--top .fband__copy > *{
+  text-shadow:0 1px 3px rgba(11,12,14,.72),0 2px 18px rgba(11,12,14,.5);
+}
+.fband .meta{color:var(--steel);}
+@media (max-width:640px){
+  .fband--ref::after,.fband--top::after{
+    background:linear-gradient(180deg,rgba(11,12,14,.18) 0%,rgba(11,12,14,.86) 60%);
+  }
+}
+
+/* At full width the specification reads as three short columns rather than two
+   long ones — the block sits closer to the band and leaves no ragged tail. */
+@media (min-width:1100px){ .specgrid{columns:3;column-gap:clamp(2rem,4vw,3.5rem);} }
+
+/* the action row sits on the page's centre axis, under the full-width
+   specification, and every item shares one text baseline */
+.refact{justify-content:center;align-items:baseline;}
+
+/* .kicker carries a 1.1rem bottom margin for stacked use; as a flex item its
+   MARGIN box is what centres, which pushed the label 8.8px above the tab row's
+   centreline. On this one row it has no stack under it. */
+.gridhead .kicker{margin-bottom:0;}
+
+/* The inquiry column is centred, so its heading sits on the same axis as the
+   form under it — left-aligning it inside a narrow centred column read as a
+   third, arbitrary left margin next to the full-width sections above. */
+.inquiry .block{text-align:center;}
+.inquiry .kicker{justify-content:center;}
+
+/* a link in a band's qualifier line has to look like one */
+.fband__s a{border-bottom:1px solid rgba(154,160,168,.55);padding-bottom:.12em;
+  transition:color var(--t-micro),border-color var(--t-micro);}
+.fband__s a:hover{color:var(--champagne);border-color:var(--champagne);}
+
+/* .tabs sets display:flex, which beats the UA's [hidden]{display:none} — the
+   collection page puts data-cartabs straight on the tablist, so without this
+   the size filter rendered (inert) with JS off. */
+.tabs[hidden]{display:none;}
+
+/* On a phone the three size filters wrapped onto two lines, orphaning one
+   label under the sticky model rail. The strip scrolls sideways instead —
+   the same behaviour the model rail itself uses at this width. */
+@media (max-width:640px){
+  .gridhead{align-items:flex-start;row-gap:.7rem;}
+  .gridhead .tabs{
+    flex-wrap:nowrap;overflow-x:auto;width:100%;
+    scrollbar-width:none;overscroll-behavior-x:contain;
+  }
+  .gridhead .tabs::-webkit-scrollbar{display:none;}
+  .gridhead .tab{white-space:nowrap;flex:none;}
+}
+
+
+/* ================= R64: defects found by the independent render grade ========= */
+
+/* D. BAND SUBTITLE ILLEGIBLE ON DESKTOP. On collection.html the calibre band's
+   spec line ran past the end of the scrim onto pale wood grain and measured
+   ~1.6:1. The scrim now reaches far enough right to cover the line it exists for,
+   and the band copy carries its own shadow so it never depends on the gradient
+   alone. */
+.fband::after{
+  background:linear-gradient(90deg,rgba(11,12,14,.86) 0%,rgba(11,12,14,.62) 42%,
+                             rgba(11,12,14,.28) 68%,rgba(11,12,14,0) 88%);
+}
+.fband__t,.fband__s,.fband .kicker,.fband .tlink{
+  text-shadow:0 1px 16px rgba(11,12,14,.9);
+}
+
+/* E. MOBILE CLIPPING (Gate 7). The tablist and the anchor nav both overflowed
+   their 390px viewport with no affordance — "39 mm and over" was simply cut off.
+   They scroll now, with a fade at the edge that says so, and the tabs wrap where
+   there is room. */
+@media (max-width:640px){
+  .tabs{
+    flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+    mask-image:linear-gradient(90deg,#000 0,#000 88%,transparent 100%);
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:none}
+  .mnav__in{
+    overflow-x:auto;scrollbar-width:none;
+    mask-image:linear-gradient(90deg,#000 0,#000 90%,transparent 100%);
+  }
+  .mnav__in::-webkit-scrollbar{display:none}
+}
+
+/* G. The action row under each reference was 2.7px out on all five, because the
+   middle link's underline adds height the row did not account for. Aligning on
+   the centre instead of the baseline removes it. */
+.refact{align-items:center;}
+.refact > *{line-height:1.2;}
+
+
+/* R64b: MEASURED, not assumed. Sampling the real painted pixels behind the band
+   copy gave 1.71:1 on index and 2.70:1 on collection — the linear scrim died long
+   before the text did, because these bands sit on bright champagne guilloche and a
+   gold rotor. A second, bottom-left-anchored wash carries the copy specifically,
+   and the spec line comes off --steel, which was too close to the photograph. */
+.fband{position:relative}
+.fband__copy::before{
+  content:'';position:absolute;z-index:-1;
+  left:calc(var(--shell-pad) * -1);right:-2rem;
+  top:-2.2rem;bottom:-2.6rem;
+  background:radial-gradient(120% 150% at 0% 100%,
+    rgba(11,12,14,.94) 0%, rgba(11,12,14,.86) 38%,
+    rgba(11,12,14,.55) 68%, rgba(11,12,14,0) 100%);
+  pointer-events:none;
+}
+.fband__s{color:#D8D4CC;}
+.fband .kicker{color:#C9A96A;}
+
+
+/* R64c: the radial wash still left the brightest pixels behind the spec line at
+   1.08:1 — a gradient that fades cannot guarantee a floor over champagne guilloche.
+   The copy sits on a definite plate instead. It is still soft-edged on the outside,
+   but it is opaque where the words are, which is the part that has to be legible. */
+.fband__copy::before{
+  left:calc(var(--shell-pad) * -1.2);
+  right:-2.5rem;
+  top:-2.4rem;
+  bottom:-2.8rem;
+  background:
+    linear-gradient(90deg,rgba(11,12,14,.95) 0%,rgba(11,12,14,.95) 58%,
+                    rgba(11,12,14,.72) 78%,rgba(11,12,14,0) 100%),
+    linear-gradient(180deg,rgba(11,12,14,0) 0%,rgba(11,12,14,.55) 18%,
+                    rgba(11,12,14,.9) 45%,rgba(11,12,14,.95) 100%);
+  backdrop-filter:blur(2px);
+}
+
+
+/* R64d: the plate solved the contrast and created a worse problem — a hard-edged
+   black rectangle floating on the photograph, with visible top and left edges. It
+   read as a rendering fault. Removed. The band carries a full-bleed gradient
+   instead: clear at the top where the photograph should be seen, weighted at the
+   bottom-left where the copy actually sits. No edges, and the image survives. */
+.fband__copy::before{display:none;}
+.fband::after{
+  background:
+    linear-gradient(180deg,rgba(11,12,14,0) 0%,rgba(11,12,14,.10) 38%,
+                    rgba(11,12,14,.62) 72%,rgba(11,12,14,.93) 100%),
+    linear-gradient(90deg,rgba(11,12,14,.72) 0%,rgba(11,12,14,.34) 45%,
+                    rgba(11,12,14,0) 78%);
 }

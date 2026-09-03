@@ -59,7 +59,12 @@
   function animateCount(el) {
     var target = parseFloat(el.getAttribute("data-count"));
     var dec = parseInt(el.getAttribute("data-dec") || "0", 10);
-    var dur = 1700, start = null;
+    /* R64: the count-up displayed FALSE figures for seconds — a normal scroll
+       caught "19 years" where the truth is 21, "90% of list" where it is 98. On a
+       page whose pitch is real numbers that is not an acceptable flourish, so the
+       run is short. The markup now carries the true figure, so the pre-animation
+       and no-JS states are both correct. */
+    var dur = 800, start = null;
     function fmt(v) {
       return v.toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec });
     }

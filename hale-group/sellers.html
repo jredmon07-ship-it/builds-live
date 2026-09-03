@@ -50,39 +50,42 @@
   <span class="line"></span>
 </aside>
 
-<!-- R54 (owner, ogroup reference): "one simple paragraph then boom contact".
-     The three-step PROCESS block and the marketing section were explaining the
-     job rather than showing it. Hero, one line, the ask, the numbers, done. -->
-<section class="phero">
+<!-- R60 (owner): the display heading was doing nothing but eating the first
+     screen. It is a label now, the offices sit under it as the location line,
+     and the marketing grid starts inside the fold. -->
+<section class="phero phero--lead">
   <div class="phero-bg"><img src="assets/sellers_hero.webp" alt="" aria-hidden="true" width="2000" height="1116"></div>
   <div class="wrap">
     <p class="label reveal">Sellers</p>
     <h1 class="display page-title reveal d1">List with us</h1>
     <p class="sub reveal d2">Your home gets one launch. Photographed at the right hour, shown first to our own buyers, then listed.</p>
-    <div class="mt reveal d2"><a class="btn gold" href="contact.html">Request a valuation
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <p class="lead-where reveal d2"><a href="#offices">Malibu</a> · <a href="#offices">Beverly Hills</a> · <a href="#offices">Pacific Heights</a></p>
+    <div class="lead-actions reveal d2">
+      <a class="btn gold" href="contact.html">Request a valuation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="link-arrow" href="#how">What it covers
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
   </div>
 </section>
 
 
-<!-- SPLIT -->
-
-<!-- STATS -->
 <!-- R59 (owner, ogroup "List With Us"): their seller page is a heading, two CTAs,
      a short read on why the team matters, then a GRID of what the marketing
      actually consists of, then the form. I had cut this page to a hero and a
      contact, which left it with no reason to exist. This is the grid — Hale's
-     own eight, not their twelve. -->
-<section class="section" id="how">
+     own eight, not their twelve.
+     R60: it now starts directly under the page lead. -->
+<section class="section section--tight" id="how">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <p class="label reveal">The work</p>
-        <h2 class="reveal d1">What listing with us covers</h2>
+        <p class="label reveal">Included</p>
+        <h2 class="reveal d1">The marketing</h2>
       </div>
       <p class="aside reveal d2">Every one of these is done in house, on every home we take.</p>
     </div>
-    <div class="tiles">
+    <div class="tiles stagger-4">
         <a class="tile reveal" href="contact.html"><span class="tile__n">01</span>
           <span class="tile__t">Preparation</span><span class="tile__d">What to fix, what to leave</span></a>
         <a class="tile reveal" href="contact.html"><span class="tile__n">02</span>
@@ -107,29 +110,54 @@
   <div class="wrap">
     <p class="label reveal" style="margin-bottom:36px">Track Record <span class="sample-note" style="margin-left:8px">Sample</span></p>
     <div class="stats reveal d1">
-      <div class="stat"><div class="n"><span data-count="98">0</span><span class="suf">%</span></div><div class="k">Of List, On Average</div></div>
-      <div class="stat"><div class="n"><span data-count="29">0</span></div><div class="k">Median Days On Market</div></div>
-      <div class="stat"><div class="n"><span data-count="60">0</span><span class="suf">%</span></div><div class="k">Sold Before Public Launch</div></div>
-      <div class="stat"><div class="n"><span data-count="320">0</span><span class="suf">+</span></div><div class="k">Homes Closed</div></div>
+      <div class="stat"><div class="n"><span data-count="98">98</span><span class="suf">%</span></div><div class="k">Of List, On Average</div></div>
+      <div class="stat"><div class="n"><span data-count="29">29</span></div><div class="k">Median Days On Market</div></div>
+      <div class="stat"><div class="n"><span data-count="60">60</span><span class="suf">%</span></div><div class="k">Sold Before Public Launch</div></div>
+      <div class="stat"><div class="n"><span data-count="320">320</span><span class="suf">+</span></div><div class="k">Homes Closed</div></div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
 <!-- R54 (owner, ogroup reference): imagery instead of an explanation. The block
      that used to sit here ("We shoot it like a film") described the photography;
      this is the twilight photography the copy used to describe. -->
 <section class="photo-band" aria-hidden="true">
-  <img src="assets/kitchen_film.webp" alt="" width="1600" height="900" loading="lazy">
+  <img src="assets/kitchen_film.webp" alt="" width="1600" height="1195" loading="lazy">
 </section>
 
-<section class="section center">
+<!-- R60 (owner): the reference puts its office cards at the foot of the buy and
+     sell pages. The three offices only existed on the contact page. -->
+<section class="section" id="offices">
   <div class="wrap">
-    <p class="label center reveal" style="justify-content:center">Begin</p>
-    <h2 class="display reveal d1" style="font-size:clamp(2.2rem,5.5vw,4.4rem);margin:24px auto 0;max-width:16ch">What would your home bring this season.</h2>
-    <p class="muted reveal d2" style="max-width:44ch;margin:24px auto 0">The valuation is private and carries no obligation. We will tell you the truth about your number.</p>
-    <div class="mt reveal d2"><a class="btn gold" href="contact.html">Request a valuation
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <p class="label reveal" style="margin-bottom:36px">Three Offices</p>
+    <div class="offices reveal d1">
+      <div class="office">
+        <div class="city">Malibu</div>
+        <div class="addr">22500 Pacific Coast Hwy<br>Malibu, CA 90265<br><a href="tel:+13105550148">+1 (310) 555 0148</a></div>
+      </div>
+      <div class="office">
+        <div class="city">Beverly Hills</div>
+        <div class="addr">9200 Wilshire Blvd, Ste 400<br>Beverly Hills, CA 90212<br><a href="tel:+13105550172">+1 (310) 555 0172</a></div>
+      </div>
+      <div class="office">
+        <div class="city">Pacific Heights</div>
+        <div class="addr">2100 Fillmore Street<br>San Francisco, CA 94115<br><a href="tel:+14155550196">+1 (415) 555 0196</a></div>
+      </div>
+    </div>
+    <p class="sample-note" style="margin-top:24px">Addresses are illustrative for this sample showcase</p>
+  </div>
+</section>
+
+<section class="section center endcta" style="padding-top:0">
+  <div class="wrap">
+    <p class="label center reveal" style="justify-content:center">Enquire</p>
+    <h2 class="reveal d1">Request a valuation</h2>
+    <p class="muted reveal d2" style="max-width:42ch;margin:18px auto 0">Private, and it carries no obligation.</p>
+    <div class="endcta-actions reveal d2">
+      <a class="btn gold" href="contact.html">Send a note
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="tel" href="tel:+13105550148">+1 (310) 555 0148</a>
+    </div>
   </div>
 </section>
 
