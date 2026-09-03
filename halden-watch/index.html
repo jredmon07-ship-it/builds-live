@@ -186,7 +186,8 @@
     </div>
     <div class="film__scrim" aria-hidden="true"></div>
     <div class="film__copy">
-      <p class="kicker"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> Halden Watch Co.</p>
+      <!-- R61 (owner): the wordmark is already in the header; repeating the house
+           name above the watch name was saying it twice. -->
       <!-- R60 (owner, Omega reference): their opener is a SPECIFIC watch, not a
            category statement — "Speedmaster 38 mm | Explore a Smaller Size" and a
            Discover. "Luxury mechanical watches, made in-house" was a category.
@@ -225,36 +226,49 @@
       </button>
     </div>
   </div>
+  <!-- R61 (owner, Omega reference): their product section sits under a row of
+       TABS and swaps the carousel's contents. Ours filters the same five on case
+       size, which is the axis they themselves use ("Explore a Smaller Size").
+       JS-only: without it the list simply stays whole, which is the correct
+       no-JS result. -->
+  <div class="shell car__tabs" data-cartabs hidden>
+    <div class="tabs" role="tablist" aria-label="Filter the references by case size">
+      <button class="tab is-on" role="tab" type="button" aria-selected="true"  data-filter="all">All five</button>
+      <button class="tab"       role="tab" type="button" aria-selected="false" data-filter="small">38 mm and under</button>
+      <button class="tab"       role="tab" type="button" aria-selected="false" data-filter="large">39 mm and over</button>
+    </div>
+  </div>
+
   <ul class="car__track" tabindex="0" aria-label="The five references. Use the arrow keys to move between watches.">
-    <li class="car__card" data-reveal="lift" style="--i:0">
+    <li class="car__card" data-reveal="lift" data-mm="38" style="--i:0">
       <figure><img src="assets/img/s2-no1-plate.webp" width="1856" height="2304" loading="lazy" alt="Halden No. 1, straight on: blue sunburst dial, brushed steel case, crown to the right."></figure>
       <h3>Halden No. 1</h3>
       <p class="specline">38 mm, brushed steel — $6,400 <span class="meta">[SAMPLE]</span></p>
       <span class="ref">REF. H1-38-BL</span>
       <a class="tlink" href="collection.html#no1">Discover <span class="arr" aria-hidden="true">&rarr;</span></a>
     </li>
-    <li class="car__card" data-reveal="lift" style="--i:1">
+    <li class="car__card" data-reveal="lift" data-mm="39" style="--i:1">
       <figure><img src="assets/img/s3-meridian-plate.webp" width="1856" height="2304" loading="lazy" alt="Halden Meridian, straight on: champagne guilloché dial, polished steel case, crown to the right."></figure>
       <h3>Halden Meridian</h3>
       <p class="specline">39 mm, polished steel — $8,900 <span class="meta">[SAMPLE]</span></p>
       <span class="ref">REF. MR-39-CH</span>
       <a class="tlink" href="collection.html#meridian">Discover <span class="arr" aria-hidden="true">&rarr;</span></a>
     </li>
-    <li class="car__card" data-reveal="lift" style="--i:2">
+    <li class="car__card" data-reveal="lift" data-mm="36" style="--i:2">
       <figure><img src="assets/img/s4-field-plate.webp" width="1856" height="2304" loading="lazy" alt="Halden Field, straight on: salmon dial with a printed minute track, compact brushed steel case."></figure>
       <h3>Halden Field</h3>
       <p class="specline">36 mm, brushed steel — $5,800 <span class="meta">[SAMPLE]</span></p>
       <span class="ref">REF. FD-36-SL</span>
       <a class="tlink" href="collection.html#field">Discover <span class="arr" aria-hidden="true">&rarr;</span></a>
     </li>
-    <li class="car__card" data-reveal="lift" style="--i:3">
+    <li class="car__card" data-reveal="lift" data-mm="40" style="--i:3">
       <figure><img src="assets/img/s15-tide-front.webp" width="720" height="965" loading="lazy" alt="Halden Tide, straight on: black dial with cream luminous markers, steel unidirectional dive bezel, brushed steel bracelet."></figure>
       <h3>Halden Tide</h3>
       <p class="specline">40 mm, brushed steel — $7,600 <span class="meta">[SAMPLE]</span></p>
       <span class="ref">REF. TD-40-BK</span>
       <a class="tlink" href="collection.html#tide">Discover <span class="arr" aria-hidden="true">&rarr;</span></a>
     </li>
-    <li class="car__card" data-reveal="lift" style="--i:4">
+    <li class="car__card" data-reveal="lift" data-mm="39" style="--i:4">
       <figure><img src="assets/img/s16-crossing-front.webp" width="720" height="965" loading="lazy" alt="Halden Crossing, straight on: navy sunburst dial, champagne 24-hour hand, engraved steel bezel, steel bracelet."></figure>
       <h3>Halden Crossing</h3>
       <p class="specline">39 mm, polished steel — $9,400 <span class="meta">[SAMPLE]</span></p>
@@ -328,14 +342,39 @@
       <p class="kicker" data-reveal="block"><svg class="fived" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true" focusable="false"><circle cx="3" cy="7.2" r="1.5" fill="currentColor"/><circle cx="9" cy="4.6" r="1.5" fill="currentColor"/><circle cx="15" cy="3.8" r="1.5" fill="currentColor"/><circle cx="21" cy="4.6" r="1.5" fill="currentColor"/><circle cx="27" cy="7.2" r="1.5" fill="currentColor"/></svg> 04</p>
       <h2 class="title" data-reveal="lines">The boutiques</h2>
     </div>
-    <ul class="bstrip" data-reveal="block">
-      <li><span class="dot" aria-hidden="true"></span>New York</li>
-      <li><span class="dot" aria-hidden="true"></span>London</li>
-      <li><span class="dot" aria-hidden="true"></span>Geneva</li>
-      <li><span class="dot" aria-hidden="true"></span>Tokyo</li>
-      <li><span class="dot" aria-hidden="true"></span>Singapore</li>
-    </ul>
-    <p class="bstrip__note" data-reveal="block">[SAMPLE] — boutique cities are illustrative for this concept build.</p>
+    <!-- R61 (owner: "the boutique part could be a little better, nicer aesthetic").
+         A dot-separated line of city names was a list, not a section. Each city
+         now holds its own bordered cell with the street it sits on, set in the
+         display face, with the appointment line appearing on hover — the same
+         hairline-grid language the specification strip uses. -->
+    <div class="bgrid" data-reveal="block">
+      <a class="bcard" href="contact.html">
+        <span class="bcard__city">New York</span>
+        <span class="bcard__st">Madison Avenue</span>
+        <span class="bcard__cta">By appointment <span class="arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="bcard" href="contact.html">
+        <span class="bcard__city">London</span>
+        <span class="bcard__st">Bond Street</span>
+        <span class="bcard__cta">By appointment <span class="arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="bcard" href="contact.html">
+        <span class="bcard__city">Geneva</span>
+        <span class="bcard__st">Rue du Rhône</span>
+        <span class="bcard__cta">By appointment <span class="arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="bcard" href="contact.html">
+        <span class="bcard__city">Tokyo</span>
+        <span class="bcard__st">Ginza</span>
+        <span class="bcard__cta">By appointment <span class="arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="bcard" href="contact.html">
+        <span class="bcard__city">Singapore</span>
+        <span class="bcard__st">Orchard Road</span>
+        <span class="bcard__cta">By appointment <span class="arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+    </div>
+    <p class="bstrip__note" data-reveal="block">[SAMPLE] &mdash; boutique cities and streets are illustrative for this concept build.</p>
   </div>
 </section>
 

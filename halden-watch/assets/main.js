@@ -149,6 +149,49 @@
     });
   })();
 
+
+  /* ------------------------------------------------------------------ *
+   * 4b · Reference tabs (R61, owner: Omega's tabbed product row)
+   *      Filters the carousel on the case size already printed on each
+   *      card. JS-only — the tablist is [hidden] in the markup and is
+   *      only revealed here, so with JS off the five stay whole.
+   * ------------------------------------------------------------------ */
+  (function refTabs() {
+    var wrap = d.querySelector("[data-cartabs]");
+    var track = d.querySelector(".car__track");
+    if (!wrap || !track) return;
+    var cards = [].slice.call(track.querySelectorAll(".car__card"));
+    if (!cards.length) return;
+    wrap.removeAttribute("hidden");
+    var tabs = [].slice.call(wrap.querySelectorAll(".tab"));
+    function match(card, f) {
+      if (f === "all") return true;
+      var mm = parseInt(card.getAttribute("data-mm"), 10);
+      return f === "small" ? mm <= 38 : mm >= 39;
+    }
+    function apply(f, btn) {
+      cards.forEach(function (c) {
+        var on = match(c, f);
+        if (on) c.removeAttribute("hidden"); else c.setAttribute("hidden", "");
+      });
+      tabs.forEach(function (t) {
+        var on = t === btn;
+        t.classList.toggle("is-on", on);
+        t.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      track.scrollTo({ left: 0, behavior: motionOn() ? "smooth" : "auto" });
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener("click", function () { apply(t.getAttribute("data-filter"), t); });
+      t.addEventListener("keydown", function (e) {
+        var i = tabs.indexOf(t), n = null;
+        if (e.key === "ArrowRight") n = tabs[(i + 1) % tabs.length];
+        if (e.key === "ArrowLeft") n = tabs[(i - 1 + tabs.length) % tabs.length];
+        if (n) { e.preventDefault(); n.focus(); apply(n.getAttribute("data-filter"), n); }
+      });
+    });
+  })();
+
   /* ------------------------------------------------------------------ *
    * 4a · Site search (W5, owner): Rolex-style panel under the bar.
    *      A small hand-kept index of everything on the site; typing
