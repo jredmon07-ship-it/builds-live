@@ -1826,3 +1826,56 @@ html.js .form--steps .step.is-on{
 @media (prefers-reduced-motion:reduce){
   .scatter__p{transition:none;}
 }
+
+
+/* ================= R94: the opening statement, full screen ================= */
+.scatter--full{
+  min-height:100svh;
+  display:flex;align-items:center;
+  padding-block:clamp(3rem,8vh,7rem);
+}
+.scatter--full .scatter__word{width:100%;}
+
+/* ================= R94: the watches travel past ============================
+   A row that moves across the screen as the page scrolls down, so nothing has
+   to be dragged sideways. The section is tall enough to give the travel room;
+   the view pins while the track slides through it. Each watch is a link.
+   Without JS the track simply scrolls, so the watches stay reachable. */
+.rail{position:relative;height:260vh;background:var(--bg);}
+.rail__view{
+  position:sticky;top:0;height:100svh;
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+.rail__track{
+  display:flex;gap:clamp(1.2rem,3vw,3rem);
+  padding-inline:clamp(1.5rem,8vw,10rem);
+  will-change:transform;
+}
+.rail__card{
+  flex:0 0 auto;width:clamp(14rem,26vw,24rem);
+  text-decoration:none;color:inherit;
+}
+.rail__fig{
+  margin:0;overflow:hidden;aspect-ratio:29/38;
+  background:var(--bg-raised);border:1px solid var(--line);
+  box-shadow:0 22px 54px rgba(11,12,14,.16);
+}
+.rail__fig img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 1.2s var(--e-quint);}
+.rail__card:hover .rail__fig img,
+.rail__card:focus-visible .rail__fig img{transform:scale(1.05);}
+.rail__meta{display:block;margin-top:1rem;}
+.rail__meta b{display:block;font-family:var(--font-display);font-weight:400;
+  font-size:1.15rem;letter-spacing:.02em;text-transform:uppercase;color:var(--tx);}
+.rail__meta i{display:block;font-style:normal;margin-top:.3rem;
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--tx3);}
+
+html.no-js .rail{height:auto;}
+html.no-js .rail__view{position:static;height:auto;overflow-x:auto;}
+@media (prefers-reduced-motion:reduce){
+  .rail{height:auto;}
+  .rail__view{position:static;height:auto;overflow-x:auto;}
+  .rail__track{transform:none !important;}
+}

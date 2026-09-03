@@ -310,7 +310,8 @@
     if (!motionOn()) return;
     var pars = [].slice.call(d.querySelectorAll("[data-par]"));
     var bar = d.querySelector(".sbar"), thumb = bar ? bar.querySelector(".sbar__thumb") : null;
-    if (!pars.length && !bar) return;
+    var railTrack = d.querySelector("[data-rail-track]");
+    if (!pars.length && !bar && !railTrack) return;
 
     /* R78 (owner: the squares should run "almost out of the screen"). The
        reference clamps around 180px; the gallery plates are given much more room
@@ -346,6 +347,24 @@
         var mid = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
         var shift = mid * RANGE * depth;
         el.style.transform = "translate3d(0," + shift.toFixed(1) + "px,0)";
+      }
+
+      /* R94: the watch rail. Its section is deliberately taller than the
+         screen; as that height passes, the track slides the exact distance
+         needed to bring its last card to the right edge — so the row always
+         ends where it should, at any width and any number of watches. */
+      if (railTrack) {
+        var sec = railTrack.closest(".rail");
+        var secBox = sec.getBoundingClientRect();
+        var travel = railTrack.scrollWidth - w.innerWidth;
+        if (travel > 0) {
+          var run = sec.offsetHeight - vh;
+          var p = run > 0 ? (-secBox.top) / run : 0;
+          p = Math.max(0, Math.min(1, p));
+          railTrack.style.transform = "translate3d(" + (-p * travel).toFixed(1) + "px,0,0)";
+        } else {
+          railTrack.style.transform = "";
+        }
       }
 
       if (thumb) {

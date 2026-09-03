@@ -204,73 +204,69 @@
   </div>
 </section>
 
+<!-- ============ IN HOUSE — scattered plates through a single word ==========
+     R92 (owner, studying the reference's own gallery): this is not a grid. One
+     enormous thin word runs the width of the screen and square plates are
+     scattered THROUGH it — some passing in front of the letters, some behind —
+     each drifting at its own rate. The depth against the type is what makes the
+     squares read as lifted off the page. -->
+<section class="scatter scatter--full g-paper" aria-labelledby="scatter-t">
+  <h2 class="scatter__word" id="scatter-t" data-reveal="block">In house</h2>
+  <div class="scatter__field">
+      <figure class="scatter__p scatter__p--a" data-mask data-par="0.95">
+        <img src="assets/img/s13-no1-quarter.webp" alt="Halden No. 1 at three-quarters, the blue sunburst dial under a low light." width="900" height="900" loading="lazy">
+      </figure>
+      <figure class="scatter__p scatter__p--b" data-mask data-par="0.45">
+        <img src="assets/img/s9-movement-holders.webp" alt="Movements resting in brass holders on the bench between timing runs." width="900" height="900" loading="lazy">
+      </figure>
+      <figure class="scatter__p scatter__p--c" data-mask data-par="1.15">
+        <img src="assets/img/s5-meridian-dial-macro.webp" alt="The Meridian's guilloche field in macro, engine-turned to the edge." width="900" height="900" loading="lazy">
+      </figure>
+      <figure class="scatter__p scatter__p--d" data-mask data-par="0.70">
+        <img src="assets/img/s14-no1-bench.webp" alt="Halden No. 1 on the bench beside a loupe and tweezers." width="900" height="900" loading="lazy">
+      </figure>
+  </div>
+</section>
+<!-- ============ THE WATCHES — a row that scrolls past =====================
+     R94 (owner): the five references are gone as a block. The watches travel
+     across the screen as the page scrolls instead, and each one goes to its own
+     page. Driven off scroll rather than a drag, so nothing has to be pulled
+     sideways; with JS off it is a plain scrollable row. -->
+<section class="rail" data-rail aria-labelledby="rail-t">
+  <h2 class="visually-hidden" id="rail-t">The watches</h2>
+  <div class="rail__view">
+    <div class="rail__track" data-rail-track>
+        <a class="rail__card" href="collection.html#no1">
+          <figure class="rail__fig"><img src="assets/img/s10-no1-front.webp" alt="Halden No. 1, straight on." width="720" height="965" loading="lazy"></figure>
+          <span class="rail__meta"><b>Halden No. 1</b><i>38 mm, brushed steel</i></span>
+        </a>
+        <a class="rail__card" href="collection.html#meridian">
+          <figure class="rail__fig"><img src="assets/img/s11-meridian-front.webp" alt="Halden Meridian, straight on." width="720" height="965" loading="lazy"></figure>
+          <span class="rail__meta"><b>Halden Meridian</b><i>39 mm, polished steel</i></span>
+        </a>
+        <a class="rail__card" href="collection.html#field">
+          <figure class="rail__fig"><img src="assets/img/s12-field-front.webp" alt="Halden Field, straight on." width="720" height="965" loading="lazy"></figure>
+          <span class="rail__meta"><b>Halden Field</b><i>36 mm, brushed steel</i></span>
+        </a>
+        <a class="rail__card" href="collection.html#tide">
+          <figure class="rail__fig"><img src="assets/img/s15-tide-front.webp" alt="Halden Tide, straight on." width="720" height="965" loading="lazy"></figure>
+          <span class="rail__meta"><b>Halden Tide</b><i>40 mm, brushed steel</i></span>
+        </a>
+        <a class="rail__card" href="collection.html#crossing">
+          <figure class="rail__fig"><img src="assets/img/s16-crossing-front.webp" alt="Halden Crossing, straight on." width="720" height="965" loading="lazy"></figure>
+          <span class="rail__meta"><b>Halden Crossing</b><i>39 mm, polished steel</i></span>
+        </a>
+    </div>
+  </div>
+</section>
+
+
 <!-- R53 (owner): the numbered "01 — The house" chapter is CUT. With its copy
      trimmed it was one short column against an empty right half, and it restated
      the film headline ("made in-house") and section 03. Its one genuinely
      concrete line — the five-position timing — moves into the Calibre chapter,
      which has an image and a spec table to carry it. -->
 
-<!-- ============ 03 · THE THREE REFERENCES (paper band, snap carousel) ============ -->
-<section class="g-paper car" data-car>
-  <div class="shell car__head">
-    <div class="block">
-      <p class="kicker" data-reveal="block">01</p>
-      <h2 class="title" data-reveal="lines">The five references</h2>
-    </div>
-  </div>
-  <!-- R61 (owner, Omega reference): their product section sits under a row of
-       TABS and swaps the carousel's contents. Ours filters the same five on case
-       size, which is the axis they themselves use ("Explore a Smaller Size").
-       JS-only: without it the list simply stays whole, which is the correct
-       no-JS result. -->
-  <div class="shell car__tabs" data-cartabs data-target=".car__grid" hidden>
-    <div class="tabs" role="tablist" aria-label="Filter the references by case size">
-      <button class="tab is-on" role="tab" type="button" aria-selected="true"  data-filter="all">All five</button>
-      <button class="tab"       role="tab" type="button" aria-selected="false" data-filter="small">38 mm and under</button>
-      <button class="tab"       role="tab" type="button" aria-selected="false" data-filter="large">39 mm and over</button>
-    </div>
-  </div>
-
-  <!-- R78 (owner): this was a horizontal snap scroller and he had to drag it
-       sideways to see all five. It is a grid now — every reference on screen. -->
-  <ul class="car__grid" aria-label="The five references">
-    <li class="car__card" data-reveal="lift" data-mm="38" style="--i:0">
-      <figure data-mask data-par="0.9"><img src="assets/img/s2-no1-plate.webp" width="1856" height="2304" loading="lazy" alt="Halden No. 1, straight on: blue sunburst dial, brushed steel case, crown to the right."></figure>
-      <span class="card__meta"><h3>Halden No. 1</h3>
-      <p class="specline">38 mm, brushed steel — $6,400</p>
-      <span class="ref">REF. H1-38-BL</span>
-      <a class="tlink" href="collection.html#no1">Discover <span class="arr" aria-hidden="true">&rarr;</span></a></span>
-    </li>
-    <li class="car__card" data-reveal="lift" data-mm="39" style="--i:1">
-      <figure data-mask data-par="0.55"><img src="assets/img/s3-meridian-plate.webp" width="1856" height="2304" loading="lazy" alt="Halden Meridian, straight on: champagne guilloché dial, polished steel case, crown to the right."></figure>
-      <span class="card__meta"><h3>Halden Meridian</h3>
-      <p class="specline">39 mm, polished steel — $8,900</p>
-      <span class="ref">REF. MR-39-CH</span>
-      <a class="tlink" href="collection.html#meridian">Discover <span class="arr" aria-hidden="true">&rarr;</span></a></span>
-    </li>
-    <li class="car__card" data-reveal="lift" data-mm="36" style="--i:2">
-      <figure data-mask data-par="1.0"><img src="assets/img/s4-field-plate.webp" width="1856" height="2304" loading="lazy" alt="Halden Field, straight on: salmon dial with a printed minute track, compact brushed steel case."></figure>
-      <span class="card__meta"><h3>Halden Field</h3>
-      <p class="specline">36 mm, brushed steel — $5,800</p>
-      <span class="ref">REF. FD-36-SL</span>
-      <a class="tlink" href="collection.html#field">Discover <span class="arr" aria-hidden="true">&rarr;</span></a></span>
-    </li>
-    <li class="car__card" data-reveal="lift" data-mm="40" style="--i:3">
-      <figure data-mask data-par="0.62"><img src="assets/img/s15-tide-front.webp" width="720" height="965" loading="lazy" alt="Halden Tide, straight on: black dial with cream luminous markers, steel unidirectional dive bezel, brushed steel bracelet."></figure>
-      <span class="card__meta"><h3>Halden Tide</h3>
-      <p class="specline">40 mm, brushed steel — $7,600</p>
-      <span class="ref">REF. TD-40-BK</span>
-      <a class="tlink" href="collection.html#tide">Discover <span class="arr" aria-hidden="true">&rarr;</span></a></span>
-    </li>
-    <li class="car__card" data-reveal="lift" data-mm="39" style="--i:4">
-      <figure data-mask data-par="0.85"><img src="assets/img/s16-crossing-front.webp" width="720" height="965" loading="lazy" alt="Halden Crossing, straight on: navy sunburst dial, champagne 24-hour hand, engraved steel bezel, steel bracelet."></figure>
-      <span class="card__meta"><h3>Halden Crossing</h3>
-      <p class="specline">39 mm, polished steel — $9,400</p>
-      <span class="ref">REF. CR-39-NV</span>
-      <a class="tlink" href="collection.html#crossing">Discover <span class="arr" aria-hidden="true">&rarr;</span></a></span>
-    </li>
-  </ul>
-</section>
 
 <!-- R55 (owner, Omega reference): Omega breaks its homepage with a full-bleed
      feature — one image, a product name, a qualifier, a single CTA. Halden ran
@@ -290,29 +286,6 @@
      are not what a visitor came for. The Calibre page still carries the record. -->
 
 
-<!-- ============ IN HOUSE — scattered plates through a single word ==========
-     R92 (owner, studying the reference's own gallery): this is not a grid. One
-     enormous thin word runs the width of the screen and square plates are
-     scattered THROUGH it — some passing in front of the letters, some behind —
-     each drifting at its own rate. The depth against the type is what makes the
-     squares read as lifted off the page. -->
-<section class="scatter g-paper" aria-labelledby="scatter-t">
-  <h2 class="scatter__word" id="scatter-t" data-reveal="block">In house</h2>
-  <div class="scatter__field">
-      <figure class="scatter__p scatter__p--a" data-mask data-par="0.95">
-        <img src="assets/img/s13-no1-quarter.webp" alt="Halden No. 1 at three-quarters, the blue sunburst dial under a low light." width="900" height="900" loading="lazy">
-      </figure>
-      <figure class="scatter__p scatter__p--b" data-mask data-par="0.45">
-        <img src="assets/img/s9-movement-holders.webp" alt="Movements resting in brass holders on the bench between timing runs." width="900" height="900" loading="lazy">
-      </figure>
-      <figure class="scatter__p scatter__p--c" data-mask data-par="1.15">
-        <img src="assets/img/s5-meridian-dial-macro.webp" alt="The Meridian's guilloche field in macro, engine-turned to the edge." width="900" height="900" loading="lazy">
-      </figure>
-      <figure class="scatter__p scatter__p--d" data-mask data-par="0.70">
-        <img src="assets/img/s14-no1-bench.webp" alt="Halden No. 1 on the bench beside a loupe and tweezers." width="900" height="900" loading="lazy">
-      </figure>
-  </div>
-</section>
 
 
 <!-- ============ 06 · THE BOUTIQUES ============ -->
