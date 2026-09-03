@@ -299,8 +299,8 @@ section{position:relative}
 
 /* R54 (owner, ogroup reference): a compact page header — the team grid starts
    immediately under it instead of after three screens of manifesto. */
-.phero--compact{min-height:auto;padding:calc(var(--nav-h,72px) + 90px) 0 40px;background:none}
-.phero--compact .display{font-size:clamp(2.2rem,5vw,3.6rem);margin-top:10px}
+.phero--compact{min-height:auto;padding:calc(var(--nav-h,72px) + 76px) 0 0;background:none}
+.phero--compact .display{font-size:clamp(2.6rem,7vw,5rem);margin-top:14px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 
@@ -323,3 +323,42 @@ section{position:relative}
 .lcard .prop-loc{margin-bottom:10px}
 @media (max-width:1000px){ .listings{grid-template-columns:repeat(2,1fr);gap:22px} }
 @media (max-width:640px){ .listings{grid-template-columns:1fr} }
+
+
+/* ---------- R56 (owner: "better but bland") ---------- */
+/* The team page opened with a small sentence-case line and then ~200px of dead
+   black before the first face. The title now carries the brand's own uppercase,
+   letterspaced voice (the wordmark and every label already speak it), sits on a
+   brass rule, and the grid starts right under it. */
+.page-title{
+  text-transform:uppercase;letter-spacing:.06em;line-height:.95;
+}
+.phero--compact .wrap::after{
+  content:'';display:block;width:72px;height:2px;background:var(--brass-bright);
+  margin-top:28px;
+}
+#team{padding-top:44px}
+
+/* The photos were static rectangles. At rest they sit slightly cooled and
+   dimmed; on hover the portrait comes up to full colour and eases in, and a
+   brass rule wipes under the name. Keyboard focus gets the identical state. */
+.tcard .tphoto img{
+  filter:saturate(.72) brightness(.86);
+  transform:scale(1.02);
+  transition:filter .7s var(--ease),transform 1.1s var(--ease);
+}
+.tcard:hover .tphoto img,.tcard:focus-within .tphoto img{
+  filter:none;transform:scale(1.06);
+}
+.tcard h3{position:relative;display:inline-block}
+.tcard h3::after{
+  content:'';position:absolute;left:0;right:0;bottom:-8px;height:1px;
+  background:var(--brass-bright);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .6s var(--ease);
+}
+.tcard:hover h3::after,.tcard:focus-within h3::after{transform:scaleX(1)}
+@media (prefers-reduced-motion:reduce){
+  .tcard .tphoto img,.tcard h3::after{transition:none}
+  .tcard .tphoto img{filter:none;transform:none}
+}

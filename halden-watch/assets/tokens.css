@@ -12,6 +12,16 @@
   font-style:normal;
   font-display:swap;
 }
+/* R57 (owner): Halden and Hale were set in the same neutral sans, so they read
+   as the same studio's two sites. Halden takes an elegant Roman display face of
+   its own — inscriptional, single weight, nothing like Hale's heavy grotesque. */
+@font-face{
+  font-family:"HaldenDisplay";
+  src:url("fonts/halden-display.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
 @font-face{
   font-family:"HaldenSerif";
   src:url("fonts/halden-serif-italic.woff2") format("woff2");
@@ -77,6 +87,7 @@
      serif italic stay: used sparingly, they are what keep it from reading as a
      default system page. */
   --font-body:"Helvetica Neue",Helvetica,"Segoe UI",Arial,sans-serif;
+  --font-display:"HaldenDisplay","Optima","Palatino Linotype",Georgia,serif;
   --font-serif:"HaldenSerif",Georgia,"Times New Roman",serif;
   --font-mono:"HaldenMono",ui-monospace,Menlo,Consolas,monospace;
 
