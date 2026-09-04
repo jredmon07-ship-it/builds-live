@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
-<noscript><style>.reveal{opacity:1!important;transform:none!important}.hero-slide{opacity:1!important}.quote{position:relative!important;opacity:1!important}.lcard-media::after{opacity:0!important}</style></noscript>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.hero-slide{opacity:0!important}.hero-slide:first-of-type{opacity:1!important}.quote{position:relative!important;opacity:1!important}.lcard-media::after{opacity:0!important}</style></noscript>
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0b'/%3E%3Cpath d='M9 7v18M23 7v18M9 16h14' stroke='%23d6a965' stroke-width='2'/%3E%3C/svg%3E">
 <meta property="og:title" content="The Hale Group, California Luxury Real Estate">
@@ -108,32 +108,30 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <!-- R112 (owner: "another video, a slower one"). It was wt_c_out — which is
-         literally the last four seconds of wt_c, the pull-out over open water,
-         so the opening had no house in it and looped every 4s. This is the whole
-         take: the slowest footage on the site (mean frame-to-frame delta 3.68 vs
-         4.64, and a 7.8 peak means there is not a single cut in it), one
-         continuous drift from the infinity pool between the two glass wings out
-         to the house on the headland.
-
-         R113 (owner: "one that isn't obviously AI generated?"). Every clip here
-         is generated — there is no real footage anywhere in the project — so the
-         question is which one hides it. wt_c's FIRST half does not: across the
-         opening five seconds the background changes IDENTITY (a close rocky
-         headland becomes a distant mountain becomes a vegetated hillside) and
-         the glass mullions change count and bend. No camera move does that. Its
-         tail does none of it — the headland, beach and house stay put and simply
-         reveal, because there is nothing rigid left in frame to violate.
-         So the hero is wt_c from 5.0s, slowed 1.7x and motion-interpolated back
-         to 24fps: the same pool-to-reveal arc, 8.5s, without the morphing half,
-         and 2.0MB against the old 4.6MB. Checked frame by frame for
-         interpolation smear along the house edge and the mist — none.
-         The poster is the clip's OWN first frame, so there is no jump when the
-         video takes over from the still — it simply comes alive.
-         It is fetched only once the page is ready, so it costs nothing up front. -->
-    <img class="hero-poster" src="assets/hero_still.webp" alt="An infinity pool held between two glass wings of an oceanfront house, the water running out to a Pacific coastline at golden hour" width="2200" height="1238" fetchpriority="high">
-    <video class="hero-vid" muted playsinline loop preload="none" aria-hidden="true" tabindex="-1"
-           poster="assets/hero_still.webp" data-hero-src="assets/walk/hero_slow.mp4"></video>
+    <!-- R115 (owner: "do not use any of the walking videos, they have the weird
+         camera shake"). Correct, and the slowdown I applied made it worse — a
+         1.7x retime synthesises two of every three frames, which on generated
+         footage manufactures exactly that wobble. Shot 1 measured genuinely
+         shaky on its own too (high-frequency reversal 0.86 px/frame, peaking at
+         9.6, against ~0.1 for a clean dolly).
+         So the opening is stills now. A photograph has no temporal behaviour,
+         so there is nothing to shake, morph, or swap identity between frames —
+         it is the one format that cannot give itself away in motion. Three of
+         them, cross-fading, each drifting very slowly, so it is still a moving
+         opening and never the same frame twice.
+         This reuses the site's existing .hero-slide slideshow, which was already
+         built and styled but had fallen out of use on every page. With JS off
+         the first slide stays up via the noscript rule at the top of this file. -->
+    <div class="hero-slide active">
+      <img src="assets/home_hero.webp" width="2800" height="1602" fetchpriority="high"
+           alt="A glass pavilion set on a headland above the Pacific, the coastline running away in haze at golden hour">
+    </div>
+    <div class="hero-slide">
+      <img src="assets/ocean.webp" width="2000" height="1116" alt="">
+    </div>
+    <div class="hero-slide">
+      <img src="assets/int_pool.webp" width="1920" height="1080" alt="">
+    </div>
     <div class="hero-scrim" aria-hidden="true"></div>
   </div>
 

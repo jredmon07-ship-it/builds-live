@@ -98,11 +98,21 @@ section{position:relative}
 /* ---------- hero ---------- */
 .hero{position:relative;height:100svh;min-height:620px;display:flex;align-items:flex-end;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0}
-.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s var(--ease);will-change:opacity}
+/* R115: this carries the homepage opening now (it had fallen out of use on every
+   page). Longer cross-fade and a much slower, shallower drift than the old
+   background treatment — the point is that it reads as a held photograph that
+   happens to breathe, not as a slideshow being clicked through. The drift is
+   deliberately tiny: a big Ken Burns move on a still is its own kind of tell. */
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 2.2s var(--ease);will-change:opacity}
 .hero-slide.active{opacity:1}
-.hero-slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:kenburns 13s linear infinite alternate}
+.hero-slide img{width:100%;height:100%;object-fit:cover;display:block;
+  transform:scale(1.05);animation:kenburns 34s linear infinite alternate}
 .hero-slide.active img{animation-play-state:running}
-@keyframes kenburns{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.14) translate(-1.6%,-1.4%)}}
+@keyframes kenburns{from{transform:scale(1.045) translate(0,0)}to{transform:scale(1.09) translate(-1%,-.8%)}}
+@media (prefers-reduced-motion:reduce){
+  .hero-slide img{animation:none;transform:scale(1.02)}
+  .hero-slide{transition:none}
+}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;background:
   linear-gradient(180deg,rgba(8,8,9,.58) 0%,rgba(8,8,9,.12) 30%,rgba(8,8,9,.42) 62%,rgba(8,8,9,.95) 100%)}
 .hero h1,.hero .lede{text-shadow:0 2px 30px rgba(0,0,0,.5)}
