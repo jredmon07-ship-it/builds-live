@@ -548,3 +548,57 @@ html:not(.has-js) .site-head{
    and lost the cascade, so the eyebrow kept its old brass and stayed at ~2:1
    against the photograph. Three classes wins it outright. */
 .feature-hero .fh-body .prop-loc{color:#F0DCB4;}
+
+
+/* ================= R108: the page opens on a view ==========================
+   The hero was a headline, a lede and a stat row stacked in the middle. It is a
+   view now, with the name and the numbers set small in the corner and a scroll
+   cue big enough to be read as an instruction. */
+.hero{position:relative;height:100vh;height:100dvh;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-poster,.hero-vid{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block
+}
+.hero-vid{opacity:0;transition:opacity 1.4s var(--ease)}
+.hero-vid.is-on{opacity:1}
+.hero-scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(8,8,9,.72) 0%,rgba(8,8,9,.18) 34%,rgba(8,8,9,.10) 60%,rgba(8,8,9,.82) 100%),
+    linear-gradient(90deg,rgba(8,8,9,.62) 0%,rgba(8,8,9,.12) 46%,rgba(8,8,9,0) 72%)
+}
+
+.hero-plate{
+  position:absolute;left:var(--pad);top:calc(var(--nav-h,72px) + 54px);z-index:3;
+  max-width:22rem
+}
+.hero-plate__name{
+  font-family:"Archivo";font-weight:700;
+  font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;
+  color:#F3EFE7;margin:0 0 20px
+}
+.hero-plate__stats{margin:0;display:grid;gap:14px}
+.hero-plate__stats > div{display:flex;align-items:baseline;gap:12px}
+.hero-plate__stats dt{
+  order:2;font-family:"Archivo";font-weight:600;
+  font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;
+  color:rgba(243,239,231,.66);margin:0
+}
+.hero-plate__stats dd{
+  order:1;margin:0;min-width:5.2rem;
+  font-size:1.15rem;letter-spacing:.01em;color:#F3EFE7
+}
+
+/* the cue reads as an instruction now, not a hairline */
+.scroll-cue{bottom:34px}
+.scroll-cue .bar{width:2px;height:74px}
+.scroll-cue .k{font-size:.66rem;letter-spacing:.4em;color:rgba(243,239,231,.9)}
+
+@media (max-width:760px){
+  .hero-plate{top:calc(var(--nav-h,72px) + 30px);max-width:none;right:var(--pad)}
+  .hero-plate__stats{grid-template-columns:1fr;gap:10px}
+}
+
+/* R108 (owner): the rule under a team member's name sat too low, reading as
+   detached from it. Tucked up against the baseline. */
+.tcard h3::after{bottom:-3px}

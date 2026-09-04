@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Hale Group, Coastal &amp; Metropolitan California Luxury Real Estate</title>
-<meta name="description" content="The Hale Group is a boutique luxury brokerage representing distinctive coastal and metropolitan California property. Sample showcase site.">
+<meta name="description" content="The Hale Group is a boutique luxury brokerage representing distinctive coastal and metropolitan California property.">
 <meta name="robots" content="index,follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   "name": "The Hale Group",
-  "description": "A boutique luxury real-estate brokerage representing distinctive coastal and metropolitan California property. Sample showcase brand.",
+  "description": "A boutique luxury real-estate brokerage representing distinctive coastal and metropolitan California property.",
   "areaServed": "California",
   "telephone": "+1-310-555-0148",
   "email": "hello@halegroup.example",
@@ -100,28 +100,33 @@
 <!-- SIDE RAIL -->
 <aside class="rail" aria-hidden="true">
   <span class="vtext">Coast to City</span>
-  <span class="soc" role="img" aria-label="Instagram (sample)" title="Instagram, sample"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
-  <span class="soc" role="img" aria-label="LinkedIn (sample)" title="LinkedIn, sample"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"/></svg></span>
+  <span class="soc" role="img" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+  <span class="soc" role="img" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"/></svg></span>
   <span class="line"></span>
 </aside>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <div class="hero-slide active"><img src="assets/home_hero.webp" alt="A contemporary glass-and-steel oceanfront residence on a Malibu bluff at golden-hour dusk, the Pacific beyond" width="2200" height="1257" fetchpriority="high"></div>
+    <!-- R108 (owner): the page opens on a view. The walkthrough footage was only
+         ever used deeper in the site; the lightest of those clips carries the
+         opening, with the still as its poster so there is never an empty frame.
+         It is fetched only once the page is ready, so it costs nothing up front. -->
+    <img class="hero-poster" src="assets/home_hero.webp" alt="A contemporary glass-and-steel oceanfront residence on a Malibu bluff at golden-hour dusk, the Pacific beyond" width="2200" height="1257" fetchpriority="high">
+    <video class="hero-vid" muted playsinline loop preload="none" aria-hidden="true" tabindex="-1"
+           poster="assets/home_hero.webp" data-hero-src="assets/walk/wt_c_out.mp4"></video>
+    <div class="hero-scrim" aria-hidden="true"></div>
   </div>
-  <div class="hero-inner wrap">
-    <!-- R56 (owner): the brand name leads the front page. The tagline keeps its
-         job as the line under it rather than standing in for the name. -->
-    <p class="label reveal">Boutique California Brokerage</p>
-    <h1 class="display reveal d1">The Hale Group</h1>
-    <p class="lede reveal d2">Few homes. Full attention. A short list of coastal and metropolitan California homes.</p>
-    <div class="hero-meta reveal d3">
-      <div><div class="n">$1.4B+</div><div class="k">Lifetime Volume</div></div>
-      <div><div class="n">320+</div><div class="k">Homes Closed</div></div>
-      <div><div class="n">3</div><div class="k">California Offices</div></div>
-    </div>
+
+  <div class="hero-plate">
+    <p class="hero-plate__name">Hale Group</p>
+    <dl class="hero-plate__stats">
+      <div><dt>Lifetime volume</dt><dd>$1.4B+</dd></div>
+      <div><dt>Homes closed</dt><dd>320+</dd></div>
+      <div><dt>California offices</dt><dd>3</dd></div>
+    </dl>
   </div>
+
   <div class="scroll-cue" aria-hidden="true"><span class="bar"></span><span class="k">Scroll</span></div>
 </section>
 
@@ -136,7 +141,7 @@
         <p class="label reveal">Featured</p>
         <h2 class="reveal d1">Current listings</h2>
       </div>
-      <p class="aside reveal d2"><span class="sample-note">Sample listings · figures illustrative</span></p>
+      <p class="aside reveal d2"></p>
     </div>
     <!-- R60 (owner): the cards used to sit there. The container no longer
          reveals as one block — each card reveals on its own, and the CSS
@@ -220,7 +225,7 @@
         <p class="label reveal">Walkthrough</p>
         <h2 class="reveal d1">The Glass Promontory</h2>
       </div>
-      <p class="aside reveal d2"><span class="sample-note">Sample listing · figures illustrative</span></p>
+      <p class="aside reveal d2"></p>
     </div>
 
     <a class="feature-hero reveal d1" href="glass-promontory.html" aria-label="The Glass Promontory, enter the walkthrough">
@@ -253,7 +258,7 @@
 <!-- STATS -->
 <section class="section" style="padding-top:0">
   <div class="wrap">
-    <p class="label reveal" style="margin-bottom:36px">By The Numbers <span class="sample-note" style="margin-left:8px">Sample</span></p>
+    <p class="label reveal" style="margin-bottom:36px">By The Numbers </p>
     <div class="stats reveal d1">
       <div class="stat"><div class="n"><span data-count="21">21</span></div><div class="k">Years On The Coast</div></div>
       <div class="stat"><div class="n"><span data-count="98">98</span><span class="suf">%</span></div><div class="k">Of List, On Average</div></div>
@@ -268,40 +273,12 @@
      reference site closes its listings run with a hub of four entry points
      instead. Every line the two blocks carried is kept, as the entries' own
      one-liners. -->
-<section class="section" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="label reveal">Where next</p>
-        <h2 class="reveal d1">The firm</h2>
-      </div>
-      <p class="aside reveal d2">Every one of these reaches a person, not a queue.</p>
-    </div>
-    <div class="hub stagger-4">
-      <a class="hub-item reveal" href="sellers.html">
-        <span><span class="hub-t">List With Us</span><span class="hub-d">One launch per home: film-grade photography, a quiet pre-market, then the listing.</span></span>
-        <span class="hub-go">Sell <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="hub-item reveal" href="buyers.html">
-        <span><span class="hub-t">Buy With Us</span><span class="hub-d">Most of what we sell never reaches a public listing. Six markets, coast to city.</span></span>
-        <span class="hub-go">Buy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="hub-item reveal" href="contact.html">
-        <span><span class="hub-t">Home Valuation</span><span class="hub-d">Private, and it carries no obligation.</span></span>
-        <span class="hub-go">Request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="hub-item reveal" href="contact.html#offices">
-        <span><span class="hub-t">Our Offices</span><span class="hub-d">Malibu, Beverly Hills and Pacific Heights.</span></span>
-        <span class="hub-go">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-    </div>
-  </div>
-</section>
+<!-- R108 (owner): the where-next block is off the homepage. -->
 
 <!-- TESTIMONIALS -->
 <section class="section" style="background:var(--bg-2)">
   <div class="wrap">
-    <p class="label center reveal" style="justify-content:center;margin-bottom:48px">In Their Words <span class="sample-note" style="margin-left:8px">Sample</span></p>
+    <p class="label center reveal" style="justify-content:center;margin-bottom:48px">In Their Words </p>
     <div class="quotes reveal d1">
       <figure class="quote active">
         <q>They sold a home three other firms could not, and never once looked hurried doing it. Twelve days, over asking.</q>
@@ -354,7 +331,7 @@
     <div class="foot-top">
       <div>
         <span class="big serif">A small, deliberate brokerage for California's rarest addresses.</span>
-        <p class="sample-note" style="margin-top:28px">Sample showcase site · The Hale Group is a demonstration brand</p>
+        
       </div>
       <div>
         <h4>Navigate</h4>
@@ -384,10 +361,10 @@
       </div>
     </div>
     <div class="foot-bot">
-      <span>&copy; <span data-year>2026</span> The Hale Group. Sample build. DRE #0X00000 (sample).</span>
+      <span>&copy; <span data-year>2026</span> The Hale Group.</span>
       <span class="socials">
-        <span class="soc" role="img" aria-label="Instagram (sample)" title="Instagram, sample"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
-        <span class="soc" role="img" aria-label="LinkedIn (sample)" title="LinkedIn, sample"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"/></svg></span>
+        <span class="soc" role="img" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+        <span class="soc" role="img" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"/></svg></span>
       </span>
     </div>
   </div>

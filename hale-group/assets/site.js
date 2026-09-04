@@ -127,3 +127,25 @@
   var yr = document.querySelector("[data-year]");
   if (yr) yr.textContent = new Date().getFullYear();
 })();
+
+/* R108: the opening view. The clip is fetched only once the page is ready and
+   only if motion is allowed, so it never delays the first paint and never plays
+   for anyone who has asked for stillness — the poster is the designed fallback. */
+(function heroVideo(){
+  var v = document.querySelector('.hero-vid');
+  if (!v) return;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+  var c = navigator.connection;
+  if (c && (c.saveData || /(^|-)2g$/.test(c.effectiveType || ''))) return;
+  function start(){
+    v.src = v.getAttribute('data-hero-src');
+    v.addEventListener('loadeddata', function(){
+      v.classList.add('is-on');
+      var p = v.play(); if (p && p.catch) p.catch(function(){});
+    }, { once: true });
+    v.load();
+  }
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start, { once: true });
+})();
