@@ -2068,3 +2068,118 @@ html.js .form--steps .step + .step{margin-top:clamp(2.2rem,4.5vw,3.6rem);}
   .closer__card--l{left:1%;}
   .closer__card--r{right:1%;}
 }
+
+
+/* ================= R110: LUXURY -> NEW, one pinned stack =================
+   Owner: "the luxury doesnt move until the square with the new watches hits the
+   bottom so its like you scroll past the luxury and the luxury gets pushed up by
+   the new watches square". Previously these were two independent pinned
+   sections and NEW simply scrolled over the top of LUXURY. They are now two
+   layers of ONE sticky stage, driven off one scroll progress:
+
+     phase A  the plates climb through LUXURY. The word does not move.
+     phase B  the NEW panel rises from below the fold. The word is translated up
+              by exactly the panel's incursion, so the panel's top edge and the
+              word's stage stay glued — a real push, not a crossfade.
+     phase C  the two watches close in from the sides, after the push lands.
+
+   The panel is inset left and right so the cream page shows down both sides as
+   it climbs (owner: "a square with the cream page still on the left and right").
+   Section height carries all three phases: 300vh of plates + 100vh of push +
+   120vh of hold. */
+.stack{position:relative;height:520vh;padding:0;overflow-x:clip;}
+.stack__pin{
+  position:sticky;top:0;
+  height:100vh;height:100dvh;
+  overflow:hidden;
+}
+/* both layers fill the pinned stage; the JS moves them as a rigid pair */
+.stack .scatter__stage{
+  position:absolute;inset:0;height:auto;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--paper,transparent);
+  will-change:transform;
+}
+/* the panel sits inside .stack.g-paper, which re-points --bg at the cream. The
+   panel is the INK ground, so it re-establishes the ink tokens for its subtree
+   (same set as .g-ink) rather than inheriting the paper cut. */
+.closer__panel{
+  --bg:var(--ink); --bg-raised:var(--ink-raised); --line:var(--graphite);
+  --tx:var(--platinum); --tx2:var(--steel); --tx3:var(--steel-dim);
+  --accent:var(--champagne);
+  position:absolute;top:0;bottom:0;left:var(--panel-inset);right:var(--panel-inset);
+  background:var(--bg);color:var(--tx);
+  box-shadow:0 -30px 90px rgba(11,12,14,.28);
+  /* the clip lives HERE, not on .closer__stage: the stage carries
+     perspective:1500px and the cards are transformed in 3D inside it, and a
+     descendant in a 3D rendering context is not reliably clipped by that same
+     element's overflow. The panel is a plain 2D box, so it clips. Without this
+     the cards sit in the cream margins either side of the panel before they
+     close in. */
+  overflow:hidden;
+  transform:translate3d(0,100%,0);
+  will-change:transform;
+}
+:root{--panel-inset:7vw;}
+.closer__panel .closer__stage{
+  position:absolute;inset:0;height:auto;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+/* The cards are positioned against the PANEL, which is narrower than the page,
+   so the old full-viewport 8% put them much further in. The word and the pair
+   cannot both fit across the panel (800 + 720 > 1238 at 1440) — they are MEANT
+   to layer, the way the reference does. The number that matters is how much:
+   at 17vw the cards buried 215px of an 800px word, which ate the whole N and
+   read as broken rather than layered. Trimming the word to 14vw and pushing the
+   pair out to 3.2% leaves a ~110px overlap each side, so N and W are crossed by
+   the cards but the word still reads. */
+/* The card widths were tuned against a full-viewport stage; inside a panel that
+   is ~86% of the page they have to be panel-relative or they swell past the
+   word (at 900px they were 378px against a 253px word and buried all but 21px
+   of it). 33% of the panel holds a steady ~11-14% overlap on each side of the
+   word at every width — the pair layer over the N and the W, and NEW still
+   reads. The word keeps its full 17vw statement scale. */
+.closer__panel .closer__word{font-size:clamp(3rem,17vw,17rem);}
+.closer__panel .closer__card{width:33%;}
+.closer__panel .closer__card--l{left:2.5%;}
+.closer__panel .closer__card--r{right:2.5%;}
+
+@media (max-width:900px){
+  .stack{height:470vh;}
+  :root{--panel-inset:4vw;}
+}
+@media (max-width:760px){
+  .closer__panel .closer__card--l{left:4%;}
+  .closer__panel .closer__card--r{right:4%;}
+}
+
+/* R110 (owner): "that very last image that comes across the luxury word please
+   make it come across the left side". Plate --d has the last data-rise (0.56),
+   so it is the one that closes the run; it moves from the right edge to the
+   left. It cannot collide with --f (right 26%, runs 0.44-0.66, the only plate
+   sharing the screen with it). */
+.scatter__p--d{left:9%;right:auto;}
+@media (max-width:900px){
+  .scatter__p--d{left:3%;right:auto;width:32%;}
+}
+
+/* no pin without JS or under reduced motion: the stack becomes two ordinary
+   screens, the panel sits in flow, nothing is transformed off the page */
+html.no-js .stack,
+html[data-motion="reduced"] .stack{height:auto;}
+html.no-js .stack__pin,
+html[data-motion="reduced"] .stack__pin{position:static;height:auto;overflow:visible;}
+html.no-js .stack .scatter__stage,
+html[data-motion="reduced"] .stack .scatter__stage{position:static;height:auto;
+  padding-block:14vh;transform:none !important;flex-direction:column;}
+/* the plates are absolutely placed for the run (left:9%, right:11% ...). In the
+   static fallback they become relative, and those offsets would still shove two
+   of them past the edge — clear them so the row simply centres. */
+html.no-js .stack .scatter__p,
+html[data-motion="reduced"] .stack .scatter__p{left:auto;right:auto;}
+html.no-js .closer__panel,
+html[data-motion="reduced"] .closer__panel{position:static;left:auto;right:auto;
+  transform:none !important;box-shadow:none;padding-block:12vh;}
+html.no-js .closer__panel .closer__stage,
+html[data-motion="reduced"] .closer__panel .closer__stage{position:static;height:auto;}

@@ -209,8 +209,9 @@
      scroll so they arrive one after another rather than as a sheet. The page only
      moves on once they have passed. Without JS, or under reduced motion, it is a
      single static screen with the plates simply placed. -->
-<section class="scatter g-paper" data-pin aria-labelledby="scatter-t">
-  <div class="scatter__stage" data-pin-stage>
+<section class="stack g-paper" data-stack aria-labelledby="scatter-t">
+ <div class="stack__pin">
+  <div class="scatter__stage" data-stack-under>
     <h2 class="scatter__word" id="scatter-t">Luxury</h2>
     <div class="scatter__field">
         <figure class="scatter__p scatter__p--a" data-rise="0.00">
@@ -233,15 +234,19 @@
         </figure>
     </div>
   </div>
-</section>
 
-<!-- ============ NEW — the word holds, two watches close in from the sides ===
-     R103 (owner): after the statement the page settles on one word, and the two
-     watches come in from either side to meet it. It pins for that, then releases
-     and carries on. Each watch is a link to its own page. Without JS, or under
-     reduced motion, the pair simply sit either side of the word. -->
-<section class="closer" data-close aria-labelledby="closer-t">
-  <div class="closer__stage">
+  <!-- ============ NEW — the panel that pushes ============================
+       R110 (owner): "the luxury doesnt move until the square with the new
+       watches hits the bottom ... the luxury gets pushed up by the new watches
+       square". So NEW is no longer a section that scrolls over the top of the
+       statement — it is a panel inside the same pinned stage. It rises from
+       below the fold and the statement is translated up by exactly the amount
+       the panel has risen, so the two edges stay glued and the panel physically
+       carries the word off the top. It is inset left and right so the cream page
+       still shows down both sides as it climbs. The two watches then close in
+       from the sides, after the push has finished. -->
+  <div class="closer__panel" data-stack-over>
+   <section class="closer__stage" aria-labelledby="closer-t">
     <h2 class="closer__word" id="closer-t">New</h2>
     <a class="closer__card closer__card--l" href="collection.html#tide" data-close-l>
       <figure class="closer__fig"><img src="assets/img/s15-tide-front.webp" alt="Halden Tide, straight on: black dial, brushed steel case." width="720" height="965" loading="lazy"></figure>
@@ -251,7 +256,9 @@
       <figure class="closer__fig"><img src="assets/img/s16-crossing-front.webp" alt="Halden Crossing, straight on: navy dial, polished steel case." width="720" height="965" loading="lazy"></figure>
       <span class="closer__meta"><b>Halden Crossing</b><i>39 mm, polished steel</i></span>
     </a>
+   </section>
   </div>
+ </div>
 </section>
 
 

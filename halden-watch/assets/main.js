@@ -350,11 +350,12 @@
     var pars = [].slice.call(d.querySelectorAll("[data-par]"));
     var bar = d.querySelector(".sbar"), thumb = bar ? bar.querySelector(".sbar__thumb") : null;
     var railTrack = d.querySelector("[data-rail-track]");
-    var pinSec = d.querySelector("[data-pin]");
-    var closeSec = d.querySelector("[data-close]");
+    var stackSec  = d.querySelector("[data-stack]");
+    var stackUnder = d.querySelector("[data-stack-under]");
+    var stackOver  = d.querySelector("[data-stack-over]");
     var closers = [].slice.call(d.querySelectorAll("[data-close-l],[data-close-r]"));
     var risers = [].slice.call(d.querySelectorAll("[data-rise]"));
-    if (!pars.length && !bar && !railTrack && !pinSec && !closeSec) return;
+    if (!pars.length && !bar && !railTrack && !stackSec) return;
 
     /* R78 (owner: the squares should run "almost out of the screen"). The
        reference clamps around 180px; the gallery plates are given much more room
@@ -412,79 +413,92 @@
         el.style.transform = "translate3d(0," + shift.toFixed(1) + "px,0)";
       }
 
-      /* R95: the pinned statement. While its section passes, each plate climbs
-         from below the fold to above it. `data-rise` is where in the run that
-         plate begins, so they arrive one after another instead of together. */
-      if (pinSec) {
-        var pb = pinSec.getBoundingClientRect();
-        var prun = pinSec.offsetHeight - vh;
-        var pp = prun > 0 ? Math.max(0, Math.min(1, (-pb.top) / prun)) : 0;
+      /* R110: LUXURY -> NEW as ONE pinned stack. Owner: "the luxury doesnt
+         move until the square with the new watches hits the bottom ... the
+         luxury gets pushed up by the new watches square". Three phases off a
+         single progress, so the push is rigid rather than two things that
+         happen to overlap:
+
+           A  0    -> PUSH_AT   the plates climb through the word; word static
+           B  PUSH_AT -> PUSH_END  the NEW panel rises; the word's stage is
+                                translated up by EXACTLY the panel's incursion,
+                                so their edges stay glued and the panel carries
+                                the word off the top
+           C  PUSH_END -> 1     the two watches close in, inside the panel */
+      if (stackSec) {
+        var sb = stackSec.getBoundingClientRect();
+        var srun = stackSec.offsetHeight - vh;
+        var sp = srun > 0 ? Math.max(0, Math.min(1, (-sb.top) / srun)) : 0;
+        var PUSH_AT = 0.58, PUSH_END = 0.80;
+
+        /* --- phase A: the plates --------------------------------------- */
+        /* Each plate still gets the same short window (R102: one arrives as the
+           one before it leaves), but the windows are now measured against the
+           phase-A share of the run rather than the whole section, so adding the
+           push did not slow the climb down. */
+        var ap = PUSH_AT > 0 ? Math.max(0, Math.min(1, sp / PUSH_AT)) : 1;
         for (var k = 0; k < risers.length; k++) {
           var rp = risers[k];
           var start = parseFloat(rp.getAttribute("data-rise")) || 0;
-          /* each plate uses the part of the run after its own start */
-          /* R100 (owner): the plates must all be GONE before the page moves on.
-             They finish their climb by 78% of the run, and the last stretch is a
-             deliberate empty hold on the word alone — so nothing is still on
-             screen when the next section starts to arrive. */
-          /* R102 (owner: they "scroll together, too clustered at once"). They did:
-             every plate was given the whole rest of the run to cross in, so the
-             early ones crawled and all six were in the air together. Each now has
-             the SAME short window — it starts at its own point and crosses in
-             0.22 of the run — so one arrives as the one before it leaves, and at
-             most two share the screen. The last window closes at 0.78, which is
-             where the empty hold begins. */
           var DUR = 0.22;
-          var local = Math.max(0, Math.min(1, (pp - start) / DUR));
-          /* R101: the travel has to be measured from the plate's OWN size, not a
-             fixed slice of the viewport. Each plate is anchored at the middle of
-             the stage, so to be fully below the fold it must sit at least half a
-             viewport down, and to be fully clear of the top it must rise half a
-             viewport PLUS its own height. A fixed fraction left the taller ones
-             still on screen at the end of the run. */
+          var local = Math.max(0, Math.min(1, (ap - start) / DUR));
+          /* R101: travel is measured from the plate's OWN height — anchored at
+             the middle of the stage, it must start half a viewport down and
+             finish half a viewport plus its own height above. */
           var ph = rp.offsetHeight;
           var from = vh * 0.5 + 40;
           var to = -(vh * 0.5 + ph + 40);
           var yy = glide("rise" + k, from + (to - from) * local);
           rp.style.transform = "translate3d(0," + yy.toFixed(1) + "px,0)";
         }
-      }
 
-      /* R103: the pair close in. They start beyond either edge and meet the
-         word, arriving by 62% of the run so the rest is a held beat before the
-         page carries on. Their travel is measured from their own distance to the
-         edge, so they always start fully off screen at any width. */
-      if (closeSec) {
-        var cb = closeSec.getBoundingClientRect();
-        var crun = closeSec.offsetHeight - vh;
-        var cp = crun > 0 ? Math.max(0, Math.min(1, (-cb.top) / crun)) : 0;
+        /* --- phase B: the push ------------------------------------------ */
+        var praw = Math.max(0, Math.min(1, (sp - PUSH_AT) / (PUSH_END - PUSH_AT)));
+        var pe = 1 - Math.pow(1 - praw, 3);          /* settle, do not slide */
+        var push = glide("push", pe * 1000) / 1000;
+        if (stackOver) {
+          stackOver.style.transform =
+            "translate3d(0," + ((1 - push) * 100).toFixed(3) + "%,0)";
+        }
+        if (stackUnder) {
+          /* the same number, opposite sign: a rigid stack */
+          stackUnder.style.transform =
+            "translate3d(0," + (-push * 100).toFixed(3) + "%,0)";
+        }
+
+        /* --- phase C: the pair close in --------------------------------- */
+        var cp = Math.max(0, Math.min(1, (sp - PUSH_END) / (1 - PUSH_END)));
         var t = glide("close", Math.max(0, Math.min(1, cp / 0.62)) * 1000) / 1000;
-        var ease = 1 - Math.pow(1 - t, 3);          /* settle, do not slide */
+        var ease = 1 - Math.pow(1 - t, 3);
         for (var c2 = 0; c2 < closers.length; c2++) {
           var card = closers[c2];
           var fromLeft = card.hasAttribute("data-close-l");
-          /* offsetLeft/offsetWidth are layout values, unaffected by the transform
-             we are about to write — reading a rect here would feed the card's own
-             transform back into its start position and make it drift. */
+          /* offsetLeft/offsetWidth are layout values, unaffected by the
+             transform we are about to write — reading a rect here would feed
+             the card's own transform back in and make it drift. */
           var ol = card.offsetLeft, ow = card.offsetWidth;
           var stageW = card.offsetParent ? card.offsetParent.offsetWidth : w.innerWidth;
           var startX = fromLeft ? -(ol + ow + 80) : (stageW - ol + 80);
-          var xx = startX * (1 - ease);
           /* R106: they arrive OUT OF DEPTH, not along a rail — pushed back and
-             tilted at the start, settling flat and forward as they land. The
-             word gains a little scale at the same time so the whole thing
-             resolves together instead of two objects stopping. */
+             tilted at the start, settling flat and forward as they land. */
           var zz = -420 * (1 - ease);
+          /* R110: translateX happens in the SAME 3D space as translateZ, so the
+             stage's perspective foreshortens it — at zz -420 under a 1500px
+             perspective a card only travels 78% of the x we ask for, which left
+             it visibly parked inside the panel's edge instead of off it. Divide
+             by the projection factor so the SCREEN displacement is the eased
+             path we actually intended. 1500 mirrors .closer__stage's
+             perspective; keep the two in step. */
+          var pf = 1500 / (1500 - zz);
+          var xx = startX * (1 - ease) / pf;
           var rot = (fromLeft ? 9 : -9) * (1 - ease);
           var sc = 0.82 + 0.18 * ease;
           card.style.transform =
             "translate3d(" + xx.toFixed(1) + "px,-50%," + zz.toFixed(1) + "px)" +
             " rotateY(" + rot.toFixed(2) + "deg) scale(" + sc.toFixed(3) + ")";
         }
-        var cw = closeSec.querySelector(".closer__word");
-        if (cw) {
-          cw.style.transform = "scale(" + (0.94 + 0.06 * ease).toFixed(3) + ")";
-        }
+        var cw = stackSec.querySelector(".closer__word");
+        if (cw) cw.style.transform = "scale(" + (0.94 + 0.06 * ease).toFixed(3) + ")";
       }
 
       /* R94: the watch rail. Its section is deliberately taller than the
