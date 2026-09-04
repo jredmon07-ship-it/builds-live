@@ -353,6 +353,26 @@
     var stackSec  = d.querySelector("[data-stack]");
     var stackUnder = d.querySelector("[data-stack-under]");
     var stackOver  = d.querySelector("[data-stack-over]");
+    /* R111 (owner): "the top of the new black box i want it to hit the bottom of
+       the luxury and then start scrolling". So the push has a contact point now,
+       and it is the bottom of the WORD, not the bottom of the screen. contactY
+       is the distance from the top of the pinned stage down to the last inked
+       row of LUXURY. Measured off a Range so it is the glyph box, not the line
+       box — line-height is .82 here, so the element box cuts above the letters
+       and using it would start the push early. Both rects come from inside the
+       same translated element, so the difference is transform-invariant and it
+       can be measured at any scroll position. */
+    var contactY = 0;
+    function measureContact() {
+      if (!stackUnder) return;
+      var wEl = stackUnder.querySelector(".scatter__word");
+      if (!wEl || !wEl.firstChild) return;
+      var rg = d.createRange();
+      rg.selectNodeContents(wEl);
+      var gb = rg.getBoundingClientRect();
+      var sb = stackUnder.getBoundingClientRect();
+      if (gb.height) contactY = gb.bottom - sb.top;
+    }
     var closers = [].slice.call(d.querySelectorAll("[data-close-l],[data-close-r]"));
     var risers = [].slice.call(d.querySelectorAll("[data-rise]"));
     if (!pars.length && !bar && !railTrack && !stackSec) return;
@@ -452,23 +472,42 @@
           rp.style.transform = "translate3d(0," + yy.toFixed(1) + "px,0)";
         }
 
-        /* --- phase B: the push ------------------------------------------ */
+        /* --- phase B: rise to contact, THEN push -------------------------
+           The panel's top edge travels one continuous distance (a full viewport,
+           bottom of the screen to the top of it) at one speed. What changes at
+           the contact point is only whether LUXURY comes with it:
+
+             travelled < riseDist   the panel climbs the empty cream; the word
+                                    has not been touched yet and does not move
+             travelled > riseDist   the panel's top edge is at the word's last
+                                    inked row and every further pixel carries the
+                                    word with it, one for one
+
+           riseDist + pushDist is exactly vh, so when the panel has landed the
+           word has been carried up by contactY — which puts its glyph bottom at
+           the top of the screen, i.e. fully gone, with nothing left to trim. */
+        if (!contactY) measureContact();
         var praw = Math.max(0, Math.min(1, (sp - PUSH_AT) / (PUSH_END - PUSH_AT)));
         var pe = 1 - Math.pow(1 - praw, 3);          /* settle, do not slide */
-        var push = glide("push", pe * 1000) / 1000;
+        var riseDist = Math.max(0, vh - contactY);
+        var travelled = glide("push", pe * vh);
+        var panelY = Math.max(0, vh - travelled);
+        var luxY = -Math.max(0, travelled - riseDist);
         if (stackOver) {
-          stackOver.style.transform =
-            "translate3d(0," + ((1 - push) * 100).toFixed(3) + "%,0)";
+          stackOver.style.transform = "translate3d(0," + panelY.toFixed(1) + "px,0)";
         }
         if (stackUnder) {
-          /* the same number, opposite sign: a rigid stack */
-          stackUnder.style.transform =
-            "translate3d(0," + (-push * 100).toFixed(3) + "%,0)";
+          stackUnder.style.transform = "translate3d(0," + luxY.toFixed(1) + "px,0)";
         }
 
         /* --- phase C: the pair close in --------------------------------- */
         var cp = Math.max(0, Math.min(1, (sp - PUSH_END) / (1 - PUSH_END)));
-        var t = glide("close", Math.max(0, Math.min(1, cp / 0.62)) * 1000) / 1000;
+        /* R111 (owner): "the two watches ... come into frame a little slower".
+           They used to complete their travel in the first 62% of phase C and
+           then hold; the window is 88% now, so the same distance is spread over
+           ~42% more scroll. The fade below is keyed off `ease`, which still maps
+           to card position the same way, so it stays in step automatically. */
+        var t = glide("close", Math.max(0, Math.min(1, cp / 0.88)) * 1000) / 1000;
         var ease = 1 - Math.pow(1 - t, 3);
         for (var c2 = 0; c2 < closers.length; c2++) {
           var card = closers[c2];
@@ -497,8 +536,26 @@
             "translate3d(" + xx.toFixed(1) + "px,-50%," + zz.toFixed(1) + "px)" +
             " rotateY(" + rot.toFixed(2) + "deg) scale(" + sc.toFixed(3) + ")";
         }
+        /* R111 (owner): "i want the watches to both go over where it says new
+           and have new fade out". The pair now finish centred, covering the span
+           the word occupied, and NEW is faded off underneath them. The fade is
+           held back until the cards are a third of the way in and is finished as
+           they land, so the word is legible for most of the approach and gone by
+           the time they cover it — a cross-over, not a light switch. The h2 stays
+           in the document either way, so the section keeps its heading. */
         var cw = stackSec.querySelector(".closer__word");
-        if (cw) cw.style.transform = "scale(" + (0.94 + 0.06 * ease).toFixed(3) + ")";
+        if (cw) {
+          cw.style.transform = "scale(" + (0.94 + 0.06 * ease).toFixed(3) + ")";
+          /* The window is late on purpose. `ease` is a cubic ease-OUT, so it is
+             at ~0.70 while the cards have covered only a quarter of the word and
+             does not finish the crossing until ~0.99. Fading on the first third
+             of `ease` emptied the word while the pair were still out at the
+             edges — it read as the word vanishing on its own. Measured against
+             actual coverage, 0.70 -> 0.96 puts the fade exactly under the cards:
+             full opacity at ~27% covered, nearly gone at ~75%, out at ~91%. */
+          var fade = Math.max(0, Math.min(1, (ease - 0.70) / 0.26));
+          cw.style.opacity = (1 - fade).toFixed(3);
+        }
       }
 
       /* R94: the watch rail. Its section is deliberately taller than the

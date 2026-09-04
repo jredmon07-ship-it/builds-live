@@ -572,6 +572,25 @@ html:not(.has-js) .site-head{
   position:absolute;left:var(--pad);top:calc(var(--nav-h,72px) + 54px);z-index:3;
   max-width:22rem
 }
+
+/* R112: the hero scrim is tuned for the desktop composition — a strong LEFT
+   wash, because there the plate occupies only x 72-301 of 1440. On a phone the
+   same plate is 350px wide inside a 390px viewport, so it runs right through
+   the point where that horizontal gradient has already faded to zero, and the
+   labels landed on open sky. Measured against the painted video the worst 16px
+   patch under the plate fell to 2.65:1 — a real fail, not a rounding one.
+   On narrow screens the work is done by a TOP-weighted vertical wash instead,
+   which is the axis the plate actually spans there, and the dt labels come up
+   from .66 to .84 alpha. Still a gradient over the whole frame, never a filled
+   panel sitting on the photograph. */
+@media (max-width:760px){
+  .hero-scrim{
+    background:
+      linear-gradient(180deg,rgba(8,8,9,.88) 0%,rgba(8,8,9,.70) 20%,rgba(8,8,9,.52) 30%,
+                             rgba(8,8,9,.16) 46%,rgba(8,8,9,.08) 66%,rgba(8,8,9,.82) 100%),
+      linear-gradient(90deg,rgba(8,8,9,.34) 0%,rgba(8,8,9,.16) 60%,rgba(8,8,9,.06) 100%)
+  }
+}
 .hero-plate__name{
   font-family:"Archivo";font-weight:700;
   font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;
@@ -583,6 +602,13 @@ html:not(.has-js) .site-head{
   order:2;font-family:"Archivo";font-weight:600;
   font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;
   color:rgba(243,239,231,.66);margin:0
+}
+/* Placed AFTER the rule above on purpose: same specificity, so source order is
+   what decides. Over video on a phone the .66 labels are the thinnest text on
+   the page, and the scrim alone leaves them at 4.90:1 — passing, but with no
+   margin. This takes them to a comfortable pass. */
+@media (max-width:760px){
+  .hero-plate__stats dt{color:rgba(243,239,231,.84)}
 }
 .hero-plate__stats dd{
   order:1;margin:0;min-width:5.2rem;

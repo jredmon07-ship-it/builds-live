@@ -108,13 +108,20 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <!-- R108 (owner): the page opens on a view. The walkthrough footage was only
-         ever used deeper in the site; the lightest of those clips carries the
-         opening, with the still as its poster so there is never an empty frame.
+    <!-- R112 (owner: "another video, a slower one"). It was wt_c_out — which is
+         literally the last four seconds of wt_c, the pull-out over open water,
+         so the opening had no house in it and looped every 4s. This is the whole
+         take: the slowest footage on the site (mean frame-to-frame delta 3.68 vs
+         4.64, and a 7.8 peak means there is not a single cut in it), 10.1s, one
+         continuous drift from the infinity pool between the two glass wings out
+         to the house on the headland. Re-encoded at CRF 26 it is 3.3MB against
+         the old 4.6MB, so the opening got slower, longer AND lighter.
+         The poster is the clip's OWN first frame, so there is no jump when the
+         video takes over from the still — it simply comes alive.
          It is fetched only once the page is ready, so it costs nothing up front. -->
-    <img class="hero-poster" src="assets/home_hero.webp" alt="A contemporary glass-and-steel oceanfront residence on a Malibu bluff at golden-hour dusk, the Pacific beyond" width="2200" height="1257" fetchpriority="high">
+    <img class="hero-poster" src="assets/hero_still.webp" alt="An infinity pool held between two glass wings of an oceanfront house, the water running out to a Pacific coastline at golden hour" width="2200" height="1238" fetchpriority="high">
     <video class="hero-vid" muted playsinline loop preload="none" aria-hidden="true" tabindex="-1"
-           poster="assets/home_hero.webp" data-hero-src="assets/walk/wt_c_out.mp4"></video>
+           poster="assets/hero_still.webp" data-hero-src="assets/walk/hero_slow.mp4"></video>
     <div class="hero-scrim" aria-hidden="true"></div>
   </div>
 

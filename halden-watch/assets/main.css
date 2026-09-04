@@ -2134,16 +2134,30 @@ html.js .form--steps .step + .step{margin-top:clamp(2.2rem,4.5vw,3.6rem);}
    read as broken rather than layered. Trimming the word to 14vw and pushing the
    pair out to 3.2% leaves a ~110px overlap each side, so N and W are crossed by
    the cards but the word still reads. */
-/* The card widths were tuned against a full-viewport stage; inside a panel that
-   is ~86% of the page they have to be panel-relative or they swell past the
-   word (at 900px they were 378px against a 253px word and buried all but 21px
-   of it). 33% of the panel holds a steady ~11-14% overlap on each side of the
-   word at every width — the pair layer over the N and the W, and NEW still
-   reads. The word keeps its full 17vw statement scale. */
-.closer__panel .closer__word{font-size:clamp(3rem,17vw,17rem);}
+/* R111 (owner): the pair no longer flank the word, they travel OVER it and the
+   word fades out beneath them — so they rest centred, as a pair, covering the
+   span DESIGNS occupied. 33% each with a 4% gutter puts them at 15-48% and
+   52-85% of the panel. Card widths must stay panel-relative: tuned against the
+   old full-viewport stage they swelled to 378px against a 253px word at 900px
+   and buried all but 21px of it.
+   The word is DESIGNS now, not NEW — seven letters instead of three — so the
+   statement scale comes down from 17vw to 13vw to keep it inside the panel at
+   every width.
+
+   R111 (owner): "make designs be at the top of the box so then the luxury still
+   shows". DESIGNS is pinned to the TOP of the panel rather than centred in it,
+   so at the contact moment — panel top exactly on LUXURY's last inked row —
+   the two words sit one above the other and the page reads LUXURY DESIGNS
+   across the seam. It stays behind the cards (z-index 1 against their 3), so
+   they still cross over it as it fades. */
+.closer__panel .closer__word{
+  font-size:clamp(2.2rem,13vw,13rem);
+  position:absolute;top:clamp(1.2rem,4.5vh,4rem);left:0;right:0;
+  margin:0;z-index:1;
+}
 .closer__panel .closer__card{width:33%;}
-.closer__panel .closer__card--l{left:2.5%;}
-.closer__panel .closer__card--r{right:2.5%;}
+.closer__panel .closer__card--l{left:15%;}
+.closer__panel .closer__card--r{right:15%;}
 
 @media (max-width:900px){
   .stack{height:470vh;}
@@ -2183,3 +2197,11 @@ html[data-motion="reduced"] .closer__panel{position:static;left:auto;right:auto;
   transform:none !important;box-shadow:none;padding-block:12vh;}
 html.no-js .closer__panel .closer__stage,
 html[data-motion="reduced"] .closer__panel .closer__stage{position:static;height:auto;}
+/* The driver fades DESIGNS out with an inline opacity as the watches cross it.
+   The footer's "Reduce motion" toggle flips state WITHOUT reloading, so a reader
+   who scrolls past the section and then turns motion off would be left with that
+   inline opacity:0 stuck on the heading and the word gone for good — the driver
+   has stopped running and will never set it back. Transforms are already
+   neutralised the same way just above; this is the matching guard for opacity. */
+html.no-js .closer__word,
+html[data-motion="reduced"] .closer__word{opacity:1 !important;}
