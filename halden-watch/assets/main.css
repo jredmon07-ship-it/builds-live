@@ -2033,3 +2033,38 @@ html[data-motion="reduced"] .closer__card{transform:none !important;}
    suits you" and "Where to write back" are not sitting on the block above them. */
 html.js .form--steps .step + .step{margin-top:clamp(2.2rem,4.5vw,3.6rem);}
 .form--steps .step:not(:first-of-type) legend{margin-top:.35rem;}
+
+
+/* ================= R106: the second word, with some weight to it ============
+   It was three things parked in a row on a black field — a small word, two small
+   cards either side, nothing touching and nothing with depth. The changes that
+   give it presence are the same ones that made the first statement work: the word
+   is big enough to own the screen, the plates OVERLAP it rather than politely
+   flanking it, and one passes in front of the letters while the other goes
+   behind. They arrive out of depth rather than sliding along a rail. */
+.closer__stage{perspective:1500px;}
+.closer__word{
+  font-size:clamp(5rem,26vw,26rem);
+  letter-spacing:-.035em;
+  color:var(--tx);
+  position:relative;z-index:2;
+}
+.closer__card{
+  width:clamp(13rem,25vw,25rem);
+  will-change:transform;
+}
+/* they sit ON the word, not beside it */
+.closer__card--l{left:4%;  z-index:3;}   /* in front of the letters */
+.closer__card--r{right:4%; z-index:1;}   /* behind them */
+.closer__fig{
+  box-shadow:0 40px 90px rgba(0,0,0,.55);
+  border-color:rgba(233,231,226,.14);
+}
+.closer__meta b{font-size:1.1rem;}
+
+@media (max-width:900px){
+  .closer__word{font-size:clamp(4rem,30vw,12rem);}
+  .closer__card{width:42vw;}
+  .closer__card--l{left:1%;}
+  .closer__card--r{right:1%;}
+}

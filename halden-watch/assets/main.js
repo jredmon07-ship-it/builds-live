@@ -376,8 +376,28 @@
        instead of moving as one sheet. */
     var RANGE = 150;
 
+    /* R107 (owner: "a little physics, slight momentum"). The scroll itself is
+       left completely alone — how far one wheel-click travels must not change,
+       and CLAUDE.md is explicit about never letting a flick run away. What gains
+       weight is what the scroll DRIVES: every value eases toward its scroll
+       position instead of snapping to it, so the plates and cards trail a little
+       and settle. The loop keeps running while anything is still settling and
+       stops once everything has arrived, so it costs nothing at rest. */
+    var EASE = 0.12, EPS = 0.15;
+    var smooth = Object.create(null), settling = false;
+
+    function glide(key, target) {
+      var cur = smooth[key];
+      if (cur === undefined) { smooth[key] = target; return target; }
+      var next = cur + (target - cur) * EASE;
+      if (Math.abs(target - next) > EPS) settling = true; else next = target;
+      smooth[key] = next;
+      return next;
+    }
+
     function frame() {
       ticking = false;
+      settling = false;
       var y = w.scrollY || w.pageYOffset;
       var vh = w.innerHeight;
 
@@ -388,7 +408,7 @@
         var depth = parseFloat(el.getAttribute("data-par")) || 0.5;
         /* +1 while still below the fold, 0 centred, -1 once above it */
         var mid = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
-        var shift = mid * RANGE * depth;
+        var shift = glide("par" + i, mid * RANGE * depth);
         el.style.transform = "translate3d(0," + shift.toFixed(1) + "px,0)";
       }
 
@@ -425,7 +445,7 @@
           var ph = rp.offsetHeight;
           var from = vh * 0.5 + 40;
           var to = -(vh * 0.5 + ph + 40);
-          var yy = from + (to - from) * local;
+          var yy = glide("rise" + k, from + (to - from) * local);
           rp.style.transform = "translate3d(0," + yy.toFixed(1) + "px,0)";
         }
       }
@@ -438,7 +458,7 @@
         var cb = closeSec.getBoundingClientRect();
         var crun = closeSec.offsetHeight - vh;
         var cp = crun > 0 ? Math.max(0, Math.min(1, (-cb.top) / crun)) : 0;
-        var t = Math.max(0, Math.min(1, cp / 0.62));
+        var t = glide("close", Math.max(0, Math.min(1, cp / 0.62)) * 1000) / 1000;
         var ease = 1 - Math.pow(1 - t, 3);          /* settle, do not slide */
         for (var c2 = 0; c2 < closers.length; c2++) {
           var card = closers[c2];
@@ -448,9 +468,22 @@
              transform back into its start position and make it drift. */
           var ol = card.offsetLeft, ow = card.offsetWidth;
           var stageW = card.offsetParent ? card.offsetParent.offsetWidth : w.innerWidth;
-          var startX = fromLeft ? -(ol + ow + 60) : (stageW - ol + 60);
+          var startX = fromLeft ? -(ol + ow + 80) : (stageW - ol + 80);
           var xx = startX * (1 - ease);
-          card.style.transform = "translate3d(" + xx.toFixed(1) + "px,-50%,0)";
+          /* R106: they arrive OUT OF DEPTH, not along a rail — pushed back and
+             tilted at the start, settling flat and forward as they land. The
+             word gains a little scale at the same time so the whole thing
+             resolves together instead of two objects stopping. */
+          var zz = -420 * (1 - ease);
+          var rot = (fromLeft ? 9 : -9) * (1 - ease);
+          var sc = 0.82 + 0.18 * ease;
+          card.style.transform =
+            "translate3d(" + xx.toFixed(1) + "px,-50%," + zz.toFixed(1) + "px)" +
+            " rotateY(" + rot.toFixed(2) + "deg) scale(" + sc.toFixed(3) + ")";
+        }
+        var cw = closeSec.querySelector(".closer__word");
+        if (cw) {
+          cw.style.transform = "scale(" + (0.94 + 0.06 * ease).toFixed(3) + ")";
         }
       }
 
@@ -485,7 +518,11 @@
     function onScroll() {
       if (ticking) return;
       ticking = true;
-      w.requestAnimationFrame(frame);
+      w.requestAnimationFrame(function () {
+        frame();
+        /* still moving? keep the loop alive until it has come to rest */
+        if (settling) onScroll();
+      });
     }
     w.addEventListener("scroll", onScroll, { passive: true });
     w.addEventListener("resize", onScroll);
