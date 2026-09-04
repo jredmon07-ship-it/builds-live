@@ -166,6 +166,37 @@
 
 
   /* ------------------------------------------------------------------ *
+   * R105 · Anchor jumps land consistently.
+   *      The bar hides when you scroll down and shows when you scroll up, but
+   *      an anchor still reserves space for it either way. So jumping DOWN to a
+   *      watch hid the bar and left that reserved space as a gap, while jumping
+   *      UP kept the bar and lined up. The bar is pinned visible for any in-page
+   *      jump, so both directions land identically.
+   * ------------------------------------------------------------------ */
+  (function anchorLanding() {
+    var hdr = d.querySelector("[data-hdr]");
+    if (!hdr) return;
+    function reveal() {
+      hdr.classList.remove("is-hidden");
+      d.body.classList.remove("hdr-hidden");
+    }
+    d.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="#"]');
+      if (!a) return;
+      var url = a.getAttribute("href") || "";
+      var hash = url.slice(url.indexOf("#"));
+      if (hash.length < 2) return;
+      if (a.pathname && a.pathname !== w.location.pathname) return;  /* other page */
+      if (!d.querySelector(hash)) return;
+      reveal();
+      /* the scroll settles after the class change, so hold it visible through it */
+      w.setTimeout(reveal, 60);
+      w.setTimeout(reveal, 320);
+    }, true);
+    w.addEventListener("hashchange", reveal);
+  })();
+
+  /* ------------------------------------------------------------------ *
    * 4b · Reference tabs (R61, owner: Omega's tabbed product row)
    *      Filters the carousel on the case size already printed on each
    *      card. JS-only — the tablist is [hidden] in the markup and is

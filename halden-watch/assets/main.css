@@ -2027,3 +2027,9 @@ html.no-js .closer__stage,
 html[data-motion="reduced"] .closer__stage{position:static;height:auto;padding-block:12vh;}
 html.no-js .closer__card,
 html[data-motion="reduced"] .closer__card{transform:none !important;}
+
+
+/* R105 (owner): a little more air above each step after the first, so "When
+   suits you" and "Where to write back" are not sitting on the block above them. */
+html.js .form--steps .step + .step{margin-top:clamp(2.2rem,4.5vw,3.6rem);}
+.form--steps .step:not(:first-of-type) legend{margin-top:.35rem;}
